@@ -1,0 +1,77 @@
+package com.aurionpro.model;
+
+public class Account {
+	private long accountNumber;
+	private String name;
+	private static double balance;
+	
+	//Default Constructor
+	public Account()
+	{
+		
+	}
+	
+	//Parameterized Constructor
+	public Account(long accountNumber, String name, double balance) {
+		this.accountNumber = accountNumber;
+		this.name = name;
+		this.balance = balance;
+	}
+
+	
+	//Getter methods
+	public long getAccountNumber() {
+		return accountNumber;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public static double getBalance() {
+		return balance;
+	}
+
+	//Setter methods
+	public void setAccountNumber(long accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setBalance(double balance) {
+		thsi.balance = balance;
+	}
+	
+	public void credit(double amount)
+	{
+		if(amount > 0)
+		{
+			balance = balance + amount;
+			System.out.println(amount+" credited to the account successfully.");
+		}
+		else
+		{
+			System.out.println("Enter a valid amount.");
+		}
+	}
+	
+	public void debit(double amount)
+	{
+		if(amount > 0 && amount < (balance + 500))
+		{
+			balance = balance - amount;
+			System.out.println(amount+" debited from the account successfully.");
+		}
+		else if(amount < 0)
+		{
+			System.out.println("Enter a valid amount.");
+		}
+		else if(amount > (balance + 500))
+		{
+			System.out.println("Debit not possible as minimum 500 balance is required.");
+		}
+	}
+}

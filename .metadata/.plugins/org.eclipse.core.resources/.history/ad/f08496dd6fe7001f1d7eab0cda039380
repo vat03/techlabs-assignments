@@ -1,0 +1,23 @@
+package com.aurionpro.test;
+
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		try {
+			System.out.print("Enter first number: ");
+			int number1 = scanner.nextInt();	
+			
+			System.out.print("Enter second number: ");
+			int number2 = scanner.nextInt();
+			
+			double c = (double)number1/number2;
+		} catch (Exception e) {
+			
+		}
+		
+		scanner.close();
+	}
+}

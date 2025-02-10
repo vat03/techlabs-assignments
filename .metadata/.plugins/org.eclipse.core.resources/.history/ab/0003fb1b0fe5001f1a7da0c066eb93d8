@@ -1,0 +1,126 @@
+package com.aurionpro.model;
+
+public class Vehicle {
+	private String brand;
+	private String model;
+	private double speed;
+	
+	public Vehicle()
+	{
+		
+	}
+	
+	public Vehicle(String brand, String model, double speed) {
+		this.brand = brand;
+		this.model = model;
+		this.speed = speed;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public double getSpeed() {
+		return speed;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
+	
+	public void accelerate(double increase)
+	{
+		speed = speed + increase;
+	}
+	
+	public void brake(double decrease)
+	{
+		speed = speed - decrease;
+	}
+	
+	public void displayInfo()
+	{
+		System.out.println("Brand: "+brand);
+		System.out.println("Model: "+model);
+		System.out.println("Speed: "+speed);
+	}
+}
+
+class Car extends Vehicle
+{
+	private String fuelType;
+	private int numSeats;
+	
+	public Car(String brand, String model, double speed, String fuelType, int numSeats) {
+		super(brand, model, speed);
+		this.fuelType = fuelType;
+		this.numSeats = numSeats;
+	}
+
+	public String getFuelType() {
+		return fuelType;
+	}
+
+	public int getNumSeats() {
+		return numSeats;
+	}
+
+	public void setFuelType(String fuelType) {
+		this.fuelType = fuelType;
+	}
+
+	public void setNumSeats(int numSeats) {
+		this.numSeats = numSeats;
+	}
+	
+	@Override
+	public void displayInfo()
+	{
+		super.displayInfo();
+		System.out.println("Fueltype: "+fuelType);
+		System.out.println("Number of Seats: "+numSeats);
+	}
+}
+
+class ElectricCar extends Car
+{
+	private double batteryCapacity;
+	private double chargingTime;
+
+	public ElectricCar(String brand, String model, double speed, int numSeats, double batteryCapacity, double chargingTime) {
+		super(brand, model, speed,"Electric", numSeats);
+		this.batteryCapacity = batteryCapacity;
+		this.chargingTime = chargingTime;
+	}
+
+	public double getBatteryCapacity() {
+		return batteryCapacity;
+	}
+
+	public double getChargingTime() {
+		return chargingTime;
+	}
+
+	public void setBatteryCapacity(double batteryCapacity) {
+		this.batteryCapacity = batteryCapacity;
+	}
+
+	public void setChargingTime(double chargingTime) {
+		this.chargingTime = chargingTime;
+	}
+	
+	
+	
+}

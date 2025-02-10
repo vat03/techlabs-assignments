@@ -1,0 +1,63 @@
+package com.aurionpro.Array;
+
+import java.util.*;
+
+public class SortedSquareOfElements {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Enter the size of the array: ");
+		int size = scanner.nextInt();
+		
+		System.out.println();
+		
+		int[] array = new int[size];
+		
+		for (int i = 0; i < array.length; i++) {
+			System.out.print("Enter number "+(i+1)+": ");
+			array[i] = scanner.nextInt();
+		}
+		
+		System.out.println();
+		
+		System.out.println("Input Array is: ");
+		for (int i : array) {
+			System.out.print(i+" ");
+		}
+		
+		System.out.println();
+		
+		sortedSquareArray(array);
+		
+		scanner.close();
+	}
+	
+	public static void sortedSquareArray(int array[])
+	{
+		int[] resultArray = new int[array.length];
+		int left = 0, right = array.length - 1, index = array.length - 1;
+		
+		while(left <= right)
+		{
+			int leftSquareValue = array[left] * array[left];
+			int rightSquareValue = array[right] * array[right];
+			
+			if(leftSquareValue > rightSquareValue)
+			{
+				resultArray[index] = leftSquareValue;
+				left++;
+			}
+			else
+			{
+				resultArray[index] = rightSquareValue;
+				right--;
+			}
+			index--;
+		}
+		
+		System.out.println("Output Array is: ");
+		for (int i : resultArray) {
+			System.out.print(i+" ");
+		}
+	}
+}

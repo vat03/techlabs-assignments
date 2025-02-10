@@ -1,0 +1,16 @@
+package com.aurionpro.exception;
+
+public class MinimumBalanceException extends RuntimeException{
+	
+	private static final long serialVersionUID = 1L;
+
+	private double balance;
+	private double amount;
+	
+	
+	
+	public String getMessage()
+	{
+		return "Cannot Withdraw as Minimum balance of 500 required !!";
+	}
+}

@@ -1,0 +1,18 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Circle;
+import com.aurionpro.model.Rectangle;
+import com.aurionpro.model.Triangle;
+
+public class ShapeTest {
+	public static void main(String[] args) {
+		Circle circle = new Circle(5);
+		circle.area();
+		
+		Rectangle rectangle = new Rectangle(5, 10);
+		rectangle.area();
+		
+		Triangle triangle = new Triangle(3, 6);
+		triangle.area();
+	}
+}

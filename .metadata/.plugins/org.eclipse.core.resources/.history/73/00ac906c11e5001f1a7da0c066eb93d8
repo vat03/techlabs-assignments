@@ -1,0 +1,17 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Car;
+import com.aurionpro.model.Vehicle;
+import com.aurionpro.model.ElectricCar;
+
+public class VehicleTest {
+
+	public static void main(String[] args) {
+		Vehicle vehicle = new Vehicle();
+		Car car = new Car();
+		ElectricCar electriccar = new ElectricCar();
+		
+		
+	}
+
+}

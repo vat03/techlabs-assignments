@@ -1,0 +1,11 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Base;
+
+public class BaseTest {
+	public static void main(String[] args) {
+		Base base = new Base();
+		
+		base.show();
+	}
+}

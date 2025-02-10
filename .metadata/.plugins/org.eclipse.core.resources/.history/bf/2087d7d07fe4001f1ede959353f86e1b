@@ -1,0 +1,18 @@
+package com.aurionpro.test;
+
+
+import java.util.Scanner;
+import com.aurionpro.model.Account;
+
+public class AccountSort {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("Enter the number of accounts to be created: ");
+		int numberOfAccounts = scanner.nextInt();
+		
+		Account[] accounts = new Account[numberOfAccounts];
+		
+		scanner.close();
+	}
+}

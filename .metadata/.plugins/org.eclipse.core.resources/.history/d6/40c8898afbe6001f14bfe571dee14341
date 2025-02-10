@@ -1,0 +1,8 @@
+package com.aurionpro.model;
+
+import java.util.*;
+
+public class MovieManager {
+	private List<Movie> movies = new ArrayList<>();
+	static final String filePath = "D:\\Aurionpro_Vatsal_Training\\Movie Management App";
+}

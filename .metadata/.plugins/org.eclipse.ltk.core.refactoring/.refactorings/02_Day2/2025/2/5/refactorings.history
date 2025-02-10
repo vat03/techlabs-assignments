@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.aurionpro.Day2HW.LetsPlayPigApp&apos; to &apos;PigDiceGame&apos;&#x0D;&#x0A;- Original project: &apos;02_Day2&apos;&#x0D;&#x0A;- Original element: &apos;com.aurionpro.Day2HW.LetsPlayPigApp&apos;&#x0D;&#x0A;- Renamed element: &apos;com.aurionpro.Day2HW.PigDiceGame&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;LetsPlayPigApp&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.aurionpro.Day2HW{LetsPlayPigApp.java[LetsPlayPigApp" matchStrategy="1" name="PigDiceGame" qualified="false" references="true" similarDeclarations="false" stamp="1738410766834" textual="false" version="1.0"/>
+</session>

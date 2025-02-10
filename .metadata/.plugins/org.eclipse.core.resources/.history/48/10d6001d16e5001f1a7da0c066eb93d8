@@ -1,0 +1,11 @@
+package com.aurionpro.model;
+
+public class sub extends Base{
+	public void show() {
+		System.out.println("Inside sub");
+	}
+	
+	public void display() {
+		System.out.println("Inside display");
+	}
+}

@@ -1,0 +1,21 @@
+package com.aurionpro.Array;
+
+import java.util.Scanner;
+
+public class SortedSquareOfElements {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("Enter the size of the array: ");
+		int size = scanner.nextInt();
+		
+		
+		
+		scanner.close();
+	}
+	
+	public static array[] input(int array[])
+	{
+		
+	}
+}

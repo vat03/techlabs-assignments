@@ -1,0 +1,7 @@
+package com.aurionpro.model;
+
+public class Voter {
+private String name;
+private String voterId;
+private int age;
+}

@@ -1,0 +1,10 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Circle;
+
+public class ShapeTest {
+	public static void main(String[] args) {
+		Circle circle = new Circle(5);
+		circle.area();
+	}
+}

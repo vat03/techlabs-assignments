@@ -1,0 +1,13 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.StudentProblemDetails;
+
+public class StudentProblem {
+	public static void main(String[] args) {
+		StudentProblemDetails student1 = new StudentProblemDetails();
+		StudentProblemDetails student2 = new StudentProblemDetails(001, "user 1", 80, 70, 60);
+		StudentProblemDetails student3 = new StudentProblemDetails(002, "user 2", 40, 90, 50);
+		StudentProblemDetails student4 = new StudentProblemDetails(003, "user 3", 55, 56, 89);
+		
+	}
+}

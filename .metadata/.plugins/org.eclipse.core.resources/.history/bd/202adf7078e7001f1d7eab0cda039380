@@ -1,0 +1,11 @@
+package com.aurionpro.exception;
+
+public class AgeNotValid extends RuntimeException {
+	
+	private static final long serialVersionUID = 1L;
+
+	public String getMessage()
+	{
+		return "Age must be greater than 18 !!";
+	}
+}

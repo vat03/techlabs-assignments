@@ -1,0 +1,21 @@
+package com.aurionpro.test;
+
+import java.util.Scanner;
+
+public class BoxTest {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		Box box1 = new Box();
+		
+		scanner.close();
+	}
+	
+	public void displayDetails()
+	{
+		System.out.println("Height: "+height);
+		System.out.println("Depth: "+depth);
+		System.out.println("Width: "+width);
+		System.out.println();
+	}
+}

@@ -1,0 +1,39 @@
+package com.aurionpro.test;
+
+import java.util.Scanner;
+
+import com.aurionpro.model.Box;
+
+public class BoxTest {
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		Box box1 = new Box();
+		
+		input(box1, scanner);
+		displayDetails(box1);
+
+	}
+	
+	public static void input(Box box, Scanner scanner)
+	{
+		
+		
+		System.out.println("Enter the width: ");
+		box.setWidth(scanner.nextDouble());
+		System.out.println("Enter the Height: ");
+		box.setHeight(scanner.nextDouble());
+		System.out.println("Enter the Depth: ");
+		box.setDepth(scanner.nextDouble());
+		
+		scanner.close();
+	}
+	
+	public static void displayDetails(Box box)
+	{
+		System.out.println("Width: "+box.getWidth());
+		System.out.println("Height: "+box.getHeight());
+		System.out.println("Depth: "+box.getDepth());
+		System.out.println();
+	}
+}

@@ -1,0 +1,13 @@
+package com.aurionpro.test;
+
+public class ReflectionTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

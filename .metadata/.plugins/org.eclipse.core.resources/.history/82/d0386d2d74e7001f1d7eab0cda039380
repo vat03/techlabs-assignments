@@ -1,0 +1,16 @@
+package com.aurionpro.model;
+
+public class Voter {
+	private String name;
+	private String voterId;
+	private int age;
+	
+	public Voter(String name, String voterId, int age) {
+		super();
+		this.name = name;
+		this.voterId = voterId;
+		this.age = age;
+	}
+	
+	
+}

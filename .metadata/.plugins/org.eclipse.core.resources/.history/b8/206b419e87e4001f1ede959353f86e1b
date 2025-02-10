@@ -1,0 +1,67 @@
+package com.aurionpro.model;
+
+public class Customer {
+	private static int customerId;
+	private String name;
+	private String email;
+	private String date;
+	private long phoneNumber;
+	
+	//Default Constructor
+	public Customer()
+	{
+		customerId++;
+	}
+
+	//Parameterized Constructor
+	public Customer(String name, String email, String date, long phoneNumber) {
+		this.name = name;
+		this.email = email;
+		this.date = date;
+		this.phoneNumber = phoneNumber;
+	}
+
+	
+	// Getter methods 
+	public static int getCustomerId() {
+		return customerId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	
+	// Setter methods
+	public static void setCustomerId(int customerId) {
+		Customer.customerId = customerId;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+}

@@ -1,0 +1,7 @@
+package com.aurionpro.test;
+
+public class BoxStaticTest {
+	public static void main(String[] args) {
+		Box box1 = new Box();
+	}
+}

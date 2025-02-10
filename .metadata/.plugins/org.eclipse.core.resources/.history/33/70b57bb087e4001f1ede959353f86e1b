@@ -1,0 +1,36 @@
+package com.aurionpro.test;
+
+import java.util.Scanner;
+
+import com.aurionpro.model.Customer;
+
+public class CustomerTest {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		
+		System.out.print("Enter number of customers: ");
+		int numberOfCustomers = scanner.nextInt();
+		
+		Customer[] customers = new Customer[numberOfCustomers];
+		
+		for (int i = 0; i < customers.length; i++) {
+			customers[i] = new Customer();
+			
+		}
+		
+		scanner.close();
+	}
+	
+	public static void takeInput(Customer customer, Scanner scanner)
+	{
+		System.out.print("Enter your name: ");
+		customer.setName(scanner.nextLine());
+		System.out.print("Enter your email: ");
+		customer.setEmail(scanner.nextLine());
+		System.out.print("Enter you Date of Birth: ");
+		customer.setDate(scanner.nextLine()l);
+		System.out.print("Enter your Phone number: ");
+		customer.setPhoneNumber(scanner.nextLine());
+	}
+}

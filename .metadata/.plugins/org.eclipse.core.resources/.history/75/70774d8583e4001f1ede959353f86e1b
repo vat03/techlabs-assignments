@@ -1,0 +1,70 @@
+package com.aurionpro.test;
+
+import java.util.Scanner;
+import com.aurionpro.model.Account;
+
+public class AccountSort {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("Enter the number of accounts to be created: ");
+		int numberOfAccounts = scanner.nextInt();
+		
+		Account[] accounts = new Account[numberOfAccounts];
+		
+		//input
+		for(int i = 0; i < accounts.length; i++)
+		{
+			accounts[i] = new Account();
+			takeInut(accounts[i], scanner);
+			System.out.println();
+		}
+		
+		System.out.println("Accounts with their details are: \n");
+		
+		//output
+		for (Account account : accounts) {
+			displayDetails(account);
+		}
+		scanner.close();
+	}
+	
+	public static void takeInut(Account account, Scanner scanner)
+	{
+		System.out.println("Enter account number: ");
+		account.setAccountNumber(scanner.nextLong());
+		System.out.println("Enter your name: ");
+		scanner.nextLine();
+		account.setName(scanner.nextLine());
+		while(account.getBalance() < 500)
+		{
+			System.out.println("Enter your initial balance (Minimum 500 required): ");
+			account.setBalance(scanner.nextDouble());
+		}
+	}
+	
+	public static void displayDetails(Account account)
+	{
+		System.out.print("Name: ");
+		System.out.println(account.getName());
+		System.out.print("Account number: ");
+		System.out.println(account.getAccountNumber());
+		System.out.print("Balance: ");
+		System.out.println(account.getBalance());
+		System.out.println();
+	}
+	
+	public static void sort(Account[] accounts)
+	{	
+		for (int i = 0; i < accounts.length - 1; i++) {
+			for (int j = 0; j < accounts.length - i - 1; j++) {
+				if(accounts[j].getBalance() > accounts[j+1].getBalance())
+				{
+					Account temp = accounts[j];
+					accounts[j] = accounts[j+1];
+					accounts[j+1] = temp;
+				}
+			}
+		}
+	}
+}

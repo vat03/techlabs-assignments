@@ -1,0 +1,8 @@
+package com.aurionpro.model;
+
+public class Movie {
+private int id;
+private String name;
+private int year;
+private String genre;
+}
