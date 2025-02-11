@@ -1,0 +1,28 @@
+package com.aurionpro.test;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class ListTest {
+	public static void main(String[] args) {
+		List<Integer> numbers = new ArrayList<Integer>();
+		
+		numbers.add(50);
+		numbers.add(30);
+		numbers.add(10);
+		
+		System.out.println("\nDirectly using object: ");
+		System.out.println(numbers);
+		
+		for (int i = 0; i < numbers.size(); i++) {
+			System.out.println(numbers.get(i));
+		}
+		
+		for (Integer number : numbers) {
+			System.out.println(number);
+		}
+		
+		Iterator<Integer> numberIterator = new numbers.iterator();
+	}
+}

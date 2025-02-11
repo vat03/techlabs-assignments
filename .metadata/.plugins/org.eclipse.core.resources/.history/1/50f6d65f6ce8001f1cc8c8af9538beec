@@ -1,0 +1,20 @@
+package com.aurionpro.test;
+
+public class PaymentTest {
+	public static void main(String[] args) {
+
+	}
+
+	static {
+		System.out.println("Welcome to the payment Portal !!");
+	}
+
+	public static void menu() {
+		boolean paymentProcessed = false;
+		while (paymentProcessed != true) {
+			System.out.println("Select the payment option you would like to pay with: ");
+			System.out.println("\n1.Credit Card Payment\n2. Debit Card Payment\n3. UPI Payment\n");
+			int choice = scanner.nextInt();
+		}
+	}
+}

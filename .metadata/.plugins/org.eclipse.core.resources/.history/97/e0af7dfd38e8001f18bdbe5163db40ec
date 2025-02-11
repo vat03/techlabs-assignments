@@ -1,0 +1,9 @@
+package com.aurionpro.model;
+
+public class Student {
+	private int rollNumber;
+	private String name;
+	private int age;
+	
+	
+}

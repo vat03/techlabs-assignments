@@ -1,0 +1,13 @@
+package com.aurionpro.comparator;
+
+import java.util.Comparator;
+
+public class NameComparator implements Comparator<Student>{
+
+	@Override
+	public int compare(Student student1, Student o2) {
+
+		return 0;
+	}
+
+}

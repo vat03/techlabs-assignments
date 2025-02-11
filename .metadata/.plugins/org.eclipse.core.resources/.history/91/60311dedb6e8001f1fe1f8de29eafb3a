@@ -1,0 +1,29 @@
+package com.aurionpro.model;
+
+import java.util.Scanner;
+
+public class Car implements Vehicle {
+    private String fuelType;
+
+    public Car() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter fuel type for Car (Petrol/Diesel): ");
+        this.fuelType = scanner.nextLine();
+        scanner.close();
+    }
+
+    @Override
+    public void start() {
+        System.out.println("Car is starting with a roar!");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Car is stopping smoothly.");
+    }
+
+    @Override
+    public String fuelType() {
+        return fuelType;
+    }
+}

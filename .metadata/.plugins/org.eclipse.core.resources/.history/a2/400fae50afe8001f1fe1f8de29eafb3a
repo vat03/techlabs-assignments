@@ -1,0 +1,47 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.StringList;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class StringListTest {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		StringList list = new StringList();
+		ArrayList<String> uniqueList;
+
+//		System.out.print("Enter number of strings: ");
+//		int n = scanner.nextInt();
+//		scanner.nextLine(); // Consume newline
+
+//		System.out.println("Enter the strings:");
+//		for (int i = 0; i < n; i++) {
+//			list.addString(scanner.nextLine());
+//		}
+
+		System.out.println("\n1.Add new String\n2. Remove Duplicates\n3. Display without Duplicates\n4. Exit");
+		System.out.println("Enter your choice: ");
+		int choice = scanner.nextInt();
+		
+		switch(choice)
+		{
+			case 1:
+				list.addString(scanner.nextLine());
+				break;
+			case 2:
+				uniqueList = list.removeDuplicates();
+				break;
+			case 3:
+				System.out.println("\nList after removing duplicates:");
+				for (String str : uniqueList) {
+					System.out.println(str);
+				}
+		}
+		
+		
+
+		
+
+		scanner.close();
+	}
+}

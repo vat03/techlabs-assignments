@@ -1,0 +1,7 @@
+package com.aurionpro.test;
+
+public class StudentTest {
+	public static void main(String[] args) {
+		List<Student> student = new ArrayList<Student>();
+	}
+}

@@ -1,0 +1,17 @@
+package com.aurionpro.test;
+
+public class EmployeeTest {
+
+	public static void main(String[] args) {
+		
+	}
+
+	public static void takeInput()
+	{
+		while(true)
+		{
+			System.out.println("\n1. Insert\n2. Update\n3. Delete\n4. Search\n5. Exit");
+			System.out.print("Enter the operation you want to perform: ");
+		}
+	}
+}

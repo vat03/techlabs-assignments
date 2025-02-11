@@ -1,0 +1,14 @@
+package com.aurionpro.test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapTest {
+	public static void main(String[] args) {
+		Map<Integer, String>  student = new HashMap<Integer, String>();
+		
+		student.put(1, "Abc");
+		student.put(2, "Def");
+		student.put(3, "Ghi");
+	}
+}

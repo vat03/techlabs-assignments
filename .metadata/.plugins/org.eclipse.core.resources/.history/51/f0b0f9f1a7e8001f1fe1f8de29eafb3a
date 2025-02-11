@@ -1,0 +1,8 @@
+package com.aurionpro.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Employee {
+	Map<Integer, String> employee = new HashMap<Integer, String>();
+}

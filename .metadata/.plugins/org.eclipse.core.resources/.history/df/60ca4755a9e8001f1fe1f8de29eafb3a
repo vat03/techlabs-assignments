@@ -1,0 +1,16 @@
+package com.aurionpro.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Employee {
+	
+	private int employeeId;
+	private String name;
+	
+	
+	
+	Map<Integer, String> employee = new HashMap<Integer, String>();
+	
+	public void insert(Map<Integer, String> employee, int )
+}

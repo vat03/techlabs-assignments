@@ -1,0 +1,20 @@
+package com.aurionpro.test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.aurionpro.model.Student;
+
+public class StudentTest {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		List<Student> student = new ArrayList<Student>();
+		
+		do
+		{
+			System.out.println("Enter your roll number: ");
+			
+		}
+	}
+}
