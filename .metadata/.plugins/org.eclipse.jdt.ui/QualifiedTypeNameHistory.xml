@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="java.awt.Choice"/>
     <fullyQualifiedTypeName name="com.aurionpro.Day2HW.LetsPlayPigApp"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="com.aurionpro.Array.PeakValueOfArray"/>
     <fullyQualifiedTypeName name="com.sun.java.swing.plaf.windows.WindowsTreeUI.CollapsedIcon"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
@@ -28,7 +26,6 @@
     <fullyQualifiedTypeName name="com.aurionpro.test.BoxTest"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Box"/>
     <fullyQualifiedTypeName name="java.lang.Class"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Parameter"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
@@ -39,7 +36,6 @@
     <fullyQualifiedTypeName name="com.aurionpro.model.Rectangle"/>
     <fullyQualifiedTypeName name="java.awt.Rectangle"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Triangle"/>
-    <fullyQualifiedTypeName name="com.aurionpro.model.Shape"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Account"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.AccountSort"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -52,4 +48,16 @@
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="com.aurionpro.exception.NegativeAmountException"/>
     <fullyQualifiedTypeName name="com.aurionpro.exception.MinimumBalanceException"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.Student"/>
+    <fullyQualifiedTypeName name="com.aurionpro.comparator.RollNumberComparator"/>
+    <fullyQualifiedTypeName name="com.aurionpro.comparator.AgeComparator"/>
+    <fullyQualifiedTypeName name="com.aurionpro.comparator.NameComparator"/>
+    <fullyQualifiedTypeName name="java.lang.Comparable"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.Circle"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.Shape"/>
 </qualifiedTypeNameHistroy>
