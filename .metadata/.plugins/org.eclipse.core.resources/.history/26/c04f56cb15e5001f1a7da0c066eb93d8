@@ -1,7 +1,0 @@
-package com.aurionpro.model;
-
-public class sub extends base{
-	public void show() {
-		System.out.println("Inside base");
-	}
-}

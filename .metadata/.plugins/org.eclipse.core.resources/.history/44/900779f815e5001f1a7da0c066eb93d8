@@ -1,7 +1,0 @@
-package com.aurionpro.test;
-
-public class subTest {
-	public static void main(String[] args) {
-		B
-	}
-}

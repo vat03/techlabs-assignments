@@ -1,9 +1,0 @@
-package com.aurionpro.model;
-
-public class SavingsAccount extends Account {
-
-	public SavingsAccount() {
-		super();
-	}
-
-}

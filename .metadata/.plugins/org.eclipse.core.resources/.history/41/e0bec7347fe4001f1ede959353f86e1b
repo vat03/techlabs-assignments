@@ -1,7 +1,0 @@
-package com.aurionpro.test;
-
-public class AccountSort {
-	public static void main(String[] args) {
-
-	}
-}

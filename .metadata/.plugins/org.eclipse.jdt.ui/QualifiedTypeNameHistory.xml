@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.aurionpro.Array.PeakValueOfArray"/>
-    <fullyQualifiedTypeName name="com.sun.java.swing.plaf.windows.WindowsTreeUI.CollapsedIcon"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="com.aurionpro.oop.AccountDetails.Account"/>
-    <fullyQualifiedTypeName name="javafx.scene.transform.Scale"/>
-    <fullyQualifiedTypeName name="com.aurionpro.test.Account"/>
-    <fullyQualifiedTypeName name="com.aurionpro.test.AccountDetails.Account"/>
-    <fullyQualifiedTypeName name="java.io.FileReader"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="java.io.FileWriter"/>
-    <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
-    <fullyQualifiedTypeName name="com.aurionpro.HW.Student"/>
-    <fullyQualifiedTypeName name="com.aurionpro.HW.BankAccount"/>
-    <fullyQualifiedTypeName name="com.sun.corba.se.spi.orbutil.fsm.Input"/>
-    <fullyQualifiedTypeName name="com.aurionpro.HW.Student.StudentDetails"/>
-    <fullyQualifiedTypeName name="com.aurionpro.HW.BankAccount.BankAccountDetails"/>
-    <fullyQualifiedTypeName name="com.sun.swing.internal.plaf.basic.resources.basic"/>
-    <fullyQualifiedTypeName name="com.aurionpro.test.BankAccount"/>
-    <fullyQualifiedTypeName name="com.aurionpro.model.BankAccountDetails"/>
-    <fullyQualifiedTypeName name="com.aurionpro.model.StudentDetails"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.StudentProblemDetails"/>
     <fullyQualifiedTypeName name="com.aurionpro.test.BoxTest"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Box"/>
@@ -33,9 +13,7 @@
     <fullyQualifiedTypeName name="com.aurionpro.model.Rectangle"/>
     <fullyQualifiedTypeName name="java.awt.Rectangle"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Triangle"/>
-    <fullyQualifiedTypeName name="com.aurionpro.model.Account"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.AccountSort"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.aurionpro.test.MovieController"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
@@ -45,7 +23,6 @@
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="com.aurionpro.exception.NegativeAmountException"/>
     <fullyQualifiedTypeName name="com.aurionpro.exception.MinimumBalanceException"/>
-    <fullyQualifiedTypeName name="java.util.Comparator"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Student"/>
     <fullyQualifiedTypeName name="com.aurionpro.comparator.RollNumberComparator"/>
     <fullyQualifiedTypeName name="com.aurionpro.comparator.AgeComparator"/>
@@ -58,6 +35,29 @@
     <fullyQualifiedTypeName name="com.aurionpro.model.Shape"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Payment"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.CreditCardPayment"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="javafx.scene.shape.Circle"/>
+    <fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.Factorial"/>
+    <fullyQualifiedTypeName name="java.util.function.BiFunction"/>
+    <fullyQualifiedTypeName name="java.lang.Number"/>
+    <fullyQualifiedTypeName name="com.aurionpro.test.Predicate"/>
+    <fullyQualifiedTypeName name="java.util.function.Predicate"/>
+    <fullyQualifiedTypeName name="java.util.function.BiPredicate"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collector"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.Account"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="com.aurionpro.srp.violation.model.Invoice"/>
+    <fullyQualifiedTypeName name="com.aurionpro.srp.solution.model.TaxCalculator"/>
+    <fullyQualifiedTypeName name="com.aurionpro.srp.solution.model.InvoicePrinter"/>
+    <fullyQualifiedTypeName name="com.aurionpro.srp.solution.model.Invoice"/>
+    <fullyQualifiedTypeName name="com.aurionpro.violation.model.FestivalType"/>
+    <fullyQualifiedTypeName name="com.aurionpro.violation.model.FixedDeposit"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="com.aurionpro.Solution.model.FestivalInterest"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.aurionpro.Solution.model.FixedDeposit"/>
 </qualifiedTypeNameHistroy>

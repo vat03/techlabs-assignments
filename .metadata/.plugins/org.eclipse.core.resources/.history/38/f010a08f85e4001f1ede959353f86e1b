@@ -1,8 +1,0 @@
-package com.aurionpro.model;
-
-public class Customer {
-	private static int customerId;
-	private String name;
-	private String email;
-	
-}
