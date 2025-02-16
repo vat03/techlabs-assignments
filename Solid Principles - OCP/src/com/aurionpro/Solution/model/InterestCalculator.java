@@ -1,7 +1,7 @@
 package com.aurionpro.Solution.model;
 
 public class InterestCalculator {
-	private FixedDeposit fd;
+	FixedDeposit fd;
 
 	public InterestCalculator(FixedDeposit fd) {
 		this.fd = fd;

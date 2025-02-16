@@ -6,12 +6,15 @@ public class FixedDeposit {
 	private double principle;
 	private int duration;
 	private FestivalInterest festivalinterest;
-	
+
+	// Default Constructor
 	public FixedDeposit() {
-		
+
 	}
-	
-	public FixedDeposit(int accountNumber, String name, double principle, int duration, FestivalInterest festivalinterest) {
+
+	// Parameterized Constructor
+	public FixedDeposit(int accountNumber, String name, double principle, int duration,
+			FestivalInterest festivalinterest) {
 		this.accountNumber = accountNumber;
 		this.name = name;
 		this.principle = principle;
@@ -19,6 +22,7 @@ public class FixedDeposit {
 		this.festivalinterest = festivalinterest;
 	}
 
+	// Getters
 	public int getAccountNumber() {
 		return accountNumber;
 	}
@@ -35,29 +39,7 @@ public class FixedDeposit {
 		return duration;
 	}
 
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setPrinciple(double principle) {
-		this.principle = principle;
-	}
-
-	public void setDuration(int duration) {
-		this.duration = duration;
-	}
-
 	public FestivalInterest getFestivalinterest() {
 		return festivalinterest;
 	}
-
-	public void setFestivalinterest(FestivalInterest festivalinterest) {
-		this.festivalinterest = festivalinterest;
-	}
-	
-	
 }

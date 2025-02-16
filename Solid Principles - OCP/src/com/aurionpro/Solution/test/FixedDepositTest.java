@@ -4,7 +4,7 @@ import java.util.Scanner;
 import com.aurionpro.Solution.model.*;
 
 public class FixedDepositTest {
-	private static FixedDeposit fd;
+	static FixedDeposit fd;
 
 	public static void main(String[] args) {
 
@@ -12,7 +12,7 @@ public class FixedDepositTest {
 
 		takeInput(scanner);
 
-		double interest = calculateInterest(fd);
+		double interest = interestValue(fd);
 
 		displayOutput(interest);
 
@@ -50,17 +50,18 @@ public class FixedDepositTest {
 			return new Diwali();
 		case "holi":
 			return new Holi();
+		// add other new festivals here
 		default:
 			return new Others();
 		}
 	}
 
-	private static double calculateInterest(FixedDeposit fd) {
+	public static double interestValue(FixedDeposit fd) {
 		InterestCalculator calculator = new InterestCalculator(fd);
 		return calculator.calculateInterest();
 	}
 
-	private static void displayOutput(double interest) {
+	public static void displayOutput(double interest) {
 		System.out.println("\n--- Fixed Deposit Details ---");
 		System.out.println("Account Number: " + fd.getAccountNumber());
 		System.out.println("Account Holder Name: " + fd.getName());
