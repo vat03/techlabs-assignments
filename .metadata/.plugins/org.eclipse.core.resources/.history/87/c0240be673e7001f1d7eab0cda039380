@@ -1,5 +1,0 @@
-package com.aurionpro.exception;
-
-public class AgeNotValid extends Exception {
-
-}

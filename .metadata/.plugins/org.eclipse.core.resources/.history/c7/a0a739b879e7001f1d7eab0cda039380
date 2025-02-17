@@ -1,7 +1,0 @@
-package com.aurionpro.model;
-
-public class Account {
-private int accountNumber;
-private String name;
-private double balance;
-}

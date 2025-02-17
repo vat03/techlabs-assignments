@@ -1,9 +1,0 @@
-package com.aurionpro.test;
-
-public class VoterTest {
-
-	public static void main(String[] args) {
-
-	}
-
-}
