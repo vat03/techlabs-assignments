@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.aurionpro.model.Shape"/>
-    <fullyQualifiedTypeName name="com.aurionpro.model.Payment"/>
-    <fullyQualifiedTypeName name="com.aurionpro.model.CreditCardPayment"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="javafx.scene.shape.Circle"/>
-    <fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
-    <fullyQualifiedTypeName name="com.aurionpro.model.Factorial"/>
-    <fullyQualifiedTypeName name="java.util.function.BiFunction"/>
-    <fullyQualifiedTypeName name="java.lang.Number"/>
-    <fullyQualifiedTypeName name="com.aurionpro.test.Predicate"/>
-    <fullyQualifiedTypeName name="java.util.function.Predicate"/>
-    <fullyQualifiedTypeName name="java.util.function.BiPredicate"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.stream.Collector"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Account"/>
@@ -60,4 +46,18 @@
     <fullyQualifiedTypeName name="com.aurionpro.AbstractFactory.model.TataFactory"/>
     <fullyQualifiedTypeName name="com.aurionpro.AbstractFactory.model.ICar"/>
     <fullyQualifiedTypeName name="com.aurionpro.prototype.model.Circle"/>
+    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.IItem"/>
+    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.Biscuit"/>
+    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.Chocolate"/>
+    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.Hat"/>
+    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.HatAdapter"/>
+    <fullyQualifiedTypeName name="com.aurionpro.facade.model.IHotel"/>
+    <fullyQualifiedTypeName name="com.aurionpro.facade.model.IndianHotel"/>
+    <fullyQualifiedTypeName name="com.aurionpro.facade.model.IMenu"/>
+    <fullyQualifiedTypeName name="com.aurionpro.facade.model.HotelReception"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.CarInspection"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.CarServiceDecorator"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.OilChange"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.WheelAlgin"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.ICarService"/>
 </qualifiedTypeNameHistroy>
