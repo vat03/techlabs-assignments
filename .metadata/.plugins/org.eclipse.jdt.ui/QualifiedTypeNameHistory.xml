@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.aurionpro.model.Circle"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Shape"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Payment"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.CreditCardPayment"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="com.aurionpro.AbstractFactory.model.MahindraFactory"/>
     <fullyQualifiedTypeName name="com.aurionpro.AbstractFactory.model.TataFactory"/>
     <fullyQualifiedTypeName name="com.aurionpro.AbstractFactory.model.ICar"/>
+    <fullyQualifiedTypeName name="com.aurionpro.prototype.model.Circle"/>
 </qualifiedTypeNameHistroy>
