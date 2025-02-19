@@ -4,67 +4,70 @@ import java.io.*;
 import java.util.*;
 
 public class MovieManager {
-	private List<Movie> movies;
-	private static final String filePath = "data.bin";
+    private List<Movie> movies;
+    private static final String filePath = "data.bin";
+    private static final int Max_Movies = 5;
 
-	public MovieManager() {
-		movies = new ArrayList<>();
-		loadMovies();
-	}
+    public MovieManager() {
+        movies = new ArrayList<>(); 
+        loadMovies();
+    }
 
-	public void addMovie(Movie movie) {
-		if (movies.size() < 5) {
-			movies.add(movie);
-			saveMovies();
-		}
-		else
-		{
-			System.out.println("Maximum 5 movies can be added !!");
-		}
-	}
+    // Method to add movies
+    public void addMovie(Movie movie) {
+        if (movies.size() < Max_Movies) {
+            movies.add(movie);
+            saveMovies();
+            System.out.println("Movie added successfully.");
+            return;
+        }
+        System.out.println("Maximum " + Max_Movies + " movies can be added!!");
+    }
 
-	public void clearMovies() {
-		movies.clear();
-		saveMovies();
-	}
+    // Method to clear movies from the list but still present in the file
+    public void clearMovies() {
+        movies.clear();
+    }
 
-	public List<Movie> getMovies() {
-		return movies;
-	}
+    // Method to get all movies
+    public List<Movie> getMovies() {
+        return movies;
+    }
 
-	public int getMovieId() {
-		return movies.size() + 1;
-	}
+    // Method to get movie id
+    public int getMovieId() {
+        return movies.size() + 1;
+    }
 
-	// Deserialization
-	public void loadMovies() {
-		File file = new File(filePath);
-		if (file.exists()) {
-			try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file))) {
-				movies = (List<Movie>) objectInputStream.readObject();
-				objectInputStream.close();
-			} catch (IOException | ClassNotFoundException e) {
-				System.out.println(e);
-			}
-		}
-	}
+    // Deserialization
+    public void loadMovies() {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            return;
+        }
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file))) {
+            movies = (List<Movie>) objectInputStream.readObject();
+            System.out.println("Movies loaded: " + movies.size() + " movies found.");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error loading movies: " + e.getMessage());
+        }
+    }
 
-	
-	// Serialization
-	public void saveMovies() {
-		try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(filePath))) {
-			objectOutputStream.writeObject(movies);
-			objectOutputStream.close();
-		} catch (IOException e) {
-			System.out.println(e);
-		}
-	}
+    // Serialization
+    public void saveMovies() {
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            objectOutputStream.writeObject(movies);
+        } catch (IOException e) {
+            System.out.println("Error saving movies: " + e.getMessage());
+        }
+    }
 
-	public void deleteAllMovies() {
-		File file = new File(filePath);
-		if (file.exists()) {
-			file.delete();
-		}
-		movies.clear();
-	}
+    // Method to delete all the movies from the list as well as the file itself
+    public void deleteAllMovies() {
+        File file = new File(filePath);
+        if (file.exists() && file.delete()) {
+            System.out.println("All movies deleted successfully from the file.");
+        }
+        movies.clear();
+    }
 }
