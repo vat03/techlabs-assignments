@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.stream.Collector"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="com.aurionpro.model.Account"/>
-    <fullyQualifiedTypeName name="java.util.Comparator"/>
-    <fullyQualifiedTypeName name="com.aurionpro.srp.violation.model.Invoice"/>
-    <fullyQualifiedTypeName name="com.aurionpro.srp.solution.model.TaxCalculator"/>
     <fullyQualifiedTypeName name="com.aurionpro.srp.solution.model.InvoicePrinter"/>
     <fullyQualifiedTypeName name="com.aurionpro.srp.solution.model.Invoice"/>
     <fullyQualifiedTypeName name="com.aurionpro.violation.model.FestivalType"/>
@@ -60,4 +54,10 @@
     <fullyQualifiedTypeName name="com.aurionpro.decorator.model.OilChange"/>
     <fullyQualifiedTypeName name="com.aurionpro.decorator.model.WheelAlgin"/>
     <fullyQualifiedTypeName name="com.aurionpro.decorator.model.ICarService"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.IHat"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.StandardHat"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.PremiumHat"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.HatDecorator"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.GoldenHat"/>
+    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.RibbonedHat"/>
 </qualifiedTypeNameHistroy>
