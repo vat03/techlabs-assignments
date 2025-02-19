@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.aurionpro.violation.model.IWorker"/>
     <fullyQualifiedTypeName name="com.aurionpro.solution.model.Labour"/>
     <fullyQualifiedTypeName name="java.awt.Robot"/>
     <fullyQualifiedTypeName name="com.aurionpro.solution.model.Robot"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="com.aurionpro.state.model.Shipped"/>
     <fullyQualifiedTypeName name="com.aurionpro.state.model.Ordered"/>
     <fullyQualifiedTypeName name="com.aurionpro.state.model.Packet"/>
+    <fullyQualifiedTypeName name="com.aurionpro.test.MovieController"/>
 </qualifiedTypeNameHistroy>
