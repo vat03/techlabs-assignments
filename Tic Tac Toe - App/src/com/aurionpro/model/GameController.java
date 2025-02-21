@@ -73,6 +73,7 @@ class GameController {
 
 	// Method to print the board with updated values after each turn
 	public void printBoard() {
+		System.out.println();
 		for (int i = 0; i < SIZE; i++) {
 			for (int j = 0; j < SIZE; j++) {
 				System.out.print(board[i][j] + " ");
