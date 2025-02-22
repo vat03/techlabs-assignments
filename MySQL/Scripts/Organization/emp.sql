@@ -49,3 +49,48 @@ select * from emp where job = (select job from emp where ename like "SMITH");
 
 select * from emp where mgr = (select EMPNO from emp where ename like "KING");
 
+select * from emp where sal = (select sal from emp where ename like "BLAKE");
+
+select DEPTNO, count(EMPNO) as "Number of Employees" from emp group by DEPTNO;
+
+select JOB, count(empno) as "Number of Employess" from emp group by job;
+
+select JOB, DEPTNO, count(empno) as "Number of Employess" 
+from emp 
+group by job, DEPTNO 
+order by job, DEPTNO;
+
+select * from emp 
+where deptno in (
+	select DEPTNO 
+    from emp 
+    group by DEPTNO 
+    having count(EMPNO) > 3) 
+order by DEPTNO;
+
+select * from emp 
+where JOB in (
+	select JOB 
+    from emp 
+    group by JOB 
+    having count(EMPNO) > 3) 
+order by JOB;
+
+select e.ename as "Employee Name", d.dname as "Department Name", d.loc as "Location" 
+from dept d
+left join emp e on d.DEPTNO = e.DEPTNO;
+
+select d.dname as "Department Name", e.ename as "Employee Name"
+from dept d
+join emp e on d.DEPTNO = e.DEPTNO;
+
+select d.dname as "Department Name", e.ename as "Employee Name"
+from dept d
+left join emp e on d.DEPTNO = e.DEPTNO where e.ename is null;
+
+SELECT d.dname AS "Department Name", COUNT(e.empno) AS "Employee Count"
+FROM dept d
+left JOIN emp e ON d.deptno = e.deptno
+GROUP BY d.dname
+HAVING COUNT(e.empno) > 3
+ORDER BY d.dname DESC;
