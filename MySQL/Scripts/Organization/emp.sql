@@ -94,3 +94,23 @@ left JOIN emp e ON d.deptno = e.deptno
 GROUP BY d.dname
 HAVING COUNT(e.empno) > 3
 ORDER BY d.dname DESC;
+
+SELECT e1.ename AS "Employee Name", e2.ename AS "Manager Name"
+FROM emp e1
+left JOIN emp e2 ON e1.mgr = e2.empno;
+
+SELECT e1.ename AS "Employee Name", 
+       d.dname AS "Department Name", 
+       COALESCE(e2.ename, 'No Boss') AS "Boss Name"
+FROM emp e1
+JOIN dept d ON e1.deptno = d.deptno
+LEFT JOIN emp e2 ON e1.mgr = e2.empno
+ORDER BY "Boss Name";
+
+SELECT d.dname AS "Department Name", 
+       e1.ename AS "Employee Name", 
+       COALESCE(e2.ename, 'No Manager') AS "Manager Name"
+FROM emp e1
+JOIN dept d ON e1.deptno = d.deptno
+LEFT JOIN emp e2 ON e1.mgr = e2.empno;
+
