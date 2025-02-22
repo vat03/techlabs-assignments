@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.aurionpro.AbstractFactory.model.ICar"/>
-    <fullyQualifiedTypeName name="com.aurionpro.prototype.model.Circle"/>
-    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.IItem"/>
-    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.Biscuit"/>
-    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.Chocolate"/>
     <fullyQualifiedTypeName name="com.aurionpro.adapter.model.Hat"/>
     <fullyQualifiedTypeName name="com.aurionpro.adapter.model.HatAdapter"/>
     <fullyQualifiedTypeName name="com.aurionpro.facade.model.IHotel"/>
@@ -60,4 +55,9 @@
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.Student"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.TicTacToeGame"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.Callable"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.Executor"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
 </qualifiedTypeNameHistroy>

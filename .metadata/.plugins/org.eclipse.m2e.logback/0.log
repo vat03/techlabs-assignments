@@ -1771,3 +1771,4 @@ org.eclipse.core.runtime.CoreException: Launch configuration StudentTest (1) ref
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
 2025-02-20 17:52:43,853 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2025-02-20 22:39:15,977 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-02-21 10:27:58,796 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
