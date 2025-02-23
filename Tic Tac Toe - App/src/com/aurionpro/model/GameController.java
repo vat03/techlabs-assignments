@@ -1,84 +1,49 @@
 package com.aurionpro.model;
 
-class GameController {
-	private char[][] board;
-	private char currentPlayer;
-	private static final int SIZE = 3;
+public class GameController {
+    private Board board;
+    private Player playerX;
+    private Player playerO;
+    private Player currentPlayer;
 
-	// Constructor
-	public GameController() {
-		board = new char[SIZE][SIZE];
-		currentPlayer = 'X';
-	}
+    public GameController() {
+        board = new Board();
+        playerX = new Player('X');
+        playerO = new Player('O');
+        currentPlayer = playerX;
+    }
 
-	// Method to reset board
-	public void resetBoard() {
-		for (int i = 0; i < SIZE; i++) {
-			for (int j = 0; j < SIZE; j++) {
-				board[i][j] = '-';
-			}
-		}
-		currentPlayer = 'X';
-	}
+    public void resetBoard() {
+        board = new Board();
+        currentPlayer = playerX;
+    }
 
-	// Method to set the value of the current player
-	public boolean setValue(int row, int col) {
-		if (row < 0 || col < 0 || row >= SIZE || col >= SIZE || board[row][col] != '-') {
-			System.out.println("Invalid move. Try again.");
-			return false;
-		}
-		board[row][col] = currentPlayer;
-		return true;
-	}
+    public boolean playMove(int row, int col) {
+        if (board.setCell(row, col, currentPlayer.getSymbol())) {
+            board.printBoard();
+            return true;
+        }
+        System.out.println("Invalid move. Try again.");
+        return false;
+    }
 
-	// Method to check for winner
-	public boolean checkWinner() {
-		// loop to check rows and columns
-		for (int i = 0; i < SIZE; i++) {
-			if ((board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer)
-					|| (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer)) {
-				return true;
-			}
-		}
+    public boolean checkWinner() {
+        return board.checkWin(currentPlayer.getSymbol());
+    }
 
-		// loop to check diagonal
-		if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer)
-				|| (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)) {
-			return true;
-		}
+    public boolean isDraw() {
+        return board.isFull();
+    }
 
-		return false;
-	}
+    public void switchPlayer() {
+        currentPlayer = (currentPlayer == playerX) ? playerO : playerX;
+    }
 
-	// Method to check for draw
-	public boolean isDraw() {
-		for (int i = 0; i < SIZE; i++) {
-			for (int j = 0; j < SIZE; j++) {
-				if (board[i][j] == '-') {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
 
-	// Method to switch player alternatively using ternary operator
-	public void switchPlayer() {
-		currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
-	}
-
-	public char getCurrentPlayer() {
-		return currentPlayer;
-	}
-
-	// Method to print the board with updated values after each turn
-	public void printBoard() {
-		System.out.println();
-		for (int i = 0; i < SIZE; i++) {
-			for (int j = 0; j < SIZE; j++) {
-				System.out.print(board[i][j] + " ");
-			}
-			System.out.println();
-		}
-	}
+    public void printBoard() {
+        board.printBoard();
+    }
 }
