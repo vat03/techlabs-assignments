@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.Hat"/>
-    <fullyQualifiedTypeName name="com.aurionpro.adapter.model.HatAdapter"/>
-    <fullyQualifiedTypeName name="com.aurionpro.facade.model.IHotel"/>
-    <fullyQualifiedTypeName name="com.aurionpro.facade.model.IndianHotel"/>
     <fullyQualifiedTypeName name="com.aurionpro.facade.model.IMenu"/>
     <fullyQualifiedTypeName name="com.aurionpro.facade.model.HotelReception"/>
     <fullyQualifiedTypeName name="com.aurionpro.decorator.model.CarInspection"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
     <fullyQualifiedTypeName name="java.util.concurrent.Executor"/>
     <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
+    <fullyQualifiedTypeName name="java.lang.Class"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.DatabaseConnection"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 </qualifiedTypeNameHistroy>
