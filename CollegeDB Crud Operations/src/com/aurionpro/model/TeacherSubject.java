@@ -11,14 +11,6 @@ public class TeacherSubject {
 
     // Assign Subject to Teacher (One-to-Many)
     public void assignSubjectToTeacher(int teacherId, int subjectId) {
-        String query = "UPDATE subjects SET teacherId = ? WHERE subId = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(1, teacherId);
-            stmt.setInt(2, subjectId);
-            stmt.executeUpdate();
-            System.out.println("Subject assigned to teacher successfully!");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        
     }
 }

@@ -1,8 +1,6 @@
 package com.aurionpro.model;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Teachers {
     private Connection connection;
@@ -26,21 +24,19 @@ public class Teachers {
     }
 
     // Read Teachers
-    public List<String> getAllTeachers() {
-        List<String> teachers = new ArrayList<>();
-        String query = "SELECT * FROM teachers";
-        try (Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
-            while (rs.next()) {
-                teachers.add("ID: " + rs.getInt("teacherId") +
-                        ",Teacher Name: " + rs.getString("name") +
-                        ", Qualification: " + rs.getString("qualification"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return teachers;
-    }
+    public void getAllTeachers() {
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("Select * from subjects");
+			while (resultSet.next()) {
+				System.out.println(resultSet.getInt("subId") + " " + resultSet.getInt("subjectName") + " "
+						+ resultSet.getString("studentId") + " " + resultSet.getInt("teacherId"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
     // Update Teachers
     public void updateTeachers(int id, String name, String qualification) {
