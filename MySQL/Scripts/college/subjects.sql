@@ -1,3 +1,1 @@
-use college;
-
-SELECT * FROM subjects;
+SELECT * FROM college.subjects;

@@ -1,3 +1,1 @@
-use college;
-
-SELECT * FROM teachers;
+SELECT * FROM college.teachers;
