@@ -108,6 +108,7 @@ public class Menu {
 			System.out.println("Enter subject Id: ");
 			int subjectId = scanner.nextInt();
 			System.out.println("Enter subject name: ");
+			scanner.nextLine();
 			String subjectName = scanner.nextLine();
 			service.addSubject(subjectId, subjectName);
 			break;
@@ -141,6 +142,7 @@ public class Menu {
 			System.out.println("Enter Teacher Id: ");
 			int teacherId = scanner.nextInt();
 			System.out.println("Enter Teacher name: ");
+			scanner.nextLine();
 			String teacherName = scanner.nextLine();
 			System.out.println("Enter Qualification: ");
 			String qualification = scanner.nextLine();
@@ -153,6 +155,7 @@ public class Menu {
 			System.out.println("Enter Teacher Id: ");
 			teacherId = scanner.nextInt();
 			System.out.println("Enter new Teacher name: ");
+			scanner.nextLine();
 			teacherName = scanner.nextLine();
 			System.out.println("Enter new Qualification: ");
 			qualification = scanner.nextLine();

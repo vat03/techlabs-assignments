@@ -26,10 +26,9 @@ public class Subjects {
 	public void getAllSubjects() {
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("Select * from teachers");
+			ResultSet resultSet = statement.executeQuery("Select * from subjects");
 			while (resultSet.next()) {
-				System.out.println(resultSet.getInt("teacherId") + " " + resultSet.getInt("name") + " "
-						+ resultSet.getString("qualification"));
+				System.out.println(resultSet.getInt("subId") + " " + resultSet.getString("subjectName"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
