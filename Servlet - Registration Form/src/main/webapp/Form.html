@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration Form</title>
+</head>
+<body>
+<form action = "RegisterationForm">
+First Name: <input type="text" name="firstnameTxt"></input><br><br>
+Last Name: <input type="text" name="lastnameTxt"></input><br><br>
+Gender: <input type="radio" name="gender" value="Male"><label for="Male">Male</label>
+		<input type="radio" name="gender" value="Female"><label for="Female">Female</label><br><br>
+		
+Languages: <input type="checkbox" name="language" value="Telugu">
+		   <label for="Telugu">Telugu</label>
+		   <input type="checkbox" name="language" value="English">
+		   <label for="English">English</label>
+		   <input type="checkbox" name="language" value="Hindi">
+		   <label for="Hindi">Hindi</label><br><br>
+		   
+Email: <input type="email" name="emailTxt"></input><br><br>
+
+Address: <textarea name="addressTxt"></textarea><br><br>
+
+State: <select name="state">
+    <option value="" disabled selected>-- Select State --</option>
+    <option value="Maharashtra">Maharashtra</option>
+    <option value="Gujarat">Gujarat</option>
+    <option value="Delhi">Delhi</option>
+	</select><br><br>
+
+Zip: <input type="number" name="zipTxt"></input><br><br>
+
+Credit Card Type: <select name="creditCardType">
+		<option value="" disabled selected>-- Select Credit Card Type --</option>
+        <option value="ICICI">ICICI</option>
+        <option value="HDFC">HDFC</option>
+        <option value="SBI">SBI</option>
+    	</select><br><br>
+    	
+<button>Submit</button>
+</form>
+</body>
+</html>
