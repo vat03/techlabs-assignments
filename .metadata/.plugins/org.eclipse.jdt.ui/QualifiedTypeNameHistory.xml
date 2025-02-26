@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.aurionpro.facade.model.IMenu"/>
-    <fullyQualifiedTypeName name="com.aurionpro.facade.model.HotelReception"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.CarInspection"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.CarServiceDecorator"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.OilChange"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.WheelAlgin"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.ICarService"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.IHat"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.StandardHat"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.PremiumHat"/>
     <fullyQualifiedTypeName name="com.aurionpro.decorator.model.HatDecorator"/>
     <fullyQualifiedTypeName name="com.aurionpro.decorator.model.GoldenHat"/>
     <fullyQualifiedTypeName name="com.aurionpro.decorator.model.RibbonedHat"/>
@@ -57,7 +47,17 @@
     <fullyQualifiedTypeName name="java.util.concurrent.Executor"/>
     <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
     <fullyQualifiedTypeName name="java.lang.Class"/>
-    <fullyQualifiedTypeName name="com.aurionpro.model.DatabaseConnection"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="com.aurionpro.test.Menu"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.Durability"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.Isolation"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.DatabaseConnection"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.lang.StrictMath"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
 </qualifiedTypeNameHistroy>

@@ -25,6 +25,7 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="savepoint"/>
 			<item value="gameEngine"/>
 		</list>
 	</section>
