@@ -1,6 +1,9 @@
 package com.aurionpro.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +16,9 @@ public class Demo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
+		PrintWriter writer = response.getWriter();
+		writer.print("<b>Welcome to servlets</b><br><i>Date: "+new Date()+"</i>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
