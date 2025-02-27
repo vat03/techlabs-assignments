@@ -51,7 +51,9 @@ public class ProductManager implements Serializable {
 	}
 
 	public void viewAllProducts() {
-		products.values().forEach(System.out::println);
+		for (Product product : products.values()) {
+	        System.out.println(product);
+	    }
 	}
 
 	public Product getProduct(String productId) {

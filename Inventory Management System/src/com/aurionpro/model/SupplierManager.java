@@ -46,7 +46,9 @@ public class SupplierManager implements Serializable {
 	}
 
 	public void viewAllSuppliers() {
-		suppliers.values().forEach(System.out::println);
+		for (Supplier supplier : suppliers.values()) {
+			System.out.println(supplier);
+		}
 	}
 
 	public Map<String, Supplier> getSuppliers() {

@@ -93,29 +93,7 @@ public class Inventory {
 		}
 	}
 
-	// Reports
-//	public void generateReports() {
-//		System.out.println("\n=== Inventory Summary Report ===");
-//		int totalProducts = productManager.getProducts().size();
-//		System.out.println("Total Number of Products: " + totalProducts);
-//		if (totalProducts == 0) {
-//			System.out.println("No products available.");
-//			return;
-//		}
-//		System.out.println("\nProduct Details:");
-//		System.out.printf("%-10s %-20s %-10s %-10s %-15s%n", "ID", "Name", "Quantity", "Price", "Total Value");
-//		System.out.println("-----------------------------------------------------------");
-//		double grandTotalValue = 0.0;
-//		for (Product product : productManager.getProducts().values()) {
-//			double totalValue = product.getQuantity() * product.getPrice();
-//			grandTotalValue += totalValue;
-//			System.out.printf("%-10s %-20s %-10d %-10.2f %-15.2f%n", product.getProductId(), product.getName(),
-//					product.getQuantity(), product.getPrice(), totalValue);
-//		}
-//		System.out.println("-----------------------------------------------------------");
-//		System.out.printf("Total Value of All Products: $%.2f%n", grandTotalValue);
-//	}
-
+	// Report
 	public void generateReports() {
 		System.out.println("\n=== Inventory Summary Report ===");
 		int totalProducts = productManager.getProducts().size();
@@ -132,11 +110,11 @@ public class Inventory {
 			System.out.println("\nProduct " + productNumber + " ID: " + product.getProductId());
 			System.out.println("Product " + productNumber + " Name: " + product.getName());
 			System.out.println("Product " + productNumber + " Quantity: " + product.getQuantity());
-			System.out.println("Product " + productNumber + " Price: $" + String.format("%.2f", product.getPrice()));
-			System.out.println("Product " + productNumber + " Total Value: $" + String.format("%.2f", totalValue));
+			System.out.println("Product " + productNumber + " Price: Rs." + product.getPrice());
+			System.out.println("Product " + productNumber + " Total Value: Rs." + totalValue);
 			productNumber++;
 		}
-		System.out.println("\nTotal Value of All Products: $" + String.format("%.2f", grandTotalValue));
+		System.out.println("\nTotal Value of All Products: Rs." + grandTotalValue);
 	}
 
 }
