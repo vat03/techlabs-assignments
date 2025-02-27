@@ -11,7 +11,7 @@ public class Inventory {
 	private SupplierManager supplierManager = new SupplierManager();
 	private TransactionManager transactionManager = new TransactionManager();
 
-	// Product Management Delegation
+	// Product Management
 	public void addProduct(String name, String description, int quantity, double price)
 			throws IllegalArgumentException {
 		productManager.addProduct(name, description, quantity, price);
@@ -33,7 +33,7 @@ public class Inventory {
 		productManager.viewAllProducts();
 	}
 
-	// Supplier Management Delegation
+	// Supplier Management 
 	public void addSupplier(String name, String contactInfo) {
 		supplierManager.addSupplier(name, contactInfo);
 	}
@@ -54,7 +54,7 @@ public class Inventory {
 		supplierManager.viewAllSuppliers();
 	}
 
-	// Transaction Management Delegation
+	// Transaction Management 
 	public void addStock(String productId, int quantity) throws InsufficientStockException {
 		Product product = productManager.getProduct(productId);
 		transactionManager.addStock(product, productId, quantity);
@@ -75,7 +75,7 @@ public class Inventory {
 			oos.writeObject(productManager.getProducts());
 			oos.writeObject(supplierManager.getSuppliers());
 			oos.writeObject(transactionManager.getTransactions());
-			System.out.println("Data saved successfully.");
+			System.out.println("\n------- Data saved successfully -------\n");
 		} catch (IOException e) {
 			System.out.println("Error saving data: " + e.getMessage());
 		}
@@ -87,7 +87,7 @@ public class Inventory {
 			productManager.setProducts((Map<String, Product>) ois.readObject());
 			supplierManager.setSuppliers((Map<String, Supplier>) ois.readObject());
 			transactionManager.setTransactions((List<Transaction>) ois.readObject());
-			System.out.println("Data loaded successfully.");
+			System.out.println("------- Data loaded successfully -------\n");
 		} catch (IOException | ClassNotFoundException e) {
 			System.out.println("Error loading data: " + e.getMessage());
 		}
@@ -95,7 +95,7 @@ public class Inventory {
 
 	// Report
 	public void generateReports() {
-		System.out.println("\n=== Inventory Summary Report ===");
+		System.out.println("\n------- Inventory Summary Report -------\n");
 		int totalProducts = productManager.getProducts().size();
 		System.out.println("Total Number of Products: " + totalProducts);
 		if (totalProducts == 0) {
