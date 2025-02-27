@@ -40,7 +40,7 @@ public class TransactionManager implements Serializable {
 	}
 
 	public void viewTransactionHistory(String productId) {
-		transactions.stream().filter(t -> t.getProductId().equals(productId)).forEach(System.out::println);
+		transactions.stream().filter(t -> t.getProductId().equals(productId)).forEach(t -> System.out.println(t));
 	}
 
 	public List<Transaction> getTransactions() {
