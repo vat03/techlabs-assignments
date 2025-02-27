@@ -3,6 +3,7 @@ package com.aurionpro.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.aurionpro.exceptions.InsufficientStockException;
 
@@ -40,7 +41,14 @@ public class TransactionManager implements Serializable {
 	}
 
 	public void viewTransactionHistory(String productId) {
-		transactions.stream().filter(t -> t.getProductId().equals(productId)).forEach(t -> System.out.println(t));
+		List<Transaction> productTransactions = transactions.stream().filter(t -> t.getProductId().equals(productId))
+				.collect(Collectors.toList());
+		if (productTransactions.isEmpty()) {
+			System.out.println("No Transaction history for product " + productId + ".");
+		} else {
+			productTransactions.forEach(t -> System.out.println(t));
+		}
+
 	}
 
 	public List<Transaction> getTransactions() {

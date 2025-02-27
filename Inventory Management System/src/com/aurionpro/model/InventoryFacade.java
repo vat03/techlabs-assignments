@@ -100,7 +100,8 @@ public class InventoryFacade {
 					inventory.generateReports();
 					break;
 				case 7:
-					System.out.println("Exiting");
+					System.out.println("\nThank you for using my Inventory Management Application !!");
+					System.out.println("Exiting the Application");
 					return;
 				default:
 					System.out.println("Invalid choice. Try again.");

@@ -87,7 +87,7 @@ public class Inventory {
 			productManager.setProducts((Map<String, Product>) ois.readObject());
 			supplierManager.setSuppliers((Map<String, Supplier>) ois.readObject());
 			transactionManager.setTransactions((List<Transaction>) ois.readObject());
-			System.out.println("------- Data loaded successfully -------\n");
+			System.out.println("\n------- Data loaded successfully -------\n");
 		} catch (IOException | ClassNotFoundException e) {
 			System.out.println("Error loading data: " + e.getMessage());
 		}

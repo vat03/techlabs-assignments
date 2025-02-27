@@ -46,8 +46,12 @@ public class SupplierManager implements Serializable {
 	}
 
 	public void viewAllSuppliers() {
-		for (Supplier supplier : suppliers.values()) {
-			System.out.println(supplier);
+		if (suppliers.isEmpty()) {
+			System.out.println("No suppliers available in the inventory.");
+		} else {
+			for (Supplier supplier : suppliers.values()) {
+				System.out.println(supplier);
+			}
 		}
 	}
 

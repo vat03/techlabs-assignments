@@ -51,9 +51,13 @@ public class ProductManager implements Serializable {
 	}
 
 	public void viewAllProducts() {
-		for (Product product : products.values()) {
-	        System.out.println(product);
-	    }
+		if (products.isEmpty()) {
+			System.out.println("No products available in the inventory.");
+		} else {
+			for (Product product : products.values()) {
+				System.out.println(product);
+			}
+		}
 	}
 
 	public Product getProduct(String productId) {
