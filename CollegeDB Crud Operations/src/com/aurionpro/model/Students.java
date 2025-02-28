@@ -1,3 +1,214 @@
+//package com.aurionpro.model;
+//
+//import java.sql.*;
+//
+//public class Students {
+//	private Connection connection;
+//
+//	public Students() {
+//		this.connection = DatabaseConnection.getInstance().getConnection();
+//	}
+//
+//	// Create Student
+//	public void addStudent(int studentId, int rollNumber, String name, int age) {
+//		String query = "INSERT INTO students (studentId, rollNumber, name, age) VALUES (?, ?, ?, ?)";
+//		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+//			stmt.setInt(1, studentId);
+//			stmt.setInt(2, rollNumber);
+//			stmt.setString(3, name);
+//			stmt.setInt(4, age);
+//			stmt.executeUpdate();
+//			System.out.println("Student added successfully!");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//
+//	// Read Students
+//	public void getAllStudents() {
+//		try {
+//			Statement statement = connection.createStatement();
+//			ResultSet resultSet = statement.executeQuery("Select * from students");
+//			while (resultSet.next()) {
+//				System.out.println(resultSet.getInt("studentId") + " " + resultSet.getInt("rollNumber") + " "
+//						+ resultSet.getString("name") + " " + resultSet.getInt("age"));
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+//
+//	// Update Student
+//	public void updateStudent(int id, String name, int age) {
+//		String query = "UPDATE students SET name = ?, age = ? WHERE studentId = ?";
+//		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+//			stmt.setString(1, name);
+//			stmt.setInt(2, age);
+//			stmt.setInt(3, id);
+//			stmt.executeUpdate();
+//			System.out.println("Student updated successfully!");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//
+//	// Delete Student
+//	public void deleteStudent(int id) {
+//		String query = "DELETE FROM students WHERE studentId = ?";
+//		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+//			stmt.setInt(1, id);
+//			stmt.executeUpdate();
+//			System.out.println("Student deleted successfully!");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//}
+
+//package com.aurionpro.model;
+//
+//import java.sql.*;
+//import java.util.logging.*;
+//
+//public class Students {
+//	private Connection connection;
+//	private static final Logger LOGGER = Logger.getLogger(Students.class.getName());
+//
+//	public Students() {
+//		this.connection = DatabaseConnection.getInstance().getConnection();
+//	}
+//
+//	public void addStudent(int studentId, int rollNumber, String name, int age) {
+//		String query = "INSERT INTO students (studentId, rollnumber, name, age) VALUES (?, ?, ?, ?)";
+//		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+//			stmt.setInt(1, studentId);
+//			stmt.setInt(2, rollNumber);
+//			stmt.setString(3, name);
+//			stmt.setInt(4, age);
+//			stmt.executeUpdate();
+//			System.out.println("Student added successfully!");
+//		} catch (SQLException e) {
+//			LOGGER.severe("Error adding student: " + e.getMessage());
+//			System.out.println("Failed to add student: " + e.getMessage());
+//		}
+//	}
+//
+//	public void getAllStudents() {
+//		try (Statement stmt = connection.createStatement();
+//				ResultSet rs = stmt.executeQuery("SELECT * FROM students")) {
+//			while (rs.next()) {
+//				System.out.printf("StudentID: %d, Roll: %d, Name: %s, Age: %d%n", rs.getInt("studentId"),
+//						rs.getInt("rollnumber"), rs.getString("name"), rs.getInt("age"));
+//			}
+//		} catch (SQLException e) {
+//			LOGGER.severe("Error retrieving students: " + e.getMessage());
+//		}
+//	}
+//
+//	public void updateStudent(int studentId, String name, int age) {
+//		String query = "UPDATE students SET name = ?, age = ? WHERE studentId = ?";
+//		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+//			stmt.setString(1, name);
+//			stmt.setInt(2, age);
+//			stmt.setInt(3, studentId);
+//			int rows = stmt.executeUpdate();
+//			if (rows > 0) {
+//				System.out.println("Student updated successfully!");
+//			} else {
+//				System.out.println("No student found with ID: " + studentId);
+//			}
+//		} catch (SQLException e) {
+//			LOGGER.severe("Error updating student: " + e.getMessage());
+//		}
+//	}
+//
+//	public void deleteStudent(int studentId) {
+//		String query = "DELETE FROM students WHERE studentId = ?";
+//		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+//			stmt.setInt(1, studentId);
+//			int rows = stmt.executeUpdate();
+//			if (rows > 0) {
+//				System.out.println("Student deleted successfully!");
+//			} else {
+//				System.out.println("No student found with ID: " + studentId);
+//			}
+//		} catch (SQLException e) {
+//			LOGGER.severe("Error deleting student: " + e.getMessage());
+//		}
+//	}
+//}
+
+//package com.aurionpro.model;
+//
+//import java.sql.*;
+//
+//public class Students {
+//	private Connection connection;
+//
+//	public Students() {
+//		this.connection = DatabaseConnection.getInstance().getConnection();
+//	}
+//
+//	public void addStudent(int studentId, int rollNumber, String name, int age) {
+//		String query = "INSERT INTO students (studentId, rollnumber, name, age) VALUES (?, ?, ?, ?)";
+//		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+//			stmt.setInt(1, studentId);
+//			stmt.setInt(2, rollNumber);
+//			stmt.setString(3, name);
+//			stmt.setInt(4, age);
+//			stmt.executeUpdate();
+//			System.out.println("Student added successfully!");
+//		} catch (SQLException e) {
+//			System.out.println("Failed to add student: " + e.getMessage());
+//		}
+//	}
+//
+//	public void getAllStudents() {
+//		try (Statement stmt = connection.createStatement();
+//				ResultSet rs = stmt.executeQuery("SELECT * FROM students")) {
+//			while (rs.next()) {
+//				System.out.printf("StudentID: %d, Roll: %d, Name: %s, Age: %d%n", rs.getInt("studentId"),
+//						rs.getInt("rollnumber"), rs.getString("name"), rs.getInt("age"));
+//			}
+//		} catch (SQLException e) {
+//			System.out.println("Error retrieving students: " + e.getMessage());
+//		}
+//	}
+//
+//	public void updateStudent(int studentId, String name, int age) {
+//		String query = "UPDATE students SET name = ?, age = ? WHERE studentId = ?";
+//		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+//			stmt.setString(1, name);
+//			stmt.setInt(2, age);
+//			stmt.setInt(3, studentId);
+//			int rows = stmt.executeUpdate();
+//			if (rows > 0) {
+//				System.out.println("Student updated successfully!");
+//			} else {
+//				System.out.println("No student found with ID: " + studentId);
+//			}
+//		} catch (SQLException e) {
+//			System.out.println("Error updating student: " + e.getMessage());
+//		}
+//	}
+//
+//	public void deleteStudent(int studentId) {
+//		String query = "DELETE FROM students WHERE studentId = ?";
+//		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+//			stmt.setInt(1, studentId);
+//			int rows = stmt.executeUpdate();
+//			if (rows > 0) {
+//				System.out.println("Student deleted successfully!");
+//			} else {
+//				System.out.println("No student found with ID: " + studentId);
+//			}
+//		} catch (SQLException e) {
+//			System.out.println("Error deleting student: " + e.getMessage());
+//		}
+//	}
+//}
+
 package com.aurionpro.model;
 
 import java.sql.*;
@@ -9,9 +220,21 @@ public class Students {
 		this.connection = DatabaseConnection.getInstance().getConnection();
 	}
 
-	// Create Student
 	public void addStudent(int studentId, int rollNumber, String name, int age) {
-		String query = "INSERT INTO students (studentId, rollNumber, name, age) VALUES (?, ?, ?, ?)";
+		String checkQuery = "SELECT COUNT(*) FROM students WHERE studentId = ?";
+		try (PreparedStatement checkStmt = connection.prepareStatement(checkQuery)) {
+			checkStmt.setInt(1, studentId);
+			ResultSet rs = checkStmt.executeQuery();
+			if (rs.next() && rs.getInt(1) > 0) {
+				System.out.println("Student ID " + studentId + " already exists!");
+				return;
+			}
+		} catch (SQLException e) {
+			System.out.println("Error checking student ID: " + e.getMessage());
+			return;
+		}
+
+		String query = "INSERT INTO students (studentId, rollnumber, name, age) VALUES (?, ?, ?, ?)";
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
 			stmt.setInt(1, studentId);
 			stmt.setInt(2, rollNumber);
@@ -20,48 +243,51 @@ public class Students {
 			stmt.executeUpdate();
 			System.out.println("Student added successfully!");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Failed to add student: " + e.getMessage());
 		}
 	}
 
-	// Read Students
 	public void getAllStudents() {
-		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("Select * from students");
-			while (resultSet.next()) {
-				System.out.println(resultSet.getInt("studentId") + " " + resultSet.getInt("rollNumber") + " "
-						+ resultSet.getString("name") + " " + resultSet.getInt("age"));
+		try (Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT * FROM students")) {
+			while (rs.next()) {
+				System.out.printf("StudentID: %d, Roll: %d, Name: %s, Age: %d%n", rs.getInt("studentId"),
+						rs.getInt("rollnumber"), rs.getString("name"), rs.getInt("age"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error retrieving students: " + e.getMessage());
 		}
 	}
 
-	// Update Student
-	public void updateStudent(int id, String name, int age) {
+	public void updateStudent(int studentId, String name, int age) {
 		String query = "UPDATE students SET name = ?, age = ? WHERE studentId = ?";
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
 			stmt.setString(1, name);
 			stmt.setInt(2, age);
-			stmt.setInt(3, id);
-			stmt.executeUpdate();
-			System.out.println("Student updated successfully!");
+			stmt.setInt(3, studentId);
+			int rows = stmt.executeUpdate();
+			if (rows > 0) {
+				System.out.println("Student updated successfully!");
+			} else {
+				System.out.println("No student found with ID: " + studentId);
+			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Error updating student: " + e.getMessage());
 		}
 	}
 
-	// Delete Student
-	public void deleteStudent(int id) {
+	public void deleteStudent(int studentId) {
 		String query = "DELETE FROM students WHERE studentId = ?";
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
-			stmt.setInt(1, id);
-			stmt.executeUpdate();
-			System.out.println("Student deleted successfully!");
+			stmt.setInt(1, studentId);
+			int rows = stmt.executeUpdate();
+			if (rows > 0) {
+				System.out.println("Student deleted successfully!");
+			} else {
+				System.out.println("No student found with ID: " + studentId);
+			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Error deleting student: " + e.getMessage());
 		}
 	}
 }
