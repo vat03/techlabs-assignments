@@ -9,7 +9,7 @@ import com.aurionpro.exceptions.InsufficientStockException;
 public class Inventory {
 	private ProductManager productManager = new ProductManager();
 	private SupplierManager supplierManager = new SupplierManager();
-	private TransactionManager transactionManager = new TransactionManager();
+	private TransactionManager transactionManager = new TransactionManager(productManager);
 
 	// Product Management
 	public void addProduct(String name, String description, int quantity, double price)
