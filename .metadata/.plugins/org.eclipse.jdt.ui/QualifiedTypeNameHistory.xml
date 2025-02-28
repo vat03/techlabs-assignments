@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.HatDecorator"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.GoldenHat"/>
-    <fullyQualifiedTypeName name="com.aurionpro.decorator.model.RibbonedHat"/>
-    <fullyQualifiedTypeName name="com.aurionpro.observer.model.INotifier"/>
-    <fullyQualifiedTypeName name="com.aurionpro.observer.model.SMSNotifier"/>
-    <fullyQualifiedTypeName name="com.aurionpro.observer.model.EmailNotifier"/>
     <fullyQualifiedTypeName name="com.aurionpro.observer.model.WhatsappNotifier"/>
     <fullyQualifiedTypeName name="com.aurionpro.observer.model.Account"/>
     <fullyQualifiedTypeName name="com.aurionpro.state.model.IPacketState"/>
@@ -60,4 +54,10 @@
     <fullyQualifiedTypeName name="java.lang.StrictMath"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.ProductOperationMenu"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.SupplierOperationMenu"/>
+    <fullyQualifiedTypeName name="com.aurionpro.model.TransactionOperationMenu"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collector"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 </qualifiedTypeNameHistroy>
