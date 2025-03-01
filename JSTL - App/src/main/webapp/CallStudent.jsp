@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Student Data</title>
 </head>
 <body>
 	<form action="StudentController" method="post">

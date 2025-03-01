@@ -1,19 +1,24 @@
 package com.aurionpro.entity;
 
 public class Student {
+	private int studentId;
 	private int rollNumber;
 	private String name;
 	private int age;
-	
-	public Student()
-	{
-		
+
+	public Student() {
+
 	}
-	
-	public Student(int rollNumber, String name, int age) {
+
+	public Student(int studentID, int rollNumber, String name, int age) {
+		this.studentId = studentID;
 		this.rollNumber = rollNumber;
 		this.name = name;
 		this.age = age;
+	}
+
+	public int getStudentId() {
+		return studentId;
 	}
 
 	public int getRollNumber() {
@@ -28,6 +33,10 @@ public class Student {
 		return age;
 	}
 
+	public void setStudentId(int studentID) {
+		this.studentId = studentID;
+	}
+
 	public void setRollNumber(int rollNumber) {
 		this.rollNumber = rollNumber;
 	}
@@ -39,6 +48,10 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", rollNumber=" + rollNumber + ", name=" + name + ", age=" + age
+				+ "]";
+	}
 }

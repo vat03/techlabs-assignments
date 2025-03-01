@@ -31,7 +31,8 @@ public class DatabaseConnection {
 			statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("Select * from students");
 			while (resultSet.next()) {
-				Student student = new Student(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3));
+				Student student = new Student(resultSet.getInt(1), resultSet.getInt(2), resultSet.getString(3),
+						resultSet.getInt(4));
 				students.add(student);
 			}
 		} catch (SQLException e) {
