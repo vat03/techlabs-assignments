@@ -52,7 +52,6 @@
     <fullyQualifiedTypeName name="com.aurionpro.model.SupplierOperationMenu"/>
     <fullyQualifiedTypeName name="com.aurionpro.model.TransactionOperationMenu"/>
     <fullyQualifiedTypeName name="java.util.stream.Collector"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="com.aurionpro.entity.Student"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="com.aurionpro.db.DatabaseConnection"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 </qualifiedTypeNameHistroy>
