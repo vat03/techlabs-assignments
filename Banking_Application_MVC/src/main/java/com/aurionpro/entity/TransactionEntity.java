@@ -4,10 +4,11 @@ import java.sql.Timestamp;
 
 public class TransactionEntity {
 	private int transactionId;
-	private String senderAccountNumber; // Changed to String for account number
-	private String receiverAccountNumber; // Changed to String for account number
+	private String senderAccountNumber;
+	private String receiverAccountNumber;
 	private String transactionType;
 	private double amount;
+	private double senderBalanceAfter; 
 	private Timestamp transactionDate;
 	private String status;
 
@@ -52,6 +53,14 @@ public class TransactionEntity {
 
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+
+	public double getSenderBalanceAfter() {
+		return senderBalanceAfter;
+	}
+
+	public void setSenderBalanceAfter(double senderBalanceAfter) {
+		this.senderBalanceAfter = senderBalanceAfter;
 	}
 
 	public Timestamp getTransactionDate() {

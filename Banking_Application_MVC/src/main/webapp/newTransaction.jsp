@@ -9,8 +9,16 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
 	crossorigin="anonymous">
+<script>
+	function toggleReceiverField() {
+		const actionType = document.getElementById("actionType").value;
+		const receiverDiv = document.getElementById("receiverDiv");
+		receiverDiv.style.display = (actionType === "transfer") ? "block"
+				: "none";
+	}
+</script>
 </head>
-<body>
+<body onload="toggleReceiverField()">
 	<div class="container">
 		<h2 class="mt-5">New Transaction</h2>
 		<c:if test="${not empty error}">
@@ -20,16 +28,18 @@
 			action="${pageContext.request.contextPath}/TransactionController?action=newTransaction"
 			method="post" class="mt-3">
 			<div class="form-group">
-				<label>Receiver Account Number</label> <input type="text"
-					name="receiverAccountNumber" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label>Action</label> <select name="actionType" class="form-control"
-					required>
-					<option value="send">Send Money to Another Account</option>
-					<option value="add">Add Money to Own Account</option>
+				<label for="actionType">What would you like to do?</label> <select
+					id="actionType" name="actionType" class="form-control"
+					onchange="toggleReceiverField()" required>
+					<option value="transfer">Transfer Money to Another Account</option>
 					<option value="withdraw">Withdraw Money from Own Account</option>
+					<option value="add">Deposit Money in Own Account</option>
 				</select>
+			</div>
+			<div id="receiverDiv" class="form-group" style="display: none;">
+				<label>Receiver Account Number</label> <input type="text"
+					name="receiverAccountNumber" class="form-control">
+				<!-- Removed required -->
 			</div>
 			<div class="form-group">
 				<label>Amount</label> <input type="number" name="amount"
@@ -54,3 +64,4 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
+

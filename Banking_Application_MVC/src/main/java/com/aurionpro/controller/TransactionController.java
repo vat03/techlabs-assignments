@@ -48,36 +48,74 @@ public class TransactionController extends HttpServlet {
 				request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
 				return;
 			}
-			// Assume the customer has one account for simplicity; extend if multiple
-			// accounts are supported
 			AccountEntity senderAccount = accounts.get(0); // First account as sender
 
-			String receiverAccountNumber = request.getParameter("receiverAccountNumber");
 			String actionType = request.getParameter("actionType");
+			String receiverAccountNumber = actionType.equals("transfer") ? request.getParameter("receiverAccountNumber")
+					: senderAccount.getAccountNumber();
 			double amount = Double.parseDouble(request.getParameter("amount"));
 
-			AccountEntity receiverAccount = accountRepository.getAccountByNumber(receiverAccountNumber);
-			if (receiverAccount == null) {
-				request.setAttribute("error", "Receiver account number does not exist.");
-				request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
-				return;
+			AccountEntity receiverAccount;
+			if ("transfer".equals(actionType)) {
+				receiverAccount = accountRepository.getAccountByNumber(receiverAccountNumber);
+				if (receiverAccount == null) {
+					request.setAttribute("error", "Receiver account number does not exist.");
+					request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
+					return;
+				}
+			} else {
+				receiverAccount = senderAccount; // For add/withdraw, receiver is sender
 			}
 
-			if ("withdraw".equals(actionType) && senderAccount.getBalance() < amount) {
-				request.setAttribute("error", "Insufficient balance.");
-				request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
-				return;
+			// Map actionType to transaction_type
+			String transactionType;
+			switch (actionType) {
+			case "transfer":
+				transactionType = "transfer";
+				break;
+			case "add":
+				transactionType = "credit";
+				break;
+			case "withdraw":
+				transactionType = "debit";
+				break;
+			default:
+				throw new IllegalArgumentException("Invalid action type: " + actionType);
 			}
 
 			TransactionEntity transaction = new TransactionEntity();
 			transaction.setSenderAccountNumber(senderAccount.getAccountNumber());
-			transaction.setReceiverAccountNumber(
-					"add".equals(actionType) ? senderAccount.getAccountNumber() : receiverAccountNumber);
-			transaction.setTransactionType(actionType);
+			transaction.setReceiverAccountNumber(receiverAccount.getAccountNumber());
+			transaction.setTransactionType(transactionType);
 			transaction.setAmount(amount);
-			transactionRepository.addTransaction(transaction);
 
-			response.sendRedirect(request.getContextPath() + "/customerHome.jsp");
+			// Check balance and set status
+			boolean isSuccess = true;
+			String errorMessage = null;
+			if ("withdraw".equals(actionType) || "transfer".equals(actionType)) {
+				if (senderAccount.getBalance() < amount) {
+					isSuccess = false;
+					errorMessage = "Insufficient balance.";
+					transaction.setStatus("failed");
+				} else {
+					transaction.setStatus("completed");
+				}
+			} else {
+				transaction.setStatus("completed"); // Add money always succeeds
+			}
+
+			try {
+				transactionRepository.addTransaction(transaction, isSuccess);
+				if (isSuccess) {
+					response.sendRedirect(request.getContextPath() + "/customerHome.jsp");
+				} else {
+					request.setAttribute("error", errorMessage);
+					request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
+				}
+			} catch (RuntimeException e) {
+				request.setAttribute("error", "Transaction failed: " + e.getMessage());
+				request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
+			}
 		}
 	}
 }

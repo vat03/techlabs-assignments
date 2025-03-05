@@ -20,6 +20,7 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Account Number(s)</th>
+					<th>Account Type(s)</th>
 					<th>Balance(s)</th>
 				</tr>
 			</thead>
@@ -36,6 +37,16 @@
 								<c:otherwise>
 									<c:forEach var="account" items="${customer.accounts}">
 										${account.accountNumber}<br>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose></td>
+						<td><c:choose>
+								<c:when test="${empty customer.accounts}">
+									NA
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="account" items="${customer.accounts}">
+										${account.accountType}<br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose></td>
@@ -70,3 +81,5 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
+
+

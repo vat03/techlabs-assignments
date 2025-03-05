@@ -21,6 +21,7 @@
 					<th>Receiver Account Number</th>
 					<th>Type</th>
 					<th>Amount</th>
+					<th>Balance</th>
 					<th>Date</th>
 					<th>Status</th>
 				</tr>
@@ -33,6 +34,7 @@
 						<td>${transaction.receiverAccountNumber}</td>
 						<td>${transaction.transactionType}</td>
 						<td>${transaction.amount}</td>
+						<td>${transaction.senderBalanceAfter}</td>
 						<td>${transaction.transactionDate}</td>
 						<td>${transaction.status}</td>
 					</tr>
