@@ -10,6 +10,38 @@
 	crossorigin="anonymous">
 </head>
 <body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Banking Application</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/AdminController">Admin
+						Dashboard</a></li>
+				<li class="nav-item active"><a class="nav-link"
+					href="${pageContext.request.contextPath}/addCustomer.jsp">Add
+						New Customer</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/addAccount.jsp">Add
+						Bank Account</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/AdminController?action=viewCustomers">View
+						Customers</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/AdminController?action=viewTransactions">View
+						Transactions</a></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0"
+				action="${pageContext.request.contextPath}/LogoutController"
+				method="post">
+				<button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+			</form>
+		</div>
+	</nav>
 	<div class="container">
 		<h2 class="mt-5">Add New Customer</h2>
 		<form

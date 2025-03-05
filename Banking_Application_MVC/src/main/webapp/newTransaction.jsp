@@ -19,6 +19,35 @@
 </script>
 </head>
 <body onload="toggleReceiverField()">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Banking Application</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/CustomerController">Customer
+						Dashboard</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/CustomerController?action=passbook">Passbook</a>
+				</li>
+				<li class="nav-item active"><a class="nav-link"
+					href="${pageContext.request.contextPath}/newTransaction.jsp">New
+						Transaction</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/CustomerController?action=editProfile">Edit
+						Profile</a></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0"
+				action="${pageContext.request.contextPath}/LogoutController"
+				method="post">
+				<button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+			</form>
+		</div>
+	</nav>
 	<div class="container">
 		<h2 class="mt-5">New Transaction</h2>
 		<c:if test="${not empty error}">
@@ -39,7 +68,6 @@
 			<div id="receiverDiv" class="form-group" style="display: none;">
 				<label>Receiver Account Number</label> <input type="text"
 					name="receiverAccountNumber" class="form-control">
-				<!-- Removed required -->
 			</div>
 			<div class="form-group">
 				<label>Amount</label> <input type="number" name="amount"
@@ -64,4 +92,3 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
-
