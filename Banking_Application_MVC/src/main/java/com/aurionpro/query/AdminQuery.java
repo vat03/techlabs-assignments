@@ -1,10 +1,10 @@
-package com.aurionpro.repository;
+package com.aurionpro.query;
 
 import com.aurionpro.db.DatabaseConnection;
 import com.aurionpro.entity.AdminEntity;
 import java.sql.*;
 
-public class AdminRepository {
+public class AdminQuery {
 	public void addAdmin(AdminEntity admin) {
 		String sql = "INSERT INTO admins (user_id, first_name, last_name) VALUES (?, ?, ?)";
 		try (Connection conn = DatabaseConnection.getConnection();

@@ -13,17 +13,17 @@ import javax.servlet.http.HttpSession;
 import com.aurionpro.entity.AccountEntity;
 import com.aurionpro.entity.TransactionEntity;
 import com.aurionpro.entity.UserEntity;
+import com.aurionpro.query.AccountQuery;
+import com.aurionpro.query.CustomerQuery;
+import com.aurionpro.query.TransactionQuery;
 import com.aurionpro.entity.CustomerEntity;
-import com.aurionpro.repository.AccountRepository;
-import com.aurionpro.repository.CustomerRepository;
-import com.aurionpro.repository.TransactionRepository;
 
 @WebServlet("/TransactionController")
 public class TransactionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private TransactionRepository transactionRepository = new TransactionRepository();
-	private AccountRepository accountRepository = new AccountRepository();
-	private CustomerRepository customerRepository = new CustomerRepository();
+	private TransactionQuery transactionQuery = new TransactionQuery();
+	private AccountQuery accountQuery = new AccountQuery();
+	private CustomerQuery customerQuery = new CustomerQuery();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -41,14 +41,14 @@ public class TransactionController extends HttpServlet {
 			}
 
 			UserEntity user = (UserEntity) session.getAttribute("user");
-			CustomerEntity customer = customerRepository.getCustomerByUserId(user.getUserId());
-			List<AccountEntity> accounts = accountRepository.getAccountsByCustomerId(customer.getCustomerId());
+			CustomerEntity customer = customerQuery.getCustomerByUserId(user.getUserId());
+			List<AccountEntity> accounts = accountQuery.getAccountsByCustomerId(customer.getCustomerId());
 			if (accounts.isEmpty()) {
 				request.setAttribute("error", "You don’t have an account. Please contact an admin to create one.");
 				request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
 				return;
 			}
-			AccountEntity senderAccount = accounts.get(0); // First account as sender
+			AccountEntity senderAccount = accounts.get(0);
 
 			String actionType = request.getParameter("actionType");
 			String receiverAccountNumber = actionType.equals("transfer") ? request.getParameter("receiverAccountNumber")
@@ -57,14 +57,14 @@ public class TransactionController extends HttpServlet {
 
 			AccountEntity receiverAccount;
 			if ("transfer".equals(actionType)) {
-				receiverAccount = accountRepository.getAccountByNumber(receiverAccountNumber);
+				receiverAccount = accountQuery.getAccountByNumber(receiverAccountNumber);
 				if (receiverAccount == null) {
 					request.setAttribute("error", "Receiver account number does not exist.");
 					request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
 					return;
 				}
 			} else {
-				receiverAccount = senderAccount; // For add/withdraw, receiver is sender
+				receiverAccount = senderAccount;
 			}
 
 			// Map actionType to transaction_type
@@ -101,11 +101,11 @@ public class TransactionController extends HttpServlet {
 					transaction.setStatus("completed");
 				}
 			} else {
-				transaction.setStatus("completed"); // Add money always succeeds
+				transaction.setStatus("completed");
 			}
 
 			try {
-				transactionRepository.addTransaction(transaction, isSuccess);
+				transactionQuery.addTransaction(transaction, isSuccess);
 				if (isSuccess) {
 					response.sendRedirect(request.getContextPath() + "/customerHome.jsp");
 				} else {

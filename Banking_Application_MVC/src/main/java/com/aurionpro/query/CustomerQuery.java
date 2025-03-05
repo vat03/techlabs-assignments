@@ -1,4 +1,4 @@
-package com.aurionpro.repository;
+package com.aurionpro.query;
 
 import com.aurionpro.db.DatabaseConnection;
 import com.aurionpro.entity.CustomerEntity;
@@ -6,8 +6,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerRepository {
-	private AccountRepository accountRepository = new AccountRepository();
+public class CustomerQuery {
+	private AccountQuery accountQuery = new AccountQuery();
 
 	public void addCustomer(CustomerEntity customer) {
 		String sql = "INSERT INTO customers (user_id, first_name, last_name) VALUES (?, ?, ?)";
@@ -35,7 +35,7 @@ public class CustomerRepository {
 				customer.setFirstName(rs.getString("first_name"));
 				customer.setLastName(rs.getString("last_name"));
 				// Fetch accounts for this customer
-				customer.setAccounts(accountRepository.getAccountsByCustomerId(customer.getCustomerId()));
+				customer.setAccounts(accountQuery.getAccountsByCustomerId(customer.getCustomerId()));
 				customers.add(customer);
 			}
 		} catch (SQLException e) {
@@ -56,7 +56,7 @@ public class CustomerRepository {
 				customer.setUserId(rs.getInt("user_id"));
 				customer.setFirstName(rs.getString("first_name"));
 				customer.setLastName(rs.getString("last_name"));
-				customer.setAccounts(accountRepository.getAccountsByCustomerId(customerId));
+				customer.setAccounts(accountQuery.getAccountsByCustomerId(customerId));
 				return customer;
 			}
 		} catch (SQLException e) {
@@ -77,7 +77,7 @@ public class CustomerRepository {
 				customer.setUserId(rs.getInt("user_id"));
 				customer.setFirstName(rs.getString("first_name"));
 				customer.setLastName(rs.getString("last_name"));
-				customer.setAccounts(accountRepository.getAccountsByCustomerId(customer.getCustomerId()));
+				customer.setAccounts(accountQuery.getAccountsByCustomerId(customer.getCustomerId()));
 				return customer;
 			}
 		} catch (SQLException e) {

@@ -7,7 +7,7 @@ public class CustomerEntity {
 	private int userId;
 	private String firstName;
 	private String lastName;
-	private List<AccountEntity> accounts; // New field for accounts
+	private List<AccountEntity> accounts;
 
 	public CustomerEntity() {
 	}

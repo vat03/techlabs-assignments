@@ -1,4 +1,4 @@
-package com.aurionpro.repository;
+package com.aurionpro.query;
 
 import com.aurionpro.db.DatabaseConnection;
 import com.aurionpro.entity.AccountEntity;
@@ -7,8 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionRepository {
-	private AccountRepository accountRepo = new AccountRepository();
+public class TransactionQuery {
+	private AccountQuery accountRepo = new AccountQuery();
 
 	public void addTransaction(TransactionEntity transaction, boolean isSuccess) {
 		String insertSql = "INSERT INTO transactions (sender_account_id, receiver_account_id, transaction_type, amount, status) VALUES (?, ?, ?, ?, ?)";

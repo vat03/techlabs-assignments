@@ -1,4 +1,4 @@
-package com.aurionpro.repository;
+package com.aurionpro.query;
 
 import com.aurionpro.db.DatabaseConnection;
 import com.aurionpro.entity.AccountEntity;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class AccountRepository {
+public class AccountQuery {
 	public void addAccount(AccountEntity account) {
 		String sql = "INSERT INTO accounts (account_number, customer_id, balance, account_type) VALUES (?, ?, ?, ?)";
 		try (Connection conn = DatabaseConnection.getConnection();
@@ -106,7 +106,7 @@ public class AccountRepository {
 
 	private String generateAccountNumber() {
 		Random rand = new Random();
-		int number = 100000 + rand.nextInt(900000); // 6-digit number
+		int number = 100000 + rand.nextInt(900000);
 		return String.valueOf(number);
 	}
 }

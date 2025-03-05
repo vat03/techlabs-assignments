@@ -4,10 +4,11 @@ import com.aurionpro.entity.AccountEntity;
 import com.aurionpro.entity.CustomerEntity;
 import com.aurionpro.entity.TransactionEntity;
 import com.aurionpro.entity.UserEntity;
-import com.aurionpro.repository.AccountRepository;
-import com.aurionpro.repository.CustomerRepository;
-import com.aurionpro.repository.TransactionRepository;
-import com.aurionpro.repository.UserRepository;
+import com.aurionpro.query.AccountQuery;
+import com.aurionpro.query.CustomerQuery;
+import com.aurionpro.query.TransactionQuery;
+import com.aurionpro.query.UserQuery;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,10 +22,10 @@ import java.util.List;
 @WebServlet("/CustomerController")
 public class CustomerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private CustomerRepository customerRepository = new CustomerRepository();
-	private UserRepository userRepository = new UserRepository();
-	private AccountRepository accountRepository = new AccountRepository();
-	private TransactionRepository transactionRepository = new TransactionRepository();
+	private CustomerQuery customerQuery = new CustomerQuery();
+	private UserQuery userQuery = new UserQuery();
+	private AccountQuery accountQuery = new AccountQuery();
+	private TransactionQuery transactionQuery = new TransactionQuery();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -35,7 +36,7 @@ public class CustomerController extends HttpServlet {
 		}
 
 		UserEntity user = (UserEntity) session.getAttribute("user");
-		CustomerEntity customer = customerRepository.getCustomerByUserId(user.getUserId());
+		CustomerEntity customer = customerQuery.getCustomerByUserId(user.getUserId());
 		if (customer == null) {
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 			return;
@@ -43,10 +44,10 @@ public class CustomerController extends HttpServlet {
 
 		String action = request.getParameter("action");
 		if ("passbook".equals(action)) {
-			List<AccountEntity> accounts = accountRepository.getAccountsByCustomerId(customer.getCustomerId());
+			List<AccountEntity> accounts = accountQuery.getAccountsByCustomerId(customer.getCustomerId());
 			List<TransactionEntity> transactions = new ArrayList<>();
 			for (AccountEntity account : accounts) {
-				transactions.addAll(transactionRepository.getTransactionsByAccountId(account.getAccountId()));
+				transactions.addAll(transactionQuery.getTransactionsByAccountId(account.getAccountId()));
 			}
 			request.setAttribute("transactions", transactions);
 			request.getRequestDispatcher("passbook.jsp").forward(request, response);
@@ -74,12 +75,12 @@ public class CustomerController extends HttpServlet {
 			String lastName = request.getParameter("lastName");
 			String password = request.getParameter("password");
 
-			CustomerEntity customer = customerRepository.getCustomerById(customerId);
+			CustomerEntity customer = customerQuery.getCustomerById(customerId);
 			if (customer != null) {
 				customer.setFirstName(firstName);
 				customer.setLastName(lastName);
-				customerRepository.updateCustomer(customer);
-				userRepository.updateUserPassword(user.getUserId(), password);
+				customerQuery.updateCustomer(customer);
+				userQuery.updateUserPassword(user.getUserId(), password);
 				response.sendRedirect(request.getContextPath() + "/customerHome.jsp");
 			} else {
 				request.setAttribute("error", "Customer not found");

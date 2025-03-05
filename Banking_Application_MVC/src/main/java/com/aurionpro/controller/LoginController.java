@@ -9,18 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.aurionpro.entity.UserEntity;
+import com.aurionpro.query.AdminQuery;
+import com.aurionpro.query.CustomerQuery;
+import com.aurionpro.query.UserQuery;
 import com.aurionpro.entity.CustomerEntity;
 import com.aurionpro.entity.AdminEntity;
-import com.aurionpro.repository.UserRepository;
-import com.aurionpro.repository.CustomerRepository;
-import com.aurionpro.repository.AdminRepository;
 
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserRepository userRepository = new UserRepository();
-	private CustomerRepository customerRepository = new CustomerRepository();
-	private AdminRepository adminRepository = new AdminRepository();
+	private UserQuery userQuery = new UserQuery();
+	private CustomerQuery customerQuery = new CustomerQuery();
+	private AdminQuery adminQuery = new AdminQuery();
 	private static final String ADMIN_SIGNUP_CODE = "1234";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,7 +44,7 @@ public class LoginController extends HttpServlet {
 			String lastName = request.getParameter("lastName");
 
 			// Check if username already exists
-			if (userRepository.validateUser(username, password) != null) {
+			if (userQuery.validateUser(username, password) != null) {
 				request.setAttribute("error", "Username already exists. Please choose a different one.");
 				request.getRequestDispatcher("signup.jsp").forward(request, response);
 				return;
@@ -66,7 +66,7 @@ public class LoginController extends HttpServlet {
 			user.setPassword(password);
 			user.setEmail(email);
 			user.setUserType(userType);
-			userRepository.addUser(user);
+			userQuery.addUser(user);
 
 			// Register as admin or customer
 			if ("admin".equals(userType)) {
@@ -74,13 +74,13 @@ public class LoginController extends HttpServlet {
 				admin.setUserId(user.getUserId());
 				admin.setFirstName(firstName);
 				admin.setLastName(lastName);
-				adminRepository.addAdmin(admin);
+				adminQuery.addAdmin(admin);
 			} else {
 				CustomerEntity customer = new CustomerEntity();
 				customer.setUserId(user.getUserId());
 				customer.setFirstName(firstName);
 				customer.setLastName(lastName);
-				customerRepository.addCustomer(customer);
+				customerQuery.addCustomer(customer);
 			}
 
 			// Redirect to login page after successful signup
@@ -89,7 +89,7 @@ public class LoginController extends HttpServlet {
 			// Handle login
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			UserEntity user = userRepository.validateUser(username, password);
+			UserEntity user = userQuery.validateUser(username, password);
 
 			if (user != null) {
 				HttpSession session = request.getSession();

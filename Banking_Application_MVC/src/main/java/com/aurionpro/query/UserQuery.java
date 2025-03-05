@@ -1,10 +1,10 @@
-package com.aurionpro.repository;
+package com.aurionpro.query;
 
 import com.aurionpro.db.DatabaseConnection;
 import com.aurionpro.entity.UserEntity;
 import java.sql.*;
 
-public class UserRepository {
+public class UserQuery {
 	public UserEntity validateUser(String username, String password) {
 		String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
 		try (Connection conn = DatabaseConnection.getConnection();
