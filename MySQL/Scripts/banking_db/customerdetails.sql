@@ -1,1 +1,0 @@
-SELECT * FROM banking_db.customerdetails;
