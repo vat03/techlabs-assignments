@@ -1,0 +1,11 @@
+use banking_db;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+TRUNCATE TABLE transactions;
+TRUNCATE TABLE accounts;
+TRUNCATE TABLE customers;
+TRUNCATE TABLE admins;
+TRUNCATE TABLE users;
+
+SET FOREIGN_KEY_CHECKS = 1;
