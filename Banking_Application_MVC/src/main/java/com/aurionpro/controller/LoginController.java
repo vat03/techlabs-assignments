@@ -1,105 +1,86 @@
+
 package com.aurionpro.controller;
 
-import java.io.IOException;
+import com.aurionpro.entity.CustomerEntity;
+import com.aurionpro.entity.UserEntity;
+import com.aurionpro.query.CustomerQuery;
+import com.aurionpro.query.UserQuery;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.aurionpro.entity.UserEntity;
-import com.aurionpro.query.AdminQuery;
-import com.aurionpro.query.CustomerQuery;
-import com.aurionpro.query.UserQuery;
-import com.aurionpro.entity.CustomerEntity;
-import com.aurionpro.entity.AdminEntity;
+import java.io.IOException;
 
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserQuery userQuery = new UserQuery();
 	private CustomerQuery customerQuery = new CustomerQuery();
-	private AdminQuery adminQuery = new AdminQuery();
-	private static final String ADMIN_SIGNUP_CODE = "1234";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String action = request.getParameter("action");
-		if (action == null || action.isEmpty()) {
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}
+		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
 
-		if ("signup".equals(action)) {
-			String userType = request.getParameter("userType");
+		if ("login".equals(action)) {
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+
+			// Line 47: Use validateUser from UserQuery
+			UserEntity user = userQuery.validateUser(username, password);
+			if (user != null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+				if ("admin".equals(user.getUserType())) {
+					response.sendRedirect(request.getContextPath() + "/AdminController");
+				} else if ("customer".equals(user.getUserType())) {
+					response.sendRedirect(request.getContextPath() + "/CustomerController");
+				} else {
+					request.setAttribute("error", "Invalid user type");
+					request.getRequestDispatcher("login.jsp").forward(request, response);
+				}
+			} else {
+				request.setAttribute("error", "Invalid username or password");
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			}
+		} else if ("register".equals(action)) {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			String email = request.getParameter("email");
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
 
-			// Check if username already exists
-			if (userQuery.validateUser(username, password) != null) {
-				request.setAttribute("error", "Username already exists. Please choose a different one.");
-				request.getRequestDispatcher("signup.jsp").forward(request, response);
-				return;
-			}
-
-			// Validate admin signup code if userType is admin
-			if ("admin".equals(userType)) {
-				String adminCode = request.getParameter("adminCode");
-				if (!ADMIN_SIGNUP_CODE.equals(adminCode)) {
-					request.setAttribute("error", "Invalid admin signup code.");
-					request.getRequestDispatcher("signup.jsp").forward(request, response);
-					return;
-				}
-			}
-
-			// Create new user
 			UserEntity user = new UserEntity();
 			user.setUsername(username);
 			user.setPassword(password);
 			user.setEmail(email);
-			user.setUserType(userType);
-			userQuery.addUser(user);
+			user.setUserType("customer");
 
-			// Register as admin or customer
-			if ("admin".equals(userType)) {
-				AdminEntity admin = new AdminEntity();
-				admin.setUserId(user.getUserId());
-				admin.setFirstName(firstName);
-				admin.setLastName(lastName);
-				adminQuery.addAdmin(admin);
-			} else {
-				CustomerEntity customer = new CustomerEntity();
-				customer.setUserId(user.getUserId());
-				customer.setFirstName(firstName);
-				customer.setLastName(lastName);
-				customerQuery.addCustomer(customer);
-			}
+			// Add user and get userId
+			int userId = userQuery.addUser(user);
 
-			// Redirect to login page after successful signup
-			response.sendRedirect(request.getContextPath() + "/login.jsp");
-		} else {
-			String username = request.getParameter("username");
-			String password = request.getParameter("password");
-			UserEntity user = userQuery.validateUser(username, password);
+			CustomerEntity customer = new CustomerEntity();
+			customer.setFirstName(firstName);
+			customer.setLastName(lastName);
 
-			if (user != null) {
+			// Line 83: Fix addCustomer call to include userId
+			customerQuery.addCustomer(customer, userId);
+
+			// Line 91: Validate newly registered user
+			UserEntity registeredUser = userQuery.validateUser(username, password);
+			if (registeredUser != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("user", user);
-				if ("admin".equals(user.getUserType())) {
-					response.sendRedirect(request.getContextPath() + "/adminHome.jsp");
-				} else {
-					response.sendRedirect(request.getContextPath() + "/customerHome.jsp");
-				}
+				session.setAttribute("user", registeredUser);
+				response.sendRedirect(request.getContextPath() + "/CustomerController");
 			} else {
-				request.setAttribute("error", "Invalid credentials / please try again");
+				request.setAttribute("error", "Registration failed");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 		}

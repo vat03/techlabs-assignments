@@ -45,6 +45,48 @@
 	</nav>
 	<div class="container">
 		<h2 class="mt-5">Transaction List</h2>
+		<form class="mt-3" method="get"
+			action="${pageContext.request.contextPath}/AdminController">
+			<input type="hidden" name="action" value="viewTransactions">
+			<div class="form-row">
+				<div class="col-md-4">
+					<label>Sort By</label> <select name="sortField"
+						class="form-control">
+						<option value="transaction_id"
+							${param.sortField == 'transaction_id' ? 'selected' : ''}>Transaction
+							ID</option>
+						<option value="sender_account_number"
+							${param.sortField == 'sender_account_number' ? 'selected' : ''}>Sender
+							Account Number</option>
+						<option value="receiver_account_number"
+							${param.sortField == 'receiver_account_number' ? 'selected' : ''}>Receiver
+							Account Number</option>
+						<option value="amount"
+							${param.sortField == 'amount' ? 'selected' : ''}>Amount</option>
+						<option value="sender_balance_after"
+							${param.sortField == 'sender_balance_after' ? 'selected' : ''}>Sender
+							Balance After</option>
+						<option value="receiver_balance_after"
+							${param.sortField == 'receiver_balance_after' ? 'selected' : ''}>Receiver
+							Balance After</option>
+						<option value="transaction_date"
+							${param.sortField == 'transaction_date' ? 'selected' : ''}>Date</option>
+						<option value="status"
+							${param.sortField == 'status' ? 'selected' : ''}>Status</option>
+					</select>
+				</div>
+				<div class="col-md-4">
+					<label>Order</label> <select name="sortOrder" class="form-control">
+						<option value="ASC" ${param.sortOrder == 'ASC' ? 'selected' : ''}>Ascending</option>
+						<option value="DESC"
+							${param.sortOrder == 'DESC' ? 'selected' : ''}>Descending</option>
+					</select>
+				</div>
+				<div class="col-md-4 align-self-end">
+					<button type="submit" class="btn btn-primary">Apply Filter</button>
+				</div>
+			</div>
+		</form>
 		<table class="table table-striped mt-3">
 			<thead>
 				<tr>
@@ -53,6 +95,8 @@
 					<th>Receiver Account Number</th>
 					<th>Type</th>
 					<th>Amount</th>
+					<th>Sender Balance After</th>
+					<th>Receiver Balance After</th>
 					<th>Date</th>
 					<th>Status</th>
 				</tr>
@@ -65,6 +109,8 @@
 						<td>${transaction.receiverAccountNumber}</td>
 						<td>${transaction.transactionType}</td>
 						<td>${transaction.amount}</td>
+						<td>${transaction.senderBalanceAfter}</td>
+						<td>${transaction.receiverBalanceAfter}</td>
 						<td>${transaction.transactionDate}</td>
 						<td>${transaction.status}</td>
 					</tr>

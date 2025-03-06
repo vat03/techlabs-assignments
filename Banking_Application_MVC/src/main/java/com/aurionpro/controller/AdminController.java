@@ -1,5 +1,15 @@
 package com.aurionpro.controller;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.aurionpro.entity.AccountEntity;
 import com.aurionpro.entity.CustomerEntity;
 import com.aurionpro.entity.TransactionEntity;
@@ -9,31 +19,37 @@ import com.aurionpro.query.CustomerQuery;
 import com.aurionpro.query.TransactionQuery;
 import com.aurionpro.query.UserQuery;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
-
 @WebServlet("/AdminController")
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserQuery userQuery = new UserQuery();
-	private CustomerQuery customerQuery = new CustomerQuery();
-	private AccountQuery accountQuery = new AccountQuery();
-	private TransactionQuery transactionQuery = new TransactionQuery();
+	private UserQuery userRepository = new UserQuery();
+	private CustomerQuery customerRepository = new CustomerQuery();
+	private TransactionQuery transactionRepository = new TransactionQuery();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session == null || session.getAttribute("user") == null) {
+			response.sendRedirect(request.getContextPath() + "/login.jsp");
+			return;
+		}
+
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		if (!"admin".equals(user.getUserType())) {
+			response.sendRedirect(request.getContextPath() + "/login.jsp");
+			return;
+		}
+
 		String action = request.getParameter("action");
+		String sortField = request.getParameter("sortField");
+		String sortOrder = request.getParameter("sortOrder");
+
 		if ("viewCustomers".equals(action)) {
-			List<CustomerEntity> customers = customerQuery.getAllCustomers();
+			List<CustomerEntity> customers = customerRepository.getAllCustomers(sortField, sortOrder);
 			request.setAttribute("customers", customers);
 			request.getRequestDispatcher("viewCustomers.jsp").forward(request, response);
 		} else if ("viewTransactions".equals(action)) {
-			List<TransactionEntity> transactions = transactionQuery.getAllTransactions();
+			List<TransactionEntity> transactions = transactionRepository.getAllTransactions(sortField, sortOrder);
 			request.setAttribute("transactions", transactions);
 			request.getRequestDispatcher("viewTransactions.jsp").forward(request, response);
 		} else {
@@ -43,13 +59,19 @@ public class AdminController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session == null || session.getAttribute("user") == null) {
+			response.sendRedirect(request.getContextPath() + "/login.jsp");
+			return;
+		}
+
 		String action = request.getParameter("action");
 		if ("addCustomer".equals(action)) {
-			String username = request.getParameter("username");
-			String password = request.getParameter("password");
-			String email = request.getParameter("email");
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			String username = request.getParameter("username");
 			String returnToAccount = request.getParameter("returnToAccount");
 
 			UserEntity user = new UserEntity();
@@ -57,15 +79,13 @@ public class AdminController extends HttpServlet {
 			user.setPassword(password);
 			user.setEmail(email);
 			user.setUserType("customer");
-			userQuery.addUser(user);
+			int userId = userRepository.addUser(user); // Line 82 - Now returns int
 
 			CustomerEntity customer = new CustomerEntity();
-			customer.setUserId(user.getUserId());
 			customer.setFirstName(firstName);
 			customer.setLastName(lastName);
-			customerQuery.addCustomer(customer);
+			customerRepository.addCustomer(customer, userId);
 
-			// Redirect based on context
 			if ("true".equals(returnToAccount)) {
 				response.sendRedirect(request.getContextPath() + "/addAccount.jsp");
 			} else {
@@ -76,11 +96,10 @@ public class AdminController extends HttpServlet {
 			String accountType = request.getParameter("accountType");
 			double initialBalance = Double.parseDouble(request.getParameter("initialBalance"));
 
-			// Validate customer existence
-			CustomerEntity customer = customerQuery.getCustomerById(customerId);
+			CustomerEntity customer = customerRepository.getCustomerById(customerId);
 			if (customer == null) {
-				request.setAttribute("error", "Customer ID does not exist.");
-				request.setAttribute("registerLink", "true");
+				request.setAttribute("error", "Customer with ID " + customerId + " does not exist.");
+				request.setAttribute("registerLink", true);
 				request.getRequestDispatcher("addAccount.jsp").forward(request, response);
 				return;
 			}
@@ -89,8 +108,9 @@ public class AdminController extends HttpServlet {
 			account.setCustomerId(customerId);
 			account.setAccountType(accountType);
 			account.setBalance(initialBalance);
-			accountQuery.addAccount(account);
 
+			AccountQuery accountRepository = new AccountQuery();
+			accountRepository.addAccount(account);
 			response.sendRedirect(request.getContextPath() + "/adminHome.jsp");
 		}
 	}

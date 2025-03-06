@@ -8,7 +8,8 @@ public class TransactionEntity {
 	private String receiverAccountNumber;
 	private String transactionType;
 	private double amount;
-	private double senderBalanceAfter; 
+	private double senderBalanceAfter;
+	private double receiverBalanceAfter; // New field
 	private Timestamp transactionDate;
 	private String status;
 
@@ -61,6 +62,14 @@ public class TransactionEntity {
 
 	public void setSenderBalanceAfter(double senderBalanceAfter) {
 		this.senderBalanceAfter = senderBalanceAfter;
+	}
+
+	public double getReceiverBalanceAfter() {
+		return receiverBalanceAfter;
+	}
+
+	public void setReceiverBalanceAfter(double receiverBalanceAfter) {
+		this.receiverBalanceAfter = receiverBalanceAfter;
 	}
 
 	public Timestamp getTransactionDate() {

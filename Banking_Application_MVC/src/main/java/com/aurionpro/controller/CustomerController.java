@@ -8,7 +8,6 @@ import com.aurionpro.query.AccountQuery;
 import com.aurionpro.query.CustomerQuery;
 import com.aurionpro.query.TransactionQuery;
 import com.aurionpro.query.UserQuery;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,13 +42,18 @@ public class CustomerController extends HttpServlet {
 		}
 
 		String action = request.getParameter("action");
+		String sortField = request.getParameter("sortField");
+		String sortOrder = request.getParameter("sortOrder");
+
 		if ("passbook".equals(action)) {
 			List<AccountEntity> accounts = accountQuery.getAccountsByCustomerId(customer.getCustomerId());
 			List<TransactionEntity> transactions = new ArrayList<>();
 			for (AccountEntity account : accounts) {
-				transactions.addAll(transactionQuery.getTransactionsByAccountId(account.getAccountId()));
+				transactions.addAll(
+						transactionQuery.getTransactionsByAccountId(account.getAccountId(), sortField, sortOrder));
 			}
 			request.setAttribute("transactions", transactions);
+			request.setAttribute("accounts", accounts);
 			request.getRequestDispatcher("passbook.jsp").forward(request, response);
 		} else if ("editProfile".equals(action)) {
 			request.setAttribute("customer", customer);

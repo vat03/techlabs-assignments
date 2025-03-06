@@ -42,6 +42,44 @@
 	</nav>
 	<div class="container">
 		<h2 class="mt-5">Passbook</h2>
+		<form class="mt-3" method="get"
+			action="${pageContext.request.contextPath}/CustomerController">
+			<input type="hidden" name="action" value="passbook">
+			<div class="form-row">
+				<div class="col-md-4">
+					<label>Sort By</label> <select name="sortField"
+						class="form-control">
+						<option value="transaction_id"
+							${param.sortField == 'transaction_id' ? 'selected' : ''}>Transaction
+							ID</option>
+						<option value="sender_account_number"
+							${param.sortField == 'sender_account_number' ? 'selected' : ''}>Sender
+							Account Number</option>
+						<option value="receiver_account_number"
+							${param.sortField == 'receiver_account_number' ? 'selected' : ''}>Receiver
+							Account Number</option>
+						<option value="amount"
+							${param.sortField == 'amount' ? 'selected' : ''}>Amount</option>
+						<option value="balance"
+							${param.sortField == 'balance' ? 'selected' : ''}>Balance</option>
+						<option value="transaction_date"
+							${param.sortField == 'transaction_date' ? 'selected' : ''}>Date</option>
+						<option value="status"
+							${param.sortField == 'status' ? 'selected' : ''}>Status</option>
+					</select>
+				</div>
+				<div class="col-md-4">
+					<label>Order</label> <select name="sortOrder" class="form-control">
+						<option value="ASC" ${param.sortOrder == 'ASC' ? 'selected' : ''}>Ascending</option>
+						<option value="DESC"
+							${param.sortOrder == 'DESC' ? 'selected' : ''}>Descending</option>
+					</select>
+				</div>
+				<div class="col-md-4 align-self-end">
+					<button type="submit" class="btn btn-primary">Apply Filter</button>
+				</div>
+			</div>
+		</form>
 		<table class="table table-striped mt-3">
 			<thead>
 				<tr>
@@ -63,7 +101,19 @@
 						<td>${transaction.receiverAccountNumber}</td>
 						<td>${transaction.transactionType}</td>
 						<td>${transaction.amount}</td>
-						<td>${transaction.senderBalanceAfter}</td>
+						<td><c:choose>
+								<c:when
+									test="${transaction.senderAccountNumber == transaction.receiverAccountNumber}">
+									${transaction.senderBalanceAfter}
+								</c:when>
+								<c:when
+									test="${transaction.senderAccountNumber == accounts[0].accountNumber}">
+									${transaction.senderBalanceAfter}
+								</c:when>
+								<c:otherwise>
+									${transaction.receiverBalanceAfter}
+								</c:otherwise>
+							</c:choose></td>
 						<td>${transaction.transactionDate}</td>
 						<td>${transaction.status}</td>
 					</tr>
@@ -87,4 +137,3 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
-

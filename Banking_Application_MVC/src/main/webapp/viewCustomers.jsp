@@ -45,6 +45,38 @@
 	</nav>
 	<div class="container">
 		<h2 class="mt-5">Customer List</h2>
+		<form class="mt-3" method="get"
+			action="${pageContext.request.contextPath}/AdminController">
+			<input type="hidden" name="action" value="viewCustomers">
+			<div class="form-row">
+				<div class="col-md-4">
+					<label>Sort By</label> <select name="sortField"
+						class="form-control">
+						<option value="customer_id"
+							${param.sortField == 'customer_id' ? 'selected' : ''}>Customer
+							ID</option>
+						<option value="first_name"
+							${param.sortField == 'first_name' ? 'selected' : ''}>First
+							Name</option>
+						<option value="last_name"
+							${param.sortField == 'last_name' ? 'selected' : ''}>Last
+							Name</option>
+						<option value="balance"
+							${param.sortField == 'balance' ? 'selected' : ''}>Balance</option>
+					</select>
+				</div>
+				<div class="col-md-4">
+					<label>Order</label> <select name="sortOrder" class="form-control">
+						<option value="ASC" ${param.sortOrder == 'ASC' ? 'selected' : ''}>Ascending</option>
+						<option value="DESC"
+							${param.sortOrder == 'DESC' ? 'selected' : ''}>Descending</option>
+					</select>
+				</div>
+				<div class="col-md-4 align-self-end">
+					<button type="submit" class="btn btn-primary">Apply Filter</button>
+				</div>
+			</div>
+		</form>
 		<table class="table table-striped mt-3">
 			<thead>
 				<tr>
@@ -113,4 +145,3 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
-
