@@ -67,7 +67,6 @@ public class TransactionController extends HttpServlet {
 				receiverAccount = senderAccount;
 			}
 
-			// Map actionType to transaction_type
 			String transactionType;
 			switch (actionType) {
 			case "transfer":
@@ -89,7 +88,6 @@ public class TransactionController extends HttpServlet {
 			transaction.setTransactionType(transactionType);
 			transaction.setAmount(amount);
 
-			// Check balance and set status
 			boolean isSuccess = true;
 			String errorMessage = null;
 			if ("withdraw".equals(actionType) || "transfer".equals(actionType)) {

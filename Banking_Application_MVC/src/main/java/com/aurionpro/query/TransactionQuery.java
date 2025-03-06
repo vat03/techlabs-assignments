@@ -29,7 +29,7 @@ public class TransactionQuery {
 				if ("debit".equals(transaction.getTransactionType())) {
 					double newSenderBalance = senderAccount.getBalance() - transaction.getAmount();
 					if (newSenderBalance < 0) {
-						throw new SQLException("Insufficient balance in sender account (should be caught earlier).");
+						throw new SQLException("Insufficient balance in sender account");
 					}
 					accountRepo.updateBalance(senderAccount.getAccountId(), newSenderBalance);
 					transaction.setSenderBalanceAfter(newSenderBalance);
@@ -41,7 +41,7 @@ public class TransactionQuery {
 					double newSenderBalance = senderAccount.getBalance() - transaction.getAmount();
 					double newReceiverBalance = receiverAccount.getBalance() + transaction.getAmount();
 					if (newSenderBalance < 0) {
-						throw new SQLException("Insufficient balance in sender account (should be caught earlier).");
+						throw new SQLException("Insufficient balance in sender account");
 					}
 					accountRepo.updateBalance(senderAccount.getAccountId(), newSenderBalance);
 					accountRepo.updateBalance(receiverAccount.getAccountId(), newReceiverBalance);
@@ -52,7 +52,6 @@ public class TransactionQuery {
 				transaction.setSenderBalanceAfter(senderAccount.getBalance());
 			}
 
-			// Insert transaction regardless of success
 			try (PreparedStatement stmt = conn.prepareStatement(insertSql)) {
 				stmt.setInt(1, senderAccount.getAccountId());
 				stmt.setInt(2, receiverAccount.getAccountId());

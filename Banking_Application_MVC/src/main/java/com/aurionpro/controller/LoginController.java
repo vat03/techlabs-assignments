@@ -86,7 +86,6 @@ public class LoginController extends HttpServlet {
 			// Redirect to login page after successful signup
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 		} else {
-			// Handle login
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			UserEntity user = userQuery.validateUser(username, password);
