@@ -1,15 +1,5 @@
 package com.aurionpro.controller;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.aurionpro.entity.AccountEntity;
 import com.aurionpro.entity.CustomerEntity;
 import com.aurionpro.entity.TransactionEntity;
@@ -19,23 +9,35 @@ import com.aurionpro.query.CustomerQuery;
 import com.aurionpro.query.TransactionQuery;
 import com.aurionpro.query.UserQuery;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
+
 @WebServlet("/AdminController")
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserQuery userRepository = new UserQuery();
-	private CustomerQuery customerRepository = new CustomerQuery();
-	private TransactionQuery transactionRepository = new TransactionQuery();
+	private UserQuery userQuery = new UserQuery();
+	private CustomerQuery customerQuery = new CustomerQuery();
+	private TransactionQuery transactionQuery = new TransactionQuery();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
+		System.out.println("AdminController: GET request received");
 		if (session == null || session.getAttribute("user") == null) {
+			System.out.println("No session or user, redirecting to login");
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 			return;
 		}
 
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		if (!"admin".equals(user.getUserType())) {
+			System.out.println("User is not admin, redirecting to login");
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 			return;
 		}
@@ -43,20 +45,23 @@ public class AdminController extends HttpServlet {
 		String action = request.getParameter("action");
 		String sortField = request.getParameter("sortField");
 		String sortOrder = request.getParameter("sortOrder");
+		System.out.println("Action: " + action + ", SortField: " + sortField + ", SortOrder: " + sortOrder);
 
 		if ("viewCustomers".equals(action)) {
-			List<CustomerEntity> customers = customerRepository.getAllCustomers(sortField, sortOrder);
+			List<CustomerEntity> customers = customerQuery.getAllCustomers(sortField, sortOrder);
 			request.setAttribute("customers", customers);
 			request.getRequestDispatcher("viewCustomers.jsp").forward(request, response);
 		} else if ("viewTransactions".equals(action)) {
-			List<TransactionEntity> transactions = transactionRepository.getAllTransactions(sortField, sortOrder);
+			List<TransactionEntity> transactions = transactionQuery.getAllTransactions(sortField, sortOrder);
 			request.setAttribute("transactions", transactions);
 			request.getRequestDispatcher("viewTransactions.jsp").forward(request, response);
 		} else {
+			System.out.println("Default case: Forwarding to adminHome.jsp");
 			request.getRequestDispatcher("adminHome.jsp").forward(request, response);
 		}
 	}
 
+	// doPost method remains unchanged for this fix
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
@@ -79,12 +84,12 @@ public class AdminController extends HttpServlet {
 			user.setPassword(password);
 			user.setEmail(email);
 			user.setUserType("customer");
-			int userId = userRepository.addUser(user); // Line 82 - Now returns int
+			int userId = userQuery.addUser(user);
 
 			CustomerEntity customer = new CustomerEntity();
 			customer.setFirstName(firstName);
 			customer.setLastName(lastName);
-			customerRepository.addCustomer(customer, userId);
+			customerQuery.addCustomer(customer, userId);
 
 			if ("true".equals(returnToAccount)) {
 				response.sendRedirect(request.getContextPath() + "/addAccount.jsp");
@@ -96,7 +101,7 @@ public class AdminController extends HttpServlet {
 			String accountType = request.getParameter("accountType");
 			double initialBalance = Double.parseDouble(request.getParameter("initialBalance"));
 
-			CustomerEntity customer = customerRepository.getCustomerById(customerId);
+			CustomerEntity customer = customerQuery.getCustomerById(customerId);
 			if (customer == null) {
 				request.setAttribute("error", "Customer with ID " + customerId + " does not exist.");
 				request.setAttribute("registerLink", true);
@@ -109,8 +114,8 @@ public class AdminController extends HttpServlet {
 			account.setAccountType(accountType);
 			account.setBalance(initialBalance);
 
-			AccountQuery accountRepository = new AccountQuery();
-			accountRepository.addAccount(account);
+			AccountQuery accountQuery = new AccountQuery();
+			accountQuery.addAccount(account);
 			response.sendRedirect(request.getContextPath() + "/adminHome.jsp");
 		}
 	}

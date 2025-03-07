@@ -1,11 +1,9 @@
-
 package com.aurionpro.controller;
 
 import com.aurionpro.entity.CustomerEntity;
 import com.aurionpro.entity.UserEntity;
 import com.aurionpro.query.CustomerQuery;
 import com.aurionpro.query.UserQuery;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,31 +20,38 @@ public class LoginController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("LoginController: GET request received");
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
+		System.out.println("LoginController: POST action = " + action);
 
 		if ("login".equals(action)) {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
+			System.out.println("Login attempt for username: " + username);
 
-			// Line 47: Use validateUser from UserQuery
 			UserEntity user = userQuery.validateUser(username, password);
 			if (user != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
+				System.out.println("User validated: " + user.getUsername() + ", Type: " + user.getUserType());
 				if ("admin".equals(user.getUserType())) {
+					System.out.println("Redirecting to AdminController");
 					response.sendRedirect(request.getContextPath() + "/AdminController");
 				} else if ("customer".equals(user.getUserType())) {
+					System.out.println("Redirecting to CustomerController");
 					response.sendRedirect(request.getContextPath() + "/CustomerController");
 				} else {
+					System.out.println("Invalid user type: " + user.getUserType());
 					request.setAttribute("error", "Invalid user type");
 					request.getRequestDispatcher("login.jsp").forward(request, response);
 				}
 			} else {
+				System.out.println("Login failed: Invalid credentials");
 				request.setAttribute("error", "Invalid username or password");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
@@ -63,23 +68,22 @@ public class LoginController extends HttpServlet {
 			user.setEmail(email);
 			user.setUserType("customer");
 
-			// Add user and get userId
 			int userId = userQuery.addUser(user);
+			System.out.println("User registered with ID: " + userId);
 
 			CustomerEntity customer = new CustomerEntity();
 			customer.setFirstName(firstName);
 			customer.setLastName(lastName);
-
-			// Line 83: Fix addCustomer call to include userId
 			customerQuery.addCustomer(customer, userId);
 
-			// Line 91: Validate newly registered user
 			UserEntity registeredUser = userQuery.validateUser(username, password);
 			if (registeredUser != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", registeredUser);
+				System.out.println("Registered and redirecting to CustomerController");
 				response.sendRedirect(request.getContextPath() + "/CustomerController");
 			} else {
+				System.out.println("Registration failed");
 				request.setAttribute("error", "Registration failed");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}

@@ -29,7 +29,9 @@ public class CustomerController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
+		System.out.println("CustomerController: GET request received");
 		if (session == null || session.getAttribute("user") == null) {
+			System.out.println("No session or user, redirecting to login");
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 			return;
 		}
@@ -37,6 +39,7 @@ public class CustomerController extends HttpServlet {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		CustomerEntity customer = customerQuery.getCustomerByUserId(user.getUserId());
 		if (customer == null) {
+			System.out.println("No customer found for user, redirecting to login");
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 			return;
 		}
@@ -44,6 +47,7 @@ public class CustomerController extends HttpServlet {
 		String action = request.getParameter("action");
 		String sortField = request.getParameter("sortField");
 		String sortOrder = request.getParameter("sortOrder");
+		System.out.println("Action: " + action + ", SortField: " + sortField + ", SortOrder: " + sortOrder);
 
 		if ("passbook".equals(action)) {
 			List<AccountEntity> accounts = accountQuery.getAccountsByCustomerId(customer.getCustomerId());
@@ -59,6 +63,7 @@ public class CustomerController extends HttpServlet {
 			request.setAttribute("customer", customer);
 			request.getRequestDispatcher("editProfile.jsp").forward(request, response);
 		} else {
+			System.out.println("Default case: Forwarding to customerHome.jsp");
 			request.getRequestDispatcher("customerHome.jsp").forward(request, response);
 		}
 	}
