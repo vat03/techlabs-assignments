@@ -1,0 +1,1 @@
+SELECT * FROM account_db_spring_crud.accounts;
