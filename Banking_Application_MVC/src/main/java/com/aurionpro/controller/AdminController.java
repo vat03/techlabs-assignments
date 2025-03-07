@@ -8,7 +8,6 @@ import com.aurionpro.query.AccountQuery;
 import com.aurionpro.query.CustomerQuery;
 import com.aurionpro.query.TransactionQuery;
 import com.aurionpro.query.UserQuery;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

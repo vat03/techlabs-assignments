@@ -1,7 +1,6 @@
 package com.aurionpro.query;
 
 import com.aurionpro.db.DatabaseConnection;
-import com.aurionpro.entity.AccountEntity;
 import com.aurionpro.entity.CustomerEntity;
 
 import java.sql.*;

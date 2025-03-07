@@ -4,7 +4,6 @@ import com.aurionpro.entity.CustomerEntity;
 import com.aurionpro.entity.UserEntity;
 import com.aurionpro.query.CustomerQuery;
 import com.aurionpro.query.UserQuery;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +29,7 @@ public class LoginController extends HttpServlet {
 		String action = request.getParameter("action");
 		System.out.println("[LoginController] POST action: " + action);
 
-		if ("login".equals(action) || action == null) { // Handle null action as login attempt
+		if ("login".equals(action) || action == null) { 
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			System.out.println("[LoginController] Login attempt for username: " + username);
@@ -59,7 +58,7 @@ public class LoginController extends HttpServlet {
 				request.setAttribute("error", "Invalid username or password");
 				request.getRequestDispatcher("/login.jsp").forward(request, response);
 			}
-		} else if ("register".equals(action) || "signup".equals(action)) { // Handle both register and signup
+		} else if ("register".equals(action) || "signup".equals(action)) {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			String email = request.getParameter("email");

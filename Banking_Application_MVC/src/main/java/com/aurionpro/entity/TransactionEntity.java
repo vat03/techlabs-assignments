@@ -9,7 +9,7 @@ public class TransactionEntity {
 	private String transactionType;
 	private double amount;
 	private double senderBalanceAfter;
-	private double receiverBalanceAfter; // New field
+	private double receiverBalanceAfter;
 	private Timestamp transactionDate;
 	private String status;
 

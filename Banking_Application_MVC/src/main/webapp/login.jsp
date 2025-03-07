@@ -33,7 +33,6 @@ body {
 		%>
 		<form action="LoginController" method="post">
 			<input type="hidden" name="action" value="login">
-			<!-- Ensure action=login -->
 			<div class="form-group">
 				<label for="username">Username</label> <input type="text"
 					class="form-control" id="username" name="username" required>
