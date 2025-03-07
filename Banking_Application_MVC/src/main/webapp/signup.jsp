@@ -1,84 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sign Up - Banking Application</title>
+<title>Sign Up</title>
 <link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-	crossorigin="anonymous">
-<script>
-	function toggleAdminCode() {
-		const userType = document.getElementById("userType").value;
-		const adminCodeDiv = document.getElementById("adminCodeDiv");
-		adminCodeDiv.style.display = userType === "admin" ? "block" : "none";
-	}
-</script>
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<style>
+body {
+	background-color: #f8f9fa;
+}
+
+.signup-container {
+	max-width: 500px;
+	margin: 50px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+</style>
 </head>
-<body onload="toggleAdminCode()">
-	<div class="container">
-		<h2 class="mt-5">Sign Up</h2>
-		<c:if test="${not empty error}">
-			<div class="alert alert-danger">${error}</div>
-		</c:if>
-		<form
-			action="${pageContext.request.contextPath}/LoginController?action=signup"
-			method="post" class="mt-3">
+<body>
+	<div class="signup-container">
+		<h2 class="text-center">Sign Up</h2>
+		<%
+		if (request.getAttribute("error") != null) {
+		%>
+		<div class="alert alert-danger"><%=request.getAttribute("error")%></div>
+		<%
+		}
+		%>
+		<form action="LoginController" method="post">
+			<input type="hidden" name="action" value="signup">
+			<!-- Ensure action=signup -->
 			<div class="form-group">
-				<label for="userType">Sign Up As</label> <select id="userType"
-					name="userType" class="form-control" onchange="toggleAdminCode()"
-					required>
-					<option value="customer">Customer</option>
-					<option value="admin">Admin</option>
-				</select>
-			</div>
-			<div id="adminCodeDiv" style="display: none;" class="form-group">
-				<label for="adminCode">Admin Signup Code</label> <input type="text"
-					id="adminCode" name="adminCode" class="form-control"
-					placeholder="Enter code">
+				<label for="username">Username</label> <input type="text"
+					class="form-control" id="username" name="username" required>
 			</div>
 			<div class="form-group">
-				<label>Username</label> <input type="text" name="username"
-					class="form-control" required>
+				<label for="password">Password</label> <input type="password"
+					class="form-control" id="password" name="password" required>
 			</div>
 			<div class="form-group">
-				<label>Password</label> <input type="password" name="password"
-					class="form-control" required>
+				<label for="email">Email</label> <input type="email"
+					class="form-control" id="email" name="email" required>
 			</div>
 			<div class="form-group">
-				<label>Email ID</label> <input type="email" name="email"
-					class="form-control" required>
+				<label for="firstName">First Name</label> <input type="text"
+					class="form-control" id="firstName" name="firstName" required>
 			</div>
 			<div class="form-group">
-				<label>First Name</label> <input type="text" name="firstName"
-					class="form-control" required>
+				<label for="lastName">Last Name</label> <input type="text"
+					class="form-control" id="lastName" name="lastName" required>
 			</div>
-			<div class="form-group">
-				<label>Last Name</label> <input type="text" name="lastName"
-					class="form-control" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Sign Up</button>
-			<a href="${pageContext.request.contextPath}/welcome.jsp"
-				class="btn btn-secondary">Cancel</a>
+			<button type="submit" class="btn btn-primary btn-block">Sign
+				Up</button>
 		</form>
-		<p class="mt-3">
-			Already have an account? <a
-				href="${pageContext.request.contextPath}/login.jsp">Login here</a>
+		<p class="text-center mt-3">
+			Already have an account? <a href="login.jsp">Login</a>
 		</p>
 	</div>
-	<script
-		src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"
-		integrity="sha384-Qg00WFl9r0Xr6rUqNLvOlwHvQNZuA5ULHNZkvr5rVPf5m2U2PWY0pWwdXYgN0PZ+"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-		integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
-		crossorigin="anonymous"></script>
 </body>
 </html>

@@ -8,6 +8,7 @@ import com.aurionpro.query.AccountQuery;
 import com.aurionpro.query.CustomerQuery;
 import com.aurionpro.query.TransactionQuery;
 import com.aurionpro.query.UserQuery;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,17 +30,21 @@ public class CustomerController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		System.out.println("CustomerController: GET request received");
+		System.out.println("[CustomerController] GET request received, Session ID: "
+				+ (session != null ? session.getId() : "null"));
+
 		if (session == null || session.getAttribute("user") == null) {
-			System.out.println("No session or user, redirecting to login");
+			System.out.println("[CustomerController] No session or user, redirecting to login.jsp");
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 			return;
 		}
 
 		UserEntity user = (UserEntity) session.getAttribute("user");
+		System.out.println("[CustomerController] User: " + user.getUsername() + ", Type: " + user.getUserType());
+
 		CustomerEntity customer = customerQuery.getCustomerByUserId(user.getUserId());
 		if (customer == null) {
-			System.out.println("No customer found for user, redirecting to login");
+			System.out.println("[CustomerController] No customer found for user, redirecting to login.jsp");
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 			return;
 		}
@@ -47,7 +52,8 @@ public class CustomerController extends HttpServlet {
 		String action = request.getParameter("action");
 		String sortField = request.getParameter("sortField");
 		String sortOrder = request.getParameter("sortOrder");
-		System.out.println("Action: " + action + ", SortField: " + sortField + ", SortOrder: " + sortOrder);
+		System.out.println(
+				"[CustomerController] Action: " + action + ", SortField: " + sortField + ", SortOrder: " + sortOrder);
 
 		if ("passbook".equals(action)) {
 			List<AccountEntity> accounts = accountQuery.getAccountsByCustomerId(customer.getCustomerId());
@@ -58,13 +64,15 @@ public class CustomerController extends HttpServlet {
 			}
 			request.setAttribute("transactions", transactions);
 			request.setAttribute("accounts", accounts);
-			request.getRequestDispatcher("passbook.jsp").forward(request, response);
+			System.out.println("[CustomerController] Forwarding to passbook.jsp");
+			request.getRequestDispatcher("/passbook.jsp").forward(request, response);
 		} else if ("editProfile".equals(action)) {
 			request.setAttribute("customer", customer);
-			request.getRequestDispatcher("editProfile.jsp").forward(request, response);
+			System.out.println("[CustomerController] Forwarding to editProfile.jsp");
+			request.getRequestDispatcher("/editProfile.jsp").forward(request, response);
 		} else {
-			System.out.println("Default case: Forwarding to customerHome.jsp");
-			request.getRequestDispatcher("customerHome.jsp").forward(request, response);
+			System.out.println("[CustomerController] Default case: Forwarding to customerHome.jsp");
+			request.getRequestDispatcher("/customerHome.jsp").forward(request, response);
 		}
 	}
 
@@ -93,7 +101,7 @@ public class CustomerController extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + "/customerHome.jsp");
 			} else {
 				request.setAttribute("error", "Customer not found");
-				request.getRequestDispatcher("editProfile.jsp").forward(request, response);
+				request.getRequestDispatcher("/editProfile.jsp").forward(request, response);
 			}
 		}
 	}
