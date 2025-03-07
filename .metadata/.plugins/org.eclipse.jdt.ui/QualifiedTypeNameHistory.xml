@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.aurionpro.strategy.model.IOperation"/>
-    <fullyQualifiedTypeName name="com.aurionpro.strategy.model.OperationStrategy"/>
-    <fullyQualifiedTypeName name="com.aurionpro.strategy.model.AddOperation"/>
-    <fullyQualifiedTypeName name="com.aurionpro.strategy.model.MultiplyOperation"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="com.aurionpro.command.model.Television"/>
     <fullyQualifiedTypeName name="java.awt.color.ICC_ColorSpace"/>
     <fullyQualifiedTypeName name="com.aurionpro.command.model.ICommand"/>
     <fullyQualifiedTypeName name="com.aurionpro.command.model.OnCommand"/>
@@ -60,4 +54,10 @@
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="com.aurionpro.db.DatabaseConnection"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Configurable"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
+    <fullyQualifiedTypeName name="com.aurionpro.springcore.model.Config"/>
 </qualifiedTypeNameHistroy>
