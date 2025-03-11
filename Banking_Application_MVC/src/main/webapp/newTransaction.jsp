@@ -9,6 +9,8 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 <script>
 	function toggleReceiverField() {
 		const actionType = document.getElementById("actionType").value;
@@ -19,7 +21,7 @@
 </script>
 </head>
 <body onload="toggleReceiverField()">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="#">Banking Application</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -47,35 +49,43 @@
 			</form>
 		</div>
 	</nav>
-	<div class="container">
-		<h2 class="mt-5">New Transaction</h2>
-		<c:if test="${not empty error}">
-			<div class="alert alert-danger" role="alert">${error}</div>
-		</c:if>
-		<form
-			action="${pageContext.request.contextPath}/TransactionController?action=newTransaction"
-			method="post" class="mt-3">
-			<div class="form-group">
-				<label for="actionType">What would you like to do?</label> <select
-					id="actionType" name="actionType" class="form-control"
-					onchange="toggleReceiverField()" required>
-					<option value="transfer">Transfer Money to Another Account</option>
-					<option value="withdraw">Withdraw Money from Own Account</option>
-					<option value="add">Deposit Money in Own Account</option>
-				</select>
+	<div class="container mt-5">
+		<h2 class="text-center">New Transaction</h2>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card p-4">
+					<c:if test="${not empty error}">
+						<div class="alert alert-danger" role="alert">${error}</div>
+					</c:if>
+					<form
+						action="${pageContext.request.contextPath}/TransactionController?action=newTransaction"
+						method="post">
+						<div class="form-group">
+							<label for="actionType">What would you like to do?</label> <select
+								id="actionType" name="actionType" class="form-control"
+								onchange="toggleReceiverField()" required>
+								<option value="transfer">Transfer Money to Another
+									Account</option>
+								<option value="withdraw">Withdraw Money from Own
+									Account</option>
+								<option value="add">Deposit Money in Own Account</option>
+							</select>
+						</div>
+						<div id="receiverDiv" class="form-group" style="display: none;">
+							<label>Receiver Account Number</label> <input type="text"
+								name="receiverAccountNumber" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Amount</label> <input type="number" name="amount"
+								class="form-control" step="0.01" required>
+						</div>
+						<button type="submit" class="btn btn-primary btn-block">Submit</button>
+						<a href="${pageContext.request.contextPath}/customerHome.jsp"
+							class="btn btn-secondary btn-block">Cancel</a>
+					</form>
+				</div>
 			</div>
-			<div id="receiverDiv" class="form-group" style="display: none;">
-				<label>Receiver Account Number</label> <input type="text"
-					name="receiverAccountNumber" class="form-control">
-			</div>
-			<div class="form-group">
-				<label>Amount</label> <input type="number" name="amount"
-					class="form-control" step="0.01" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-			<a href="${pageContext.request.contextPath}/customerHome.jsp"
-				class="btn btn-secondary">Cancel</a>
-		</form>
+		</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"

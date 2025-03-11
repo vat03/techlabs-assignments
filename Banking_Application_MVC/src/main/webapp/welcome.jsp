@@ -8,13 +8,15 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
-	<div class="container">
-		<h2 class="mt-5 text-center">Welcome to Banking Application</h2>
+	<div class="container mt-5">
+		<h2 class="text-center">Welcome to Banking Application</h2>
 		<div class="row justify-content-center mt-4">
 			<div class="col-md-6">
-				<div class="card">
+				<div class="card p-4">
 					<div class="card-body text-center">
 						<h4 class="card-title">Get Started</h4>
 						<p class="card-text">Choose an option below to proceed:</p>

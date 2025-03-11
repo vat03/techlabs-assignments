@@ -9,9 +9,11 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="#">Banking Application</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -43,96 +45,92 @@
 			</form>
 		</div>
 	</nav>
-	<div class="container">
-		<h2 class="mt-5">Customer List</h2>
-		<form class="mt-3" method="get"
-			action="${pageContext.request.contextPath}/AdminController">
-			<input type="hidden" name="action" value="viewCustomers">
-			<div class="form-row">
-				<div class="col-md-4">
-					<label>Sort By</label> <select name="sortField"
-						class="form-control">
-						<option value="customer_id"
-							${param.sortField == 'customer_id' ? 'selected' : ''}>Customer
-							ID</option>
-						<option value="first_name"
-							${param.sortField == 'first_name' ? 'selected' : ''}>First
-							Name</option>
-						<option value="last_name"
-							${param.sortField == 'last_name' ? 'selected' : ''}>Last
-							Name</option>
-						<option value="balance"
-							${param.sortField == 'balance' ? 'selected' : ''}>Balance</option>
-						<option value="account_number"
-							${param.sortField == 'account_number' ? 'selected' : ''}>Account
-							Number</option>
-					</select>
+	<div class="container mt-5">
+		<h2 class="text-center">Customer List</h2>
+		<div class="card p-4 mb-4">
+			<form method="get"
+				action="${pageContext.request.contextPath}/AdminController">
+				<input type="hidden" name="action" value="viewCustomers">
+				<div class="form-row">
+					<div class="col-md-4 form-group">
+						<label>Sort By</label> <select name="sortField"
+							class="form-control">
+							<option value="customer_id"
+								${param.sortField == 'customer_id' ? 'selected' : ''}>Customer
+								ID</option>
+							<option value="first_name"
+								${param.sortField == 'first_name' ? 'selected' : ''}>First
+								Name</option>
+							<option value="last_name"
+								${param.sortField == 'last_name' ? 'selected' : ''}>Last
+								Name</option>
+							<option value="balance"
+								${param.sortField == 'balance' ? 'selected' : ''}>Balance</option>
+							<option value="account_number"
+								${param.sortField == 'account_number' ? 'selected' : ''}>Account
+								Number</option>
+						</select>
+					</div>
+					<div class="col-md-4 form-group">
+						<label>Order</label> <select name="sortOrder" class="form-control">
+							<option value="ASC" ${param.sortOrder == 'ASC' ? 'selected' : ''}>Ascending</option>
+							<option value="DESC"
+								${param.sortOrder == 'DESC' ? 'selected' : ''}>Descending</option>
+						</select>
+					</div>
+					<div class="col-md-4 form-group align-self-end">
+						<button type="submit" class="btn btn-primary btn-block">Apply
+							Filter</button>
+					</div>
 				</div>
-				<div class="col-md-4">
-					<label>Order</label> <select name="sortOrder" class="form-control">
-						<option value="ASC" ${param.sortOrder == 'ASC' ? 'selected' : ''}>Ascending</option>
-						<option value="DESC"
-							${param.sortOrder == 'DESC' ? 'selected' : ''}>Descending</option>
-					</select>
-				</div>
-				<div class="col-md-4 align-self-end">
-					<button type="submit" class="btn btn-primary">Apply Filter</button>
-				</div>
-			</div>
-		</form>
-		<table class="table table-striped mt-3">
-			<thead>
-				<tr>
-					<th>Customer ID</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Account Number(s)</th>
-					<th>Account Type(s)</th>
-					<th>Balance(s)</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="customer" items="${customers}">
+			</form>
+		</div>
+		<div class="card p-4">
+			<table class="table table-striped">
+				<thead>
 					<tr>
-						<td>${customer.customerId}</td>
-						<td>${customer.firstName}</td>
-						<td>${customer.lastName}</td>
-						<td><c:choose>
-								<c:when test="${empty customer.accounts}">
-                                    NA
-                                </c:when>
-								<c:otherwise>
-									<c:forEach var="account" items="${customer.accounts}">
-                                        ${account.accountNumber}<br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose></td>
-						<td><c:choose>
-								<c:when test="${empty customer.accounts}">
-                                    NA
-                                </c:when>
-								<c:otherwise>
-									<c:forEach var="account" items="${customer.accounts}">
-                                        ${account.accountType}<br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose></td>
-						<td><c:choose>
-								<c:when test="${empty customer.accounts}">
-                                    NA
-                                </c:when>
-								<c:otherwise>
-									<c:forEach var="account" items="${customer.accounts}">
-                                        ${account.balance}<br>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose></td>
+						<th>Customer ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Account Number(s)</th>
+						<th>Account Type(s)</th>
+						<th>Balance(s)</th>
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<a href="${pageContext.request.contextPath}/adminHome.jsp"
-			class="btn btn-secondary">Back</a>
+				</thead>
+				<tbody>
+					<c:forEach var="customer" items="${customers}">
+						<tr>
+							<td>${customer.customerId}</td>
+							<td>${customer.firstName}</td>
+							<td>${customer.lastName}</td>
+							<td><c:choose>
+									<c:when test="${empty customer.accounts}">NA</c:when>
+									<c:otherwise>
+										<c:forEach var="account" items="${customer.accounts}">${account.accountNumber}<br>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose></td>
+							<td><c:choose>
+									<c:when test="${empty customer.accounts}">NA</c:when>
+									<c:otherwise>
+										<c:forEach var="account" items="${customer.accounts}">${account.accountType}<br>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose></td>
+							<td><c:choose>
+									<c:when test="${empty customer.accounts}">NA</c:when>
+									<c:otherwise>
+										<c:forEach var="account" items="${customer.accounts}">${account.balance}<br>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<a href="${pageContext.request.contextPath}/adminHome.jsp"
+				class="btn btn-secondary btn-block">Back</a>
+		</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"

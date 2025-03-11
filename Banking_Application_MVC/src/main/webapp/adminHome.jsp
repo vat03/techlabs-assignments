@@ -9,9 +9,11 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="#">Banking Application</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -43,27 +45,33 @@
 			</form>
 		</div>
 	</nav>
-	<div class="container">
-		<h2 class="mt-5">Admin Dashboard</h2>
+	<div class="container mt-5">
+		<h2 class="text-center">Admin Dashboard</h2>
 		<c:if test="${not empty sessionScope.message}">
 			<div class="alert alert-success" role="alert">
 				${sessionScope.message}
 				<%
 				session.removeAttribute("message");
 				%>
-				<%-- Clear message after display --%>
 			</div>
 		</c:if>
-		<div class="list-group mt-3">
-			<a href="${pageContext.request.contextPath}/addCustomer.jsp"
-				class="list-group-item list-group-item-action">Add New Customer</a>
-			<a href="${pageContext.request.contextPath}/addAccount.jsp"
-				class="list-group-item list-group-item-action">Add Bank Account</a>
-			<a
-				href="${pageContext.request.contextPath}/AdminController?action=viewCustomers"
-				class="list-group-item list-group-item-action">View Customers</a> <a
-				href="${pageContext.request.contextPath}/AdminController?action=viewTransactions"
-				class="list-group-item list-group-item-action">View Transactions</a>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="list-group">
+					<a href="${pageContext.request.contextPath}/addCustomer.jsp"
+						class="list-group-item list-group-item-action">Add New
+						Customer</a> <a
+						href="${pageContext.request.contextPath}/addAccount.jsp"
+						class="list-group-item list-group-item-action">Add Bank
+						Account</a> <a
+						href="${pageContext.request.contextPath}/AdminController?action=viewCustomers"
+						class="list-group-item list-group-item-action">View Customers</a>
+					<a
+						href="${pageContext.request.contextPath}/AdminController?action=viewTransactions"
+						class="list-group-item list-group-item-action">View
+						Transactions</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script

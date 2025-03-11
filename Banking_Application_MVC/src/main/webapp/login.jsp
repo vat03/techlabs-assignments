@@ -10,38 +10,45 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
 	<div class="container mt-5">
-		<h2>Login</h2>
-		<c:if test="${not empty sessionScope.message}">
-			<div class="alert alert-success" role="alert">
-				${sessionScope.message}
-				<%
-				session.removeAttribute("message");
-				%>
-				<%-- Clear message after display --%>
+		<h2 class="text-center">Login</h2>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card p-4">
+					<c:if test="${not empty sessionScope.message}">
+						<div class="alert alert-success" role="alert">
+							${sessionScope.message}
+							<%
+							session.removeAttribute("message");
+							%>
+						</div>
+					</c:if>
+					<c:if test="${not empty error}">
+						<div class="alert alert-danger" role="alert">${error}</div>
+					</c:if>
+					<form action="LoginController" method="post">
+						<input type="hidden" name="action" value="login">
+						<div class="form-group">
+							<label for="username">Username</label> <input type="text"
+								class="form-control" id="username" name="username" required>
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label> <input type="password"
+								class="form-control" id="password" name="password" required>
+						</div>
+						<button type="submit" class="btn btn-primary btn-block">Login</button>
+					</form>
+					<p class="mt-3 text-center">
+						Don't have an account? <a
+							href="${pageContext.request.contextPath}/signup.jsp">Sign Up</a>
+					</p>
+				</div>
 			</div>
-		</c:if>
-		<c:if test="${not empty error}">
-			<div class="alert alert-danger" role="alert">${error}</div>
-		</c:if>
-		<form action="LoginController" method="post" class="mt-3">
-			<input type="hidden" name="action" value="login">
-			<div class="form-group">
-				<label for="username">Username</label> <input type="text"
-					class="form-control" id="username" name="username" required>
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label> <input type="password"
-					class="form-control" id="password" name="password" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Login</button>
-		</form>
-		<p class="mt-3">
-			Don't have an account? <a
-				href="${pageContext.request.contextPath}/signup.jsp">Sign Up</a>
-		</p>
+		</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"

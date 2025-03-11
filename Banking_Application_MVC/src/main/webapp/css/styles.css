@@ -1,0 +1,143 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F8F9FA;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1A3C34 !important;
+}
+.navbar-brand {
+    font-weight: 600;
+    color: #20C997 !important;
+}
+.nav-link {
+    color: #fff !important;
+    transition: color 0.3s;
+}
+.nav-link:hover {
+    color: #20C997 !important;
+}
+.navbar-toggler {
+    border-color: #20C997;
+}
+
+/* Headings */
+h2 {
+    color: #1A3C34;
+    font-weight: 600;
+}
+
+/* Forms */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s;
+}
+.form-control:focus {
+    border-color: #20C997;
+    box-shadow: 0 0 5px rgba(32, 201, 151, 0.5);
+}
+.form-group label {
+    font-weight: 500;
+    color: #1A3C34;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #20C997;
+    border-color: #20C997;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.btn-primary:hover {
+    background-color: #1A8C6D;
+    border-color: #1A8C6D;
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background-color: #6C757D;
+    border-color: #6C757D;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.btn-secondary:hover {
+    background-color: #5A6268;
+    border-color: #5A6268;
+    transform: translateY(-2px);
+}
+.btn-outline-danger {
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-outline-danger:hover {
+    background-color: #DC3545;
+    color: #fff;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 8px;
+    animation: fadeIn 0.5s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Tables */
+.table thead th {
+    background-color: #20C997;
+    color: #fff;
+    border: none;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #F1F3F5;
+}
+.table tbody tr:hover {
+    background-color: #E9ECEF;
+    transition: background-color 0.3s;
+}
+
+/* List Group (Dashboards) */
+.list-group-item {
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.list-group-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.list-group-item-action {
+    color: #1A3C34;
+    font-weight: 500;
+}
+.list-group-item-action:hover {
+    color: #20C997;
+}
+
+/* Links */
+a {
+    color: #20C997;
+    transition: color 0.3s;
+}
+a:hover {
+    color: #1A8C6D;
+    text-decoration: none;
+}

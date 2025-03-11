@@ -9,9 +9,11 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="#">Banking Application</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -43,43 +45,49 @@
 			</form>
 		</div>
 	</nav>
-	<div class="container">
-		<h2 class="mt-5">Add Bank Account</h2>
-		<c:if test="${not empty error}">
-			<div class="alert alert-danger">
-				${error}
-				<c:if test="${not empty registerLink}">
-					<br>
-					<a
-						href="${pageContext.request.contextPath}/addCustomer.jsp?returnToAccount=true"
-						class="btn btn-warning btn-sm mt-2">Register Customer</a>
-				</c:if>
+	<div class="container mt-5">
+		<h2 class="text-center">Add Bank Account</h2>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card p-4">
+					<c:if test="${not empty error}">
+						<div class="alert alert-danger">
+							${error}
+							<c:if test="${not empty registerLink}">
+								<br>
+								<a
+									href="${pageContext.request.contextPath}/addCustomer.jsp?returnToAccount=true"
+									class="btn btn-warning btn-sm mt-2">Register Customer</a>
+							</c:if>
+						</div>
+					</c:if>
+					<form
+						action="${pageContext.request.contextPath}/AdminController?action=addAccount"
+						method="post">
+						<div class="form-group">
+							<label>Customer ID</label> <input type="number" name="customerId"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Account Type</label> <select name="accountType"
+								class="form-control" required>
+								<option value="savings">Savings</option>
+								<option value="current">Current</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Initial Balance</label> <input type="number"
+								name="initialBalance" class="form-control" step="0.01" min="0"
+								required>
+						</div>
+						<button type="submit" class="btn btn-primary btn-block">Generate
+							Account</button>
+						<a href="${pageContext.request.contextPath}/adminHome.jsp"
+							class="btn btn-secondary btn-block">Cancel</a>
+					</form>
+				</div>
 			</div>
-		</c:if>
-		<form
-			action="${pageContext.request.contextPath}/AdminController?action=addAccount"
-			method="post" class="mt-3">
-			<div class="form-group">
-				<label>Customer ID</label> <input type="number" name="customerId"
-					class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label>Account Type</label> <select name="accountType"
-					class="form-control" required>
-					<option value="savings">Savings</option>
-					<option value="current">Current</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>Initial Balance</label> <input type="number"
-					name="initialBalance" class="form-control" step="0.01" min="0"
-					required>
-			</div>
-			<button type="submit" class="btn btn-primary">Generate
-				Account</button>
-			<a href="${pageContext.request.contextPath}/adminHome.jsp"
-				class="btn btn-secondary">Cancel</a>
-		</form>
+		</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"
@@ -95,4 +103,3 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
-

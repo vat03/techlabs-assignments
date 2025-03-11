@@ -10,6 +10,8 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 <script>
 	function toggleAdminCode() {
 		const userType = document.getElementById("userType").value;
@@ -27,54 +29,62 @@
 </head>
 <body onload="toggleAdminCode()">
 	<div class="container mt-5">
-		<h2>Sign Up</h2>
-		<c:if test="${not empty error}">
-			<div class="alert alert-danger">${error}</div>
-		</c:if>
-		<form action="${pageContext.request.contextPath}/LoginController"
-			method="post" class="mt-3">
-			<input type="hidden" name="action" value="signup">
-			<div class="form-group">
-				<label for="userType">Sign Up As</label> <select id="userType"
-					name="userType" class="form-control" onchange="toggleAdminCode()"
-					required>
-					<option value="customer">Customer</option>
-					<option value="admin">Admin</option>
-				</select>
+		<h2 class="text-center">Sign Up</h2>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card p-4">
+					<c:if test="${not empty error}">
+						<div class="alert alert-danger">${error}</div>
+					</c:if>
+					<form action="${pageContext.request.contextPath}/LoginController"
+						method="post">
+						<input type="hidden" name="action" value="signup">
+						<div class="form-group">
+							<label for="userType">Sign Up As</label> <select id="userType"
+								name="userType" class="form-control"
+								onchange="toggleAdminCode()" required>
+								<option value="customer">Customer</option>
+								<option value="admin">Admin</option>
+							</select>
+						</div>
+						<div id="adminCodeDiv" style="display: none;" class="form-group">
+							<label for="adminCode">Admin Signup Code</label> <input
+								type="text" id="adminCode" name="adminCode" class="form-control"
+								placeholder="Enter code">
+						</div>
+						<div class="form-group">
+							<label for="username">Username</label> <input type="text"
+								id="username" name="username" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label> <input type="password"
+								id="password" name="password" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label for="email">Email ID</label> <input type="email"
+								id="email" name="email" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label for="firstName">First Name</label> <input type="text"
+								id="firstName" name="firstName" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label for="lastName">Last Name</label> <input type="text"
+								id="lastName" name="lastName" class="form-control" required>
+						</div>
+						<button type="submit" class="btn btn-primary btn-block">Sign
+							Up</button>
+						<a href="${pageContext.request.contextPath}/welcome.jsp"
+							class="btn btn-secondary btn-block">Cancel</a>
+					</form>
+					<p class="mt-3 text-center">
+						Already have an account? <a
+							href="${pageContext.request.contextPath}/login.jsp">Login
+							here</a>
+					</p>
+				</div>
 			</div>
-			<div id="adminCodeDiv" style="display: none;" class="form-group">
-				<label for="adminCode">Admin Signup Code</label> <input type="text"
-					id="adminCode" name="adminCode" class="form-control"
-					placeholder="Enter code">
-			</div>
-			<div class="form-group">
-				<label for="username">Username</label> <input type="text"
-					id="username" name="username" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label> <input type="password"
-					id="password" name="password" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label for="email">Email ID</label> <input type="email" id="email"
-					name="email" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label for="firstName">First Name</label> <input type="text"
-					id="firstName" name="firstName" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label for="lastName">Last Name</label> <input type="text"
-					id="lastName" name="lastName" class="form-control" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Sign Up</button>
-			<a href="${pageContext.request.contextPath}/welcome.jsp"
-				class="btn btn-secondary">Cancel</a>
-		</form>
-		<p class="mt-3">
-			Already have an account? <a
-				href="${pageContext.request.contextPath}/login.jsp">Login here</a>
-		</p>
+		</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"

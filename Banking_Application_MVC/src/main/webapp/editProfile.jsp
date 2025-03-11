@@ -9,9 +9,11 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="#">Banking Application</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -24,8 +26,7 @@
 					href="${pageContext.request.contextPath}/CustomerController">Customer
 						Dashboard</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/CustomerController?action=passbook">Passbook</a>
-				</li>
+					href="${pageContext.request.contextPath}/CustomerController?action=passbook">Passbook</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/newTransaction.jsp">New
 						Transaction</a></li>
@@ -40,29 +41,37 @@
 			</form>
 		</div>
 	</nav>
-	<div class="container">
-		<h2 class="mt-5">Edit Profile</h2>
-		<form
-			action="${pageContext.request.contextPath}/CustomerController?action=editProfile"
-			method="post" class="mt-3">
-			<input type="hidden" name="customerId" value="${customer.customerId}">
-			<div class="form-group">
-				<label>Customer First Name</label> <input type="text"
-					name="firstName" class="form-control" value="${customer.firstName}"
-					required>
+	<div class="container mt-5">
+		<h2 class="text-center">Edit Profile</h2>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card p-4">
+					<form
+						action="${pageContext.request.contextPath}/CustomerController?action=editProfile"
+						method="post">
+						<input type="hidden" name="customerId"
+							value="${customer.customerId}">
+						<div class="form-group">
+							<label>Customer First Name</label> <input type="text"
+								name="firstName" class="form-control"
+								value="${customer.firstName}" required>
+						</div>
+						<div class="form-group">
+							<label>Customer Last Name</label> <input type="text"
+								name="lastName" class="form-control"
+								value="${customer.lastName}" required>
+						</div>
+						<div class="form-group">
+							<label>Password</label> <input type="password" name="password"
+								class="form-control" required>
+						</div>
+						<button type="submit" class="btn btn-primary btn-block">Update</button>
+						<a href="${pageContext.request.contextPath}/customerHome.jsp"
+							class="btn btn-secondary btn-block">Cancel</a>
+					</form>
+				</div>
 			</div>
-			<div class="form-group">
-				<label>Customer Last Name</label> <input type="text" name="lastName"
-					class="form-control" value="${customer.lastName}" required>
-			</div>
-			<div class="form-group">
-				<label>Password</label> <input type="password" name="password"
-					class="form-control" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Update</button>
-			<a href="${pageContext.request.contextPath}/customerHome.jsp"
-				class="btn btn-secondary">Cancel</a>
-		</form>
+		</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"
