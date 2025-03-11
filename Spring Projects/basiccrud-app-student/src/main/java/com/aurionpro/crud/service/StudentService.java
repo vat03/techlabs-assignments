@@ -1,12 +1,13 @@
 package com.aurionpro.crud.service;
 
-import java.util.List;
+//import java.util.List;
 
 import com.aurionpro.crud.dto.PageResponse;
 import com.aurionpro.crud.entity.Student;
 
 public interface StudentService {
-	PageResponse<Student> getAllStudents(int pageNumber, int pageSize);
+	
+	PageResponse<Student> getAllStudents(int pageNumber, int pageSize, String name);
 	
 	Student addStudent(Student student);
 	
@@ -14,5 +15,5 @@ public interface StudentService {
 	
 	Student getAStudent(int studentId);
 	
-	List<Student> getStudentByName(String name);
+	//List<Student> getStudentByName(String name);
 }

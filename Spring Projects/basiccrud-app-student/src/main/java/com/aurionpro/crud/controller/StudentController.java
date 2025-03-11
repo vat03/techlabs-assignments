@@ -1,6 +1,6 @@
 package com.aurionpro.crud.controller;
 
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +18,8 @@ import com.aurionpro.crud.dto.PageResponse;
 import com.aurionpro.crud.entity.Student;
 import com.aurionpro.crud.service.StudentService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/studentapp")
 public class StudentController {
@@ -26,12 +28,13 @@ public class StudentController {
 	private StudentService studentService;
 
 	@GetMapping("/students")
-	public ResponseEntity<PageResponse<Student>> getAllStudents(@RequestParam int pageNumber, @RequestParam int pageSize) {
-		return ResponseEntity.ok(studentService.getAllStudents(pageNumber, pageSize));
+	public ResponseEntity<PageResponse<Student>> getAllStudents(@RequestParam int pageNumber,
+			@RequestParam int pageSize, @RequestParam(required = false) String name) {
+		return ResponseEntity.ok(studentService.getAllStudents(pageNumber, pageSize, name));
 	}
 
 	@PostMapping("/students")
-	public ResponseEntity<Student> addStudent(@RequestBody Student student) {
+	public ResponseEntity<Student> addStudent(@RequestBody @Valid Student student) {
 		return ResponseEntity.ok(studentService.addStudent(student));
 	}
 
@@ -50,8 +53,8 @@ public class StudentController {
 		return ResponseEntity.ok(studentService.getAStudent(studentId));
 	}
 
-	@GetMapping("/studentsbyname")
-	public ResponseEntity<List<Student>> getStudentByName(@RequestParam String name) {
-		return ResponseEntity.ok(studentService.getStudentByName(name));
-	}
+//	@GetMapping("/studentsbyname")
+//	public ResponseEntity<List<Student>> getStudentByName(@RequestParam String name) {
+//		return ResponseEntity.ok(studentService.getStudentByName(name));
+//	}
 }

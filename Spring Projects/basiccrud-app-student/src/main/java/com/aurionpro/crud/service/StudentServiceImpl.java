@@ -1,8 +1,10 @@
 package com.aurionpro.crud.service;
 
-import java.util.List;
+//import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,33 +13,50 @@ import org.springframework.stereotype.Service;
 
 import com.aurionpro.crud.dto.PageResponse;
 import com.aurionpro.crud.entity.Student;
+import com.aurionpro.crud.exception.StudentApiException;
 import com.aurionpro.crud.repository.StudentRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	private StudentRepository studentRepo;
 
+	private static final Logger log = LoggerFactory.getLogger(StudentServiceImpl.class);
+
 	@Override
-	public PageResponse<Student> getAllStudents(int pageNumber, int pageSize) {
+	public PageResponse<Student> getAllStudents(int pageNumber, int pageSize, String name) {
 		Pageable pageable = PageRequest.of(pageNumber, pageSize);
-		Page<Student> students = studentRepo.findAll(pageable);
-		
+		Page<Student> students = null;
+
+		if (name == null) {
+			students = studentRepo.findAll(pageable);
+		}
+		if (name != null) {
+			students = studentRepo.findByName(pageable, name);
+		}
+
 		PageResponse<Student> pageresponse = new PageResponse<>();
-		
+
 		pageresponse.setContent(students.getContent());
 		pageresponse.setTotalPages(students.getTotalPages());
 		pageresponse.setPageSize(students.getSize());
 		pageresponse.setTotalElements(students.getTotalElements());
 		pageresponse.setLast(students.isLast());
-		
+
 		return pageresponse;
 	}
 
 	@Override
 	public Student addStudent(Student student) {
-		return studentRepo.save(student);
+		Student dbRecord = studentRepo.save(student);
+		
+		log.info("Student added with id:"+student.getStudentId());
+		
+		return dbRecord;
 	}
 
 	@Override
@@ -50,18 +69,18 @@ public class StudentServiceImpl implements StudentService {
 		Optional<Student> dbRecord = studentRepo.findById(studentId);
 
 		if (dbRecord.isEmpty())
-			throw new RuntimeException("Student does not exist");
+			throw new StudentApiException("Student does not exist");
 
 		return dbRecord.get();
 	}
 
-	@Override
-	public List<Student> getStudentByName(String name) {
-		List<Student> dbRecord = studentRepo.findByName(name);
-
-		if (dbRecord.isEmpty())
-			throw new RuntimeException("Student does not exist");
-
-		return dbRecord;
-	}
+//	@Override
+//	public List<Student> getStudentByName(String name) {
+//		List<Student> dbRecord = studentRepo.findByName(name);
+//
+//		if (dbRecord.isEmpty())
+//			throw new RuntimeException("Student does not exist");
+//
+//		return dbRecord;
+//	}
 }

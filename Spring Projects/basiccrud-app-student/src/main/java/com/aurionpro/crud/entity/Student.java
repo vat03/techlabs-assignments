@@ -6,6 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "students")
@@ -17,8 +20,11 @@ public class Student {
 	@Column(name = "rollNumber")
 	private int rollNumber;
 	@Column(name = "name")
+	@NotBlank(message = "Name cannot be blank")
 	private String name;
 	@Column(name = "age")
+	@Min(value = 18, message = "Age should be above 18")
+	@NotNull(message = "Age cannot be blank")
 	private int age;
 
 	public Student() {
