@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +45,15 @@
 	</nav>
 	<div class="container">
 		<h2 class="mt-5">Admin Dashboard</h2>
+		<c:if test="${not empty sessionScope.message}">
+			<div class="alert alert-success" role="alert">
+				${sessionScope.message}
+				<%
+				session.removeAttribute("message");
+				%>
+				<%-- Clear message after display --%>
+			</div>
+		</c:if>
 		<div class="list-group mt-3">
 			<a href="${pageContext.request.contextPath}/addCustomer.jsp"
 				class="list-group-item list-group-item-action">Add New Customer</a>

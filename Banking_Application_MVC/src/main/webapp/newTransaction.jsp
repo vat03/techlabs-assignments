@@ -32,8 +32,7 @@
 					href="${pageContext.request.contextPath}/CustomerController">Customer
 						Dashboard</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/CustomerController?action=passbook">Passbook</a>
-				</li>
+					href="${pageContext.request.contextPath}/CustomerController?action=passbook">Passbook</a></li>
 				<li class="nav-item active"><a class="nav-link"
 					href="${pageContext.request.contextPath}/newTransaction.jsp">New
 						Transaction</a></li>
@@ -51,7 +50,7 @@
 	<div class="container">
 		<h2 class="mt-5">New Transaction</h2>
 		<c:if test="${not empty error}">
-			<div class="alert alert-danger">${error}</div>
+			<div class="alert alert-danger" role="alert">${error}</div>
 		</c:if>
 		<form
 			action="${pageContext.request.contextPath}/TransactionController?action=newTransaction"

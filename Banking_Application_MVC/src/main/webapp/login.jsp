@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,13 +14,18 @@
 <body>
 	<div class="container mt-5">
 		<h2>Login</h2>
-		<%
-		if (request.getAttribute("error") != null) {
-		%>
-		<div class="alert alert-danger"><%=request.getAttribute("error")%></div>
-		<%
-		}
-		%>
+		<c:if test="${not empty sessionScope.message}">
+			<div class="alert alert-success" role="alert">
+				${sessionScope.message}
+				<%
+				session.removeAttribute("message");
+				%>
+				<%-- Clear message after display --%>
+			</div>
+		</c:if>
+		<c:if test="${not empty error}">
+			<div class="alert alert-danger" role="alert">${error}</div>
+		</c:if>
 		<form action="LoginController" method="post" class="mt-3">
 			<input type="hidden" name="action" value="login">
 			<div class="form-group">

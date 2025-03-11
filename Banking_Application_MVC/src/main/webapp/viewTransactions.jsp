@@ -63,12 +63,6 @@
 							Account Number</option>
 						<option value="amount"
 							${param.sortField == 'amount' ? 'selected' : ''}>Amount</option>
-						<option value="sender_balance_after"
-							${param.sortField == 'sender_balance_after' ? 'selected' : ''}>Sender
-							Balance After</option>
-						<option value="receiver_balance_after"
-							${param.sortField == 'receiver_balance_after' ? 'selected' : ''}>Receiver
-							Balance After</option>
 						<option value="transaction_date"
 							${param.sortField == 'transaction_date' ? 'selected' : ''}>Date</option>
 						<option value="status"
@@ -95,8 +89,6 @@
 					<th>Receiver Account Number</th>
 					<th>Type</th>
 					<th>Amount</th>
-					<th>Sender Balance After</th>
-					<th>Receiver Balance After</th>
 					<th>Date</th>
 					<th>Status</th>
 				</tr>
@@ -109,8 +101,6 @@
 						<td>${transaction.receiverAccountNumber}</td>
 						<td>${transaction.transactionType}</td>
 						<td>${transaction.amount}</td>
-						<td>${transaction.senderBalanceAfter}</td>
-						<td>${transaction.receiverBalanceAfter}</td>
 						<td>${transaction.transactionDate}</td>
 						<td>${transaction.status}</td>
 					</tr>

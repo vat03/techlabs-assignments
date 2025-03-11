@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +24,7 @@
 					href="${pageContext.request.contextPath}/CustomerController">Customer
 						Dashboard</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/CustomerController?action=passbook">Passbook</a>
-				</li>
+					href="${pageContext.request.contextPath}/CustomerController?action=passbook">Passbook</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/newTransaction.jsp">New
 						Transaction</a></li>
@@ -41,6 +41,15 @@
 	</nav>
 	<div class="container">
 		<h2 class="mt-5">Customer Dashboard</h2>
+		<c:if test="${not empty sessionScope.message}">
+			<div class="alert alert-success" role="alert">
+				${sessionScope.message}
+				<%
+				session.removeAttribute("message");
+				%>
+				<%-- Clear message after display --%>
+			</div>
+		</c:if>
 		<div class="list-group mt-3">
 			<a
 				href="${pageContext.request.contextPath}/CustomerController?action=passbook"
