@@ -1,3 +1,1 @@
-use banking_db;
-
-SELECT * FROM transactions;
+SELECT * FROM banking_db.transactions;
