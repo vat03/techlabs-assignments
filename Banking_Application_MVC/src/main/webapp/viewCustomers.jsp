@@ -63,6 +63,9 @@
 							Name</option>
 						<option value="balance"
 							${param.sortField == 'balance' ? 'selected' : ''}>Balance</option>
+						<option value="account_number"
+							${param.sortField == 'account_number' ? 'selected' : ''}>Account
+							Number</option>
 					</select>
 				</div>
 				<div class="col-md-4">
@@ -96,31 +99,31 @@
 						<td>${customer.lastName}</td>
 						<td><c:choose>
 								<c:when test="${empty customer.accounts}">
-									NA
-								</c:when>
+                                    NA
+                                </c:when>
 								<c:otherwise>
 									<c:forEach var="account" items="${customer.accounts}">
-										${account.accountNumber}<br>
+                                        ${account.accountNumber}<br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose></td>
 						<td><c:choose>
 								<c:when test="${empty customer.accounts}">
-									NA
-								</c:when>
+                                    NA
+                                </c:when>
 								<c:otherwise>
 									<c:forEach var="account" items="${customer.accounts}">
-										${account.accountType}<br>
+                                        ${account.accountType}<br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose></td>
 						<td><c:choose>
 								<c:when test="${empty customer.accounts}">
-									NA
-								</c:when>
+                                    NA
+                                </c:when>
 								<c:otherwise>
 									<c:forEach var="account" items="${customer.accounts}">
-										${account.balance}<br>
+                                        ${account.balance}<br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose></td>
