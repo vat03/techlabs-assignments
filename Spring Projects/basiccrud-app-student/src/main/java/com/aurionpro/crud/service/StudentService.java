@@ -3,11 +3,12 @@ package com.aurionpro.crud.service;
 //import java.util.List;
 
 import com.aurionpro.crud.dto.PageResponse;
+import com.aurionpro.crud.dto.StudentDto;
 import com.aurionpro.crud.entity.Student;
 
 public interface StudentService {
 	
-	PageResponse<Student> getAllStudents(int pageNumber, int pageSize, String name);
+	PageResponse<StudentDto> getAllStudents(int pageNumber, int pageSize, String name);
 	
 	Student addStudent(Student student);
 	

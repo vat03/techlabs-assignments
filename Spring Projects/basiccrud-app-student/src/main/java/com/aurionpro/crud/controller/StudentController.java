@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aurionpro.crud.dto.PageResponse;
+import com.aurionpro.crud.dto.StudentDto;
 import com.aurionpro.crud.entity.Student;
 import com.aurionpro.crud.service.StudentService;
 
@@ -28,7 +29,7 @@ public class StudentController {
 	private StudentService studentService;
 
 	@GetMapping("/students")
-	public ResponseEntity<PageResponse<Student>> getAllStudents(@RequestParam int pageNumber,
+	public ResponseEntity<PageResponse<StudentDto>> getAllStudents(@RequestParam int pageNumber,
 			@RequestParam int pageSize, @RequestParam(required = false) String name) {
 		return ResponseEntity.ok(studentService.getAllStudents(pageNumber, pageSize, name));
 	}

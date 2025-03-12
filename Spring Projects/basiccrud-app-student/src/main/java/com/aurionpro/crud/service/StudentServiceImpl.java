@@ -1,5 +1,7 @@
 package com.aurionpro.crud.service;
 
+import java.util.ArrayList;
+import java.util.List;
 //import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.aurionpro.crud.dto.PageResponse;
+import com.aurionpro.crud.dto.StudentDto;
 import com.aurionpro.crud.entity.Student;
 import com.aurionpro.crud.exception.StudentApiException;
 import com.aurionpro.crud.repository.StudentRepository;
@@ -28,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
 	private static final Logger log = LoggerFactory.getLogger(StudentServiceImpl.class);
 
 	@Override
-	public PageResponse<Student> getAllStudents(int pageNumber, int pageSize, String name) {
+	public PageResponse<StudentDto> getAllStudents(int pageNumber, int pageSize, String name) {
 		Pageable pageable = PageRequest.of(pageNumber, pageSize);
 		Page<Student> students = null;
 
@@ -39,9 +42,17 @@ public class StudentServiceImpl implements StudentService {
 			students = studentRepo.findByName(pageable, name);
 		}
 
-		PageResponse<Student> pageresponse = new PageResponse<>();
+		List<Student> dbStudent = students.getContent();
+		
+		List<StudentDto> studentDto = new ArrayList<>();
+		
+		for (Student student : dbStudent) {
+			studentDto.add(studentToStudentDtoMapper(student));
+		}
+		
+		PageResponse<StudentDto> pageresponse = new PageResponse<>();
 
-		pageresponse.setContent(students.getContent());
+		pageresponse.setContent(studentDto);
 		pageresponse.setTotalPages(students.getTotalPages());
 		pageresponse.setPageSize(students.getSize());
 		pageresponse.setTotalElements(students.getTotalElements());
@@ -50,12 +61,23 @@ public class StudentServiceImpl implements StudentService {
 		return pageresponse;
 	}
 
+	private StudentDto studentToStudentDtoMapper(Student student) {
+		StudentDto dto = new StudentDto();
+		
+		dto.setStudentId(student.getStudentId());
+		dto.setName(student.getName());
+		dto.setRollNumber(student.getRollNumber());
+		dto.setAge(student.getAge());
+		
+		return dto;
+	}
+
 	@Override
 	public Student addStudent(Student student) {
 		Student dbRecord = studentRepo.save(student);
-		
-		log.info("Student added with id:"+student.getStudentId());
-		
+
+		log.info("Student added with id:" + student.getStudentId());
+
 		return dbRecord;
 	}
 
