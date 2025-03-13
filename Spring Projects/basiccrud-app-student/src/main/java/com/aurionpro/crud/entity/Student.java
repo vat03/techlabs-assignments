@@ -1,5 +1,7 @@
 package com.aurionpro.crud.entity;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,6 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
@@ -35,8 +39,12 @@ public class Student {
 	@Min(value = 18, message = "Age should be above 18")
 	@NotNull(message = "Age cannot be blank")
 	private int age;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "addressID")
 	private Address address;
+
+	@ManyToMany
+	@JoinTable(name = "student-course")
+	private List<Course> courses;
 }

@@ -1,12 +1,5 @@
 package com.aurionpro.crud.error;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 public class studentErrorMessage {
 	private String message;
 	private int status;
