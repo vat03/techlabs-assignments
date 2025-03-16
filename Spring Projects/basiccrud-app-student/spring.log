@@ -1,22 +1,22 @@
-2025-03-13T11:43:35.330+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : Starting Application using Java 21.0.6 with PID 23656 (D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student\target\classes started by vatsal.soni in D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student)
-2025-03-13T11:43:35.341+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T11:43:35.425+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-03-13T11:43:35.450+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-03-13T11:43:36.474+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-13T11:43:36.639+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 147 ms. Found 3 JPA repository interfaces.
-2025-03-13T11:43:37.394+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T11:43:37.414+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T11:43:37.415+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-03-13T11:43:37.474+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T11:43:37.487+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2035 ms
-2025-03-13T11:43:37.675+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-13T11:43:37.753+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-03-13T11:43:37.802+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-03-13T11:43:38.386+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-13T11:43:38.441+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-03-13T11:43:38.916+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@71be4ad3
-2025-03-13T11:43:38.919+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-03-13T11:43:39.021+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-03-16T20:50:19.370+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : Starting Application using Java 21.0.6 with PID 4940 (D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student\target\classes started by vatsal.soni in D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student)
+2025-03-16T20:50:19.379+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : No active profile set, falling back to 1 default profile: "default"
+2025-03-16T20:50:19.448+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-16T20:50:19.449+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-16T20:50:20.311+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-16T20:50:20.413+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 3 JPA repository interfaces.
+2025-03-16T20:50:21.037+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-16T20:50:21.054+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-16T20:50:21.055+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-16T20:50:21.129+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-16T20:50:21.130+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1680 ms
+2025-03-16T20:50:21.331+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-16T20:50:21.380+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-16T20:50:21.430+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-16T20:50:21.789+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-16T20:50:21.828+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-16T20:50:22.318+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@367f57b0
+2025-03-16T20:50:22.320+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-16T20:50:22.415+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.41
@@ -24,17 +24,18 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-03-13T11:43:40.427+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-13T11:43:40.526+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T11:43:40.807+05:30  WARN 23656 --- [basiccrud-app] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'instructorController': Unsatisfied dependency expressed through field 'instructorService': Error creating bean with name 'instructorServiceImpl' defined in file [D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student\target\classes\com\aurionpro\crud\service\InstructorServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.modelmapper.ModelMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2025-03-13T11:43:40.808+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T11:43:40.812+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-03-13T11:43:40.827+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-03-13T11:43:40.830+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-03-13T11:43:40.846+05:30  INFO 23656 --- [basiccrud-app] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+2025-03-16T20:50:23.667+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-16T20:50:24.019+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-16T20:50:24.479+05:30  WARN 4940 --- [basiccrud-app] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-16T20:50:24.961+05:30  WARN 4940 --- [basiccrud-app] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-03-16T20:50:24.993+05:30  WARN 4940 --- [basiccrud-app] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-16T20:50:24.996+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-16T20:50:25.000+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-16T20:50:25.020+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-16T20:50:25.042+05:30  INFO 4940 --- [basiccrud-app] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-03-13T11:43:40.879+05:30 ERROR 23656 --- [basiccrud-app] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2025-03-16T20:50:25.078+05:30 ERROR 4940 --- [basiccrud-app] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
 ***************************
 APPLICATION FAILED TO START
@@ -42,293 +43,9 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.aurionpro.crud.service.InstructorServiceImpl required a bean of type 'org.modelmapper.ModelMapper' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-
+Web server failed to start. Port 8080 was already in use.
 
 Action:
 
-Consider defining a bean of type 'org.modelmapper.ModelMapper' in your configuration.
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
 
-2025-03-13T11:44:06.049+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : Starting Application using Java 21.0.6 with PID 23620 (D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student\target\classes started by vatsal.soni in D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student)
-2025-03-13T11:44:06.051+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T11:44:06.118+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-03-13T11:44:06.118+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-03-13T11:44:07.137+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-13T11:44:07.271+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 3 JPA repository interfaces.
-2025-03-13T11:44:08.059+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T11:44:08.101+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T11:44:08.102+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-03-13T11:44:08.165+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T11:44:08.165+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2045 ms
-2025-03-13T11:44:08.350+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-13T11:44:08.409+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-03-13T11:44:08.448+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-03-13T11:44:08.861+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-13T11:44:08.903+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-03-13T11:44:09.492+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@57ff277f
-2025-03-13T11:44:09.496+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-03-13T11:44:09.595+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0.41
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-03-13T11:44:10.913+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-13T11:44:11.029+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T11:44:11.296+05:30  WARN 23620 --- [basiccrud-app] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'instructorController': Unsatisfied dependency expressed through field 'instructorService': Error creating bean with name 'instructorServiceImpl' defined in file [D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student\target\classes\com\aurionpro\crud\service\InstructorServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.modelmapper.ModelMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2025-03-13T11:44:11.297+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T11:44:11.302+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-03-13T11:44:11.319+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-03-13T11:44:11.323+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-03-13T11:44:11.340+05:30  INFO 23620 --- [basiccrud-app] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-03-13T11:44:11.380+05:30 ERROR 23620 --- [basiccrud-app] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 0 of constructor in com.aurionpro.crud.service.InstructorServiceImpl required a bean of type 'org.modelmapper.ModelMapper' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-
-
-Action:
-
-Consider defining a bean of type 'org.modelmapper.ModelMapper' in your configuration.
-
-2025-03-13T11:45:56.742+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : Starting Application using Java 21.0.6 with PID 24580 (D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student\target\classes started by vatsal.soni in D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student)
-2025-03-13T11:45:56.745+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T11:45:56.822+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-03-13T11:45:56.822+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-03-13T11:45:57.719+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-13T11:45:57.898+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 164 ms. Found 3 JPA repository interfaces.
-2025-03-13T11:45:58.618+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T11:45:58.643+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T11:45:58.643+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-03-13T11:45:58.704+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T11:45:58.705+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1882 ms
-2025-03-13T11:45:58.927+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-13T11:45:59.009+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-03-13T11:45:59.058+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-03-13T11:45:59.459+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-13T11:45:59.507+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-03-13T11:46:00.001+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6dd02483
-2025-03-13T11:46:00.004+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-03-13T11:46:00.107+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0.41
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-03-13T11:46:01.468+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-13T11:46:01.594+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T11:46:02.169+05:30  WARN 24580 --- [basiccrud-app] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-13T11:46:02.744+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-03-13T11:46:02.819+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-03-13T11:46:02.828+05:30  INFO 24580 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : Started Application in 6.705 seconds (process running for 7.947)
-2025-03-13T11:47:23.006+05:30  INFO 24580 --- [basiccrud-app] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-13T11:47:23.008+05:30  INFO 24580 --- [basiccrud-app] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-13T11:47:23.010+05:30  INFO 24580 --- [basiccrud-app] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-03-13T11:50:25.652+05:30 ERROR 24580 --- [basiccrud-app] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: Instructor with Id - 4 does not exist.] with root cause
-
-java.lang.RuntimeException: Instructor with Id - 4 does not exist.
-	at com.aurionpro.crud.service.InstructorServiceImpl.assignCourses(InstructorServiceImpl.java:61) ~[classes/:na]
-	at com.aurionpro.crud.controller.InstructorController.assignCourses(InstructorController.java:34) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:925) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:593) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-03-13T11:51:30.199+05:30  INFO 24580 --- [basiccrud-app] [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2025-03-13T11:51:30.205+05:30  INFO 24580 --- [basiccrud-app] [RMI TCP Connection(16)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-03-13T11:51:30.224+05:30  INFO 24580 --- [basiccrud-app] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-03-13T11:51:30.230+05:30  INFO 24580 --- [basiccrud-app] [RMI TCP Connection(16)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T11:51:30.235+05:30  INFO 24580 --- [basiccrud-app] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-03-13T11:51:30.254+05:30  INFO 24580 --- [basiccrud-app] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-03-13T12:09:52.535+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : Starting Application using Java 21.0.6 with PID 12580 (D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student\target\classes started by vatsal.soni in D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student)
-2025-03-13T12:09:52.537+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T12:09:52.602+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-03-13T12:09:52.603+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-03-13T12:09:53.553+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-13T12:09:53.714+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 148 ms. Found 3 JPA repository interfaces.
-2025-03-13T12:09:54.546+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T12:09:54.566+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T12:09:54.567+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-03-13T12:09:54.655+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T12:09:54.656+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2052 ms
-2025-03-13T12:09:54.836+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-13T12:09:54.899+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-03-13T12:09:54.935+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-03-13T12:09:55.308+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-13T12:09:55.342+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-03-13T12:09:55.828+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@fb2f744
-2025-03-13T12:09:55.848+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-03-13T12:09:55.938+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0.41
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-03-13T12:09:57.343+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-13T12:09:57.430+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T12:09:57.894+05:30  WARN 12580 --- [basiccrud-app] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-13T12:09:58.376+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-03-13T12:09:58.432+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-03-13T12:09:58.447+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : Started Application in 6.504 seconds (process running for 7.732)
-2025-03-13T12:10:10.224+05:30  INFO 12580 --- [basiccrud-app] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2025-03-13T12:10:10.238+05:30  INFO 12580 --- [basiccrud-app] [Thread-5] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-03-13T12:10:10.261+05:30  INFO 12580 --- [basiccrud-app] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-03-13T12:10:10.271+05:30  INFO 12580 --- [basiccrud-app] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T12:10:10.277+05:30  INFO 12580 --- [basiccrud-app] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-03-13T12:10:10.294+05:30  INFO 12580 --- [basiccrud-app] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-03-13T12:10:10.406+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : Starting Application using Java 21.0.6 with PID 12580 (D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student\target\classes started by vatsal.soni in D:\Aurionpro_Vatsal_Training\Spring Projects\basiccrud-app-student)
-2025-03-13T12:10:10.406+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : No active profile set, falling back to 1 default profile: "default"
-2025-03-13T12:10:10.750+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-13T12:10:10.896+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 144 ms. Found 3 JPA repository interfaces.
-2025-03-13T12:10:11.050+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-03-13T12:10:11.051+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-03-13T12:10:11.051+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-03-13T12:10:11.102+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-03-13T12:10:11.102+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 694 ms
-2025-03-13T12:10:11.148+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-13T12:10:11.151+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-03-13T12:10:11.161+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-13T12:10:11.162+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2025-03-13T12:10:11.180+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e57bbcd
-2025-03-13T12:10:11.180+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2025-03-13T12:10:11.183+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
-	Database driver: undefined/unknown
-	Database version: 8.0.41
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-03-13T12:10:11.314+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-13T12:10:11.364+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T12:10:11.502+05:30  WARN 12580 --- [basiccrud-app] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-13T12:10:11.656+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-03-13T12:10:11.678+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-03-13T12:10:11.689+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] com.aurionpro.crud.Application           : Started Application in 1.327 seconds (process running for 20.973)
-2025-03-13T12:10:11.691+05:30  INFO 12580 --- [basiccrud-app] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2025-03-13T12:11:42.854+05:30  INFO 12580 --- [basiccrud-app] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-03-13T12:11:42.854+05:30  INFO 12580 --- [basiccrud-app] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-03-13T12:11:42.857+05:30  INFO 12580 --- [basiccrud-app] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-03-13T12:12:16.448+05:30 ERROR 12580 --- [basiccrud-app] [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: Instructor with Id - 4 does not exist.] with root cause
-
-java.lang.RuntimeException: Instructor with Id - 4 does not exist.
-	at com.aurionpro.crud.service.InstructorServiceImpl.listOfCoursesTaught(InstructorServiceImpl.java:84) ~[classes/:na]
-	at com.aurionpro.crud.controller.InstructorController.coursetaught(InstructorController.java:42) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.3.jar:6.2.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.36.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.3.jar:6.2.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.36.jar:10.1.36]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-03-13T12:12:40.518+05:30  INFO 12580 --- [basiccrud-app] [RMI TCP Connection(12)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2025-03-13T12:12:40.520+05:30  INFO 12580 --- [basiccrud-app] [RMI TCP Connection(12)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-03-13T12:12:40.532+05:30  INFO 12580 --- [basiccrud-app] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-03-13T12:12:40.538+05:30  INFO 12580 --- [basiccrud-app] [RMI TCP Connection(12)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-03-13T12:12:40.539+05:30  INFO 12580 --- [basiccrud-app] [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2025-03-13T12:12:40.561+05:30  INFO 12580 --- [basiccrud-app] [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
