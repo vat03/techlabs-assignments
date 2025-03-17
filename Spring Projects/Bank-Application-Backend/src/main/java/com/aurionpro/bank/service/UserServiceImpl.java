@@ -1,16 +1,78 @@
-package com.aurionpro.bank.service;
+//package com.aurionpro.bank.service;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//import org.modelmapper.ModelMapper;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Service;
+//
+//import com.aurionpro.bank.dto.UserRequestDto;
+//import com.aurionpro.bank.dto.UserResponseDto;
+//import com.aurionpro.bank.entity.User;
+//import com.aurionpro.bank.repository.UserRepository;
+//
+//@Service
+//public class UserServiceImpl implements UserService {
+//
+//	@Autowired
+//	private UserRepository userRepo;
+//
+//	private ModelMapper mapper;
+//
+//	private UserServiceImpl() {
+//		this.mapper = new ModelMapper();
+//	}
+//
+//	// Add a user / update a user
+//	@Override
+//	public UserResponseDto addUser(UserRequestDto userRequestDto) {
+//		User dbUser = userRepo.save(mapper.map(userRequestDto, User.class));
+//		return mapper.map(dbUser, UserResponseDto.class);
+//	}
+//
+//	// Get all users
+//	@Override
+//	public List<UserResponseDto> getAllUsers() {
+//		List<User> users = userRepo.findAll();
+//		List<UserResponseDto> userDto = new ArrayList<>();
+//		for (User user : users) {
+//			userDto.add(mapper.map(user, UserResponseDto.class));
+//		}
+//		return userDto;
+//	}
+//
+//	// Delete a user
+//	@Override
+//	public void deleteUser(User user) {
+//		userRepo.delete(user);
+//	}
+//
+//	@Override
+//	public void deleteAllUsers() {
+//		userRepo.deleteAll();
+//	}
+//	
+//	
+//}
 
-import java.util.ArrayList;
-import java.util.List;
+package com.aurionpro.bank.service;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.aurionpro.bank.dto.PageResponse;
 import com.aurionpro.bank.dto.UserRequestDto;
 import com.aurionpro.bank.dto.UserResponseDto;
 import com.aurionpro.bank.entity.User;
 import com.aurionpro.bank.repository.UserRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -20,38 +82,49 @@ public class UserServiceImpl implements UserService {
 
 	private ModelMapper mapper;
 
-	private UserServiceImpl() {
+	public UserServiceImpl() {
 		this.mapper = new ModelMapper();
 	}
 
-	// Add a user / update a user
+	// Add or update a user
 	@Override
 	public UserResponseDto addUser(UserRequestDto userRequestDto) {
 		User dbUser = userRepo.save(mapper.map(userRequestDto, User.class));
 		return mapper.map(dbUser, UserResponseDto.class);
 	}
 
-	// Get all users
+	// Get all users with pagination (without Stream API)
 	@Override
-	public List<UserResponseDto> getAllUsers() {
-		List<User> users = userRepo.findAll();
-		List<UserResponseDto> userDto = new ArrayList<>();
-		for (User user : users) {
-			userDto.add(mapper.map(user, UserResponseDto.class));
+	public PageResponse<UserResponseDto> getAllUsers(int pageNumber, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		Page<User> userPage = userRepo.findAll(pageable);
+
+		List<User> dbUsers = userPage.getContent();
+		List<UserResponseDto> userDtos = new ArrayList<>();
+
+		for (User user : dbUsers) {
+			userDtos.add(mapper.map(user, UserResponseDto.class));
 		}
-		return userDto;
+
+		PageResponse<UserResponseDto> pageResponse = new PageResponse<>();
+		pageResponse.setContent(userDtos);
+		pageResponse.setTotalPages(userPage.getTotalPages());
+		pageResponse.setPageSize(userPage.getSize());
+		pageResponse.setTotalElements(userPage.getTotalElements());
+		pageResponse.setLast(userPage.isLast());
+
+		return pageResponse;
 	}
 
-	// Delete a user
+	// Delete a user by ID
 	@Override
-	public void deleteUser(User user) {
-		userRepo.delete(user);
+	public void deleteUser(int userId) {
+		userRepo.deleteById(userId);
 	}
 
+	// Delete all users
 	@Override
 	public void deleteAllUsers() {
 		userRepo.deleteAll();
 	}
-	
-	
 }

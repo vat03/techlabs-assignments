@@ -1,17 +1,34 @@
-package com.aurionpro.bank.service;
+//package com.aurionpro.bank.service;
+//
+//import java.util.List;
+//
+//import com.aurionpro.bank.dto.CustomerRequestDto;
+//import com.aurionpro.bank.dto.CustomerResponseDto;
+//import com.aurionpro.bank.entity.Customer;
+//
+//public interface CustomerService {
+//	List<CustomerResponseDto> getAllCustomers();
+//
+//	CustomerResponseDto addCustomer(CustomerRequestDto customerRequestDto);
+//	
+//	void deleteCustomer(Customer customer);
+//	
+//	void deleteAllCustomers();
+//}
 
-import java.util.List;
+package com.aurionpro.bank.service;
 
 import com.aurionpro.bank.dto.CustomerRequestDto;
 import com.aurionpro.bank.dto.CustomerResponseDto;
+import com.aurionpro.bank.dto.PageResponse;
 import com.aurionpro.bank.entity.Customer;
 
 public interface CustomerService {
-	List<CustomerResponseDto> getAllCustomers();
+	PageResponse<CustomerResponseDto> getAllCustomers(int pageNumber, int pageSize);
 
 	CustomerResponseDto addCustomer(CustomerRequestDto customerRequestDto);
-	
+
 	void deleteCustomer(Customer customer);
-	
+
 	void deleteAllCustomers();
 }
