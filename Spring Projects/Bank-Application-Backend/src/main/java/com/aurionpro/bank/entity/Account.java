@@ -48,6 +48,8 @@ public class Account {
 	@ManyToOne
 	@JoinColumn(name = "customerId")
 	private Customer customer;
+	
+	
 
 	public void deactivateAccount() {
 		this.isActive = false;

@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class AccountRequestDto {
 
 	@NotBlank(message = "Account number cannot be empty !")
-	@Size(min = 6, max = 6, message = "Account number must be characters long !")
+	@Size(min = 6, max = 6, message = "Account number must be 6 characters long !")
 	private String accountNumber;
 
 	@Positive(message = "Balance must be positive")

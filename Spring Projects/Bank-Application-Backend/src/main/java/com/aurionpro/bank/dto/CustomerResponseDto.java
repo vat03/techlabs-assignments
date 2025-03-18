@@ -10,6 +10,8 @@ public class CustomerResponseDto {
 	private String firstName;
 
 	private String lastName;
+	
+	private boolean isActive;
 
 	private UserResponseDto user;
 }

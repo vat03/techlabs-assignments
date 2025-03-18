@@ -1,6 +1,5 @@
 package com.aurionpro.bank.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,7 +32,7 @@ public class Customer {
 	@Column
 	private boolean isActive = true;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "userId", unique = true)
 	private User user;
 

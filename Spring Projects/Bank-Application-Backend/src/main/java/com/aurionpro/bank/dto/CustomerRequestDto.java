@@ -19,4 +19,6 @@ public class CustomerRequestDto {
 
 	@Positive(message = "User ID must be a positive number !")
 	private int userId;
+
+	private boolean isActive = true;
 }

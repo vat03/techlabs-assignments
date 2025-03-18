@@ -2,6 +2,7 @@ package com.aurionpro.bank.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.aurionpro.bank.dto.PageResponse;
 import com.aurionpro.bank.dto.TransactionRequestDto;
 import com.aurionpro.bank.dto.TransactionResponseDto;
+import com.aurionpro.bank.entity.Account;
 import com.aurionpro.bank.entity.Transaction;
+import com.aurionpro.bank.enums.TransactionType;
+import com.aurionpro.bank.repository.AccountRepository;
 import com.aurionpro.bank.repository.TransactionRepository;
 
 @Service
@@ -22,9 +27,15 @@ public class TransactionServiceImpl implements TransactionService {
 	@Autowired
 	private TransactionRepository transactionRepo;
 
+	@Autowired
+	private AccountRepository accountRepo;
+
+	@Autowired
+	private EmailService emailService;
+
 	private ModelMapper mapper;
 
-	private TransactionServiceImpl() {
+	public TransactionServiceImpl() {
 		this.mapper = new ModelMapper();
 	}
 
@@ -45,22 +56,100 @@ public class TransactionServiceImpl implements TransactionService {
 				transactions.isLast(), transactionDtoList);
 	}
 
-	// Add or update transaction
+	// Add transaction with email notification
 	@Override
+	@Transactional
 	public TransactionResponseDto addTransaction(TransactionRequestDto transactionRequestDto) {
-		Transaction dbTransaction = transactionRepo.save(mapper.map(transactionRequestDto, Transaction.class));
-		return mapper.map(dbTransaction, TransactionResponseDto.class);
+		Optional<Account> senderAccountOpt = accountRepo.findById(transactionRequestDto.getSenderAccountId());
+		if (senderAccountOpt.isEmpty()) {
+			throw new RuntimeException("Sender account not found!");
+		}
+		Account senderAccount = senderAccountOpt.get();
+
+		Account receiverAccount = null;
+		if (transactionRequestDto.getTransactionType() == TransactionType.TRANSFER) {
+			Optional<Account> receiverAccountOpt = accountRepo.findById(transactionRequestDto.getReceiverAccountId());
+			if (receiverAccountOpt.isEmpty()) {
+				throw new RuntimeException("Receiver account not found!");
+			}
+			receiverAccount = receiverAccountOpt.get();
+		}
+
+		// Perform transaction
+		double amount = transactionRequestDto.getAmount();
+		boolean transactionStatus = false;
+
+		if (transactionRequestDto.getTransactionType() == TransactionType.DEPOSIT) {
+			senderAccount.setBalance(senderAccount.getBalance() + amount);
+			transactionStatus = true;
+
+			// Send Email to Sender
+			emailService.sendEmail(
+				senderAccount.getCustomer().getUser().getEmail(),
+				"Deposit Successful",
+				"An amount of " + amount + " has been deposited into your account: " + senderAccount.getAccountId()
+			);
+
+		} else if (transactionRequestDto.getTransactionType() == TransactionType.WITHDRAW) {
+			if (senderAccount.getBalance() < amount) {
+				throw new RuntimeException("Insufficient balance!");
+			}
+			senderAccount.setBalance(senderAccount.getBalance() - amount);
+			transactionStatus = true;
+
+			// Send Email to Sender
+			emailService.sendEmail(
+				senderAccount.getCustomer().getUser().getEmail(),
+				"Withdrawal Successful",
+				"An amount of " + amount + " has been withdrawn from your account: " + senderAccount.getAccountId()
+			);
+
+		} else if (transactionRequestDto.getTransactionType() == TransactionType.TRANSFER) {
+			if (senderAccount.getBalance() < amount) {
+				throw new RuntimeException("Insufficient balance for transfer!");
+			}
+			senderAccount.setBalance(senderAccount.getBalance() - amount);
+			receiverAccount.setBalance(receiverAccount.getBalance() + amount);
+			accountRepo.save(receiverAccount);
+			transactionStatus = true;
+
+			// Send Email to Sender
+			emailService.sendEmail(
+				senderAccount.getCustomer().getUser().getEmail(),
+				"Funds Transfer Notification",
+				"An amount of " + amount + " has been debited from your account: " + senderAccount.getAccountId()
+			);
+
+			// Send Email to Receiver
+			emailService.sendEmail(
+				receiverAccount.getCustomer().getUser().getEmail(),
+				"Funds Transfer Notification",
+				"An amount of " + amount + " has been credited to your account: " + receiverAccount.getAccountId()
+			);
+		}
+
+		accountRepo.save(senderAccount);
+
+		Transaction transaction = new Transaction();
+		transaction.setTransactionType(transactionRequestDto.getTransactionType());
+		transaction.setAmount(amount);
+		transaction.setSenderAccount(senderAccount);
+		transaction.setReceiverAccount(receiverAccount);
+		transaction.setStatus(transactionStatus);
+
+		Transaction savedTransaction = transactionRepo.save(transaction);
+		return mapper.map(savedTransaction, TransactionResponseDto.class);
 	}
 
-	// Delete a transaction
-	@Override
-	public void deleteTransaction(Transaction transaction) {
-		transactionRepo.delete(transaction);
-	}
-
-	// Delete all transactions
-	@Override
-	public void deleteAllTransactions() {
-		transactionRepo.deleteAll();
-	}
+//	// Delete a transaction
+//	@Override
+//	public void deleteTransaction(Transaction transaction) {
+//		transactionRepo.delete(transaction);
+//	}
+//
+//	// Delete all transactions
+//	@Override
+//	public void deleteAllTransactions() {
+//		transactionRepo.deleteAll();
+//	}
 }

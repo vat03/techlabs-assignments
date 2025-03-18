@@ -2,6 +2,7 @@ package com.aurionpro.bank.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,11 @@ import com.aurionpro.bank.dto.AccountRequestDto;
 import com.aurionpro.bank.dto.AccountResponseDto;
 import com.aurionpro.bank.dto.PageResponse;
 import com.aurionpro.bank.entity.Account;
+import com.aurionpro.bank.entity.Customer;
 import com.aurionpro.bank.repository.AccountRepository;
+import com.aurionpro.bank.repository.CustomerRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -22,45 +27,99 @@ public class AccountServiceImpl implements AccountService {
 	@Autowired
 	private AccountRepository accountRepo;
 
+	@Autowired
+	private CustomerRepository customerRepo;
+
 	private ModelMapper mapper;
 
-	private AccountServiceImpl() {
+	public AccountServiceImpl() {
 		this.mapper = new ModelMapper();
 	}
 
-	// Get all accounts with pagination
+	// Get all active accounts with pagination
 	@Override
 	public PageResponse<AccountResponseDto> getAllAccounts(int pageNumber, int pageSize) {
 		Pageable pageable = PageRequest.of(pageNumber, pageSize);
-		Page<Account> accounts = accountRepo.findAll(pageable);
+		Page<Account> accountPage = accountRepo.findByIsActive(true, pageable);
 
-		List<Account> dbAccounts = accounts.getContent();
-		List<AccountResponseDto> accountDtoList = new ArrayList<>();
+		List<Account> dbAccounts = accountPage.getContent();
+		List<AccountResponseDto> accountDtos = new ArrayList<>();
 
 		for (Account account : dbAccounts) {
-			accountDtoList.add(mapper.map(account, AccountResponseDto.class));
+			accountDtos.add(mapper.map(account, AccountResponseDto.class));
 		}
 
-		return new PageResponse<>(accounts.getTotalPages(), accounts.getSize(), accounts.getTotalElements(),
-				accounts.isLast(), accountDtoList);
+		PageResponse<AccountResponseDto> pageResponse = new PageResponse<>();
+		pageResponse.setContent(accountDtos);
+		pageResponse.setTotalPages(accountPage.getTotalPages());
+		pageResponse.setPageSize(accountPage.getSize());
+		pageResponse.setTotalElements(accountPage.getTotalElements());
+		pageResponse.setLast(accountPage.isLast());
+
+		return pageResponse;
 	}
 
-	// Add or update account
+	// Add a new account and link it to a customer
 	@Override
 	public AccountResponseDto addAccount(AccountRequestDto accountRequestDto) {
-		Account dbAccount = accountRepo.save(mapper.map(accountRequestDto, Account.class));
-		return mapper.map(dbAccount, AccountResponseDto.class);
+		Optional<Customer> customerOptional = customerRepo.findById(accountRequestDto.getCustomerId());
+		if (customerOptional.isEmpty()) {
+			throw new RuntimeException("Customer not found with ID: " + accountRequestDto.getCustomerId());
+		}
+
+		Customer customer = customerOptional.get();
+
+		Account account = new Account();
+		account.setAccountNumber(accountRequestDto.getAccountNumber());
+		account.setBalance(accountRequestDto.getBalance());
+		account.setAccountType(accountRequestDto.getAccountType());
+		account.setCustomer(customer);
+		account.setActive(true);
+
+		Account savedAccount = accountRepo.save(account);
+		return mapper.map(savedAccount, AccountResponseDto.class);
 	}
 
-	// Delete an account
+	// update account
 	@Override
-	public void deleteAccount(Account account) {
-		accountRepo.delete(account);
+	public AccountResponseDto updateAccount(int accountId, AccountRequestDto accountRequestDto) {
+		Optional<Account> optionalAccount = accountRepo.findById(accountId);
+		if (optionalAccount.isEmpty()) {
+			throw new RuntimeException("Account not found with ID: " + accountId);
+		}
+
+		Account account = optionalAccount.get();
+		account.setBalance(accountRequestDto.getBalance());
+		account.setAccountType(accountRequestDto.getAccountType());
+
+		Account updatedAccount = accountRepo.save(account);
+		return mapper.map(updatedAccount, AccountResponseDto.class);
+	}
+	
+	// Soft delete an account
+	@Override
+	@Transactional
+	public void deleteAccount(int accountId) {
+		Optional<Account> accountOptional = accountRepo.findById(accountId);
+		if (accountOptional.isPresent()) {
+			Account account = accountOptional.get();
+			account.setActive(false);
+			accountRepo.save(account);
+		} else {
+			throw new RuntimeException("Account not found with ID: " + accountId);
+		}
 	}
 
-	// Delete all accounts
-	@Override
-	public void deleteAllAccounts() {
-		accountRepo.deleteAll();
-	}
+//	@Override
+//	@Transactional
+//	public void deleteAllAccounts() {
+//		List<Account> allAccounts = accountRepo.findAll();
+//		if (allAccounts.isEmpty()) {
+//			throw new RuntimeException("No accounts found to delete!");
+//		}
+//		for (Account account : allAccounts) {
+//			account.setActive(false);
+//		}
+//		accountRepo.saveAll(allAccounts);
+//	}
 }

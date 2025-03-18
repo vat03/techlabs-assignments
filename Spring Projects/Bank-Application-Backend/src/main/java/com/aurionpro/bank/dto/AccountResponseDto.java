@@ -13,9 +13,9 @@ public class AccountResponseDto {
 
 	private String accountNumber;
 
-	private double balance;
-
 	private AccountType accountType;
+	
+	private double balance;
 
 	private LocalDateTime accountCreatedAt;
 
