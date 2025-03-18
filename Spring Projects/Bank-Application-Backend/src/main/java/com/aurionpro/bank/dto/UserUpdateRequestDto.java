@@ -11,8 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Data
-public class UserRequestDto {
-
+public class UserUpdateRequestDto {
 	@NotBlank(message = "Username cannot be empty !")
 	@Size(min = 3, max = 10, message = "Username size must be 3 to 10 characters long !")
 	private String username;
@@ -25,11 +24,4 @@ public class UserRequestDto {
 	@NotBlank(message = "Email vannot be empty !")
 	@Email(message = "Invalid email format !")
 	private String email;
-
-//	@NotNull(message = "User type cannot be null!")
-//    private UserType userType;
-
-	@NotBlank(message = "User type cannot be empty !")
-	@Pattern(regexp = "^(ADMIN|CUSTOMER)$", message = "User type must be either ADMIN or CUSTOMER !")
-	private String userType;
 }

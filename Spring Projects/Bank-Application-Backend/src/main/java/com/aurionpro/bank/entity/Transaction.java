@@ -1,10 +1,18 @@
 package com.aurionpro.bank.entity;
 
+import java.time.LocalDateTime;
+
+import com.aurionpro.bank.enums.TransactionType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,18 +28,25 @@ public class Transaction {
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int transactionId;
+
 	@Column
-	private String senderAccountNumber;
+    private LocalDateTime transactionDate = LocalDateTime.now();
+	
+	@Enumerated(EnumType.STRING)
 	@Column
-	private String recieverAccountNumber;
-	@Column
-	private String transactionType;
+	private TransactionType transactionType;
+
 	@Column
 	private double amount;
+
 	@Column
-	private double senderBalanceAfterTransaction;
-	@Column
-	private double recieverBalanceAfterTransaction;
-	@Column
-	private boolean status;	
+	private boolean status;
+
+	@ManyToOne
+	@JoinColumn(name = "senderAccountId")
+	private Account senderAccount;
+
+	@ManyToOne
+	@JoinColumn(name = "receiverAccountId")
+	private Account receiverAccount;
 }

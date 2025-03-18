@@ -1,16 +1,25 @@
 package com.aurionpro.bank.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import java.time.LocalDateTime;
 
-@RequiredArgsConstructor
-@AllArgsConstructor
+import com.aurionpro.bank.enums.AccountType;
+
+import lombok.Data;
+
 @Data
 public class AccountResponseDto {
+
+	private int accountId;
+
 	private String accountNumber;
 
 	private double balance;
 
-	private String accountType;
+	private AccountType accountType;
+
+	private LocalDateTime accountCreatedAt;
+
+	private boolean isActive;
+
+	private CustomerResponseDto customer;
 }

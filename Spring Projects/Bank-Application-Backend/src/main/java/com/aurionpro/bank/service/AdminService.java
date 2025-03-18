@@ -9,7 +9,9 @@ public interface AdminService {
 
 	AdminResponseDto addAdmin(AdminRequestDto adminRequestDto);
 
+	AdminResponseDto updateAdmin(int adminId, AdminRequestDto adminRequestDto);
+
 	void deleteAdmin(int adminId);
 
-	void deleteAllAdmins();
+	// void deleteAllAdmins();
 }

@@ -1,18 +1,20 @@
 package com.aurionpro.bank.dto;
 
-import lombok.AllArgsConstructor;
+import java.time.LocalDateTime;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
-@AllArgsConstructor
 @Data
 public class UserResponseDto {
-	private String username;
 
-	private String password;
+	private int userId;
+
+	private String username;
 
 	private String email;
 
+	private LocalDateTime userCreatedAt;
+
+	private boolean isActive;
+	
 	private String userType;
 }

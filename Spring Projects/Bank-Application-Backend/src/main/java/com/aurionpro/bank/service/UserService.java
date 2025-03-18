@@ -1,15 +1,34 @@
+//package com.aurionpro.bank.service;
+//
+//import com.aurionpro.bank.dto.PageResponse;
+//import com.aurionpro.bank.dto.UserRequestDto;
+//import com.aurionpro.bank.dto.UserResponseDto;
+//
+//public interface UserService {
+//	UserResponseDto addUser(UserRequestDto userRequestDto);
+//
+//	PageResponse<UserResponseDto> getAllUsers(int pageNumber, int pageSize); // Updated for PageResponse
+//
+//	void deleteUser(int userId);
+//
+//	void deleteAllUsers();
+//}
+
 package com.aurionpro.bank.service;
 
 import com.aurionpro.bank.dto.PageResponse;
 import com.aurionpro.bank.dto.UserRequestDto;
 import com.aurionpro.bank.dto.UserResponseDto;
+import com.aurionpro.bank.dto.UserUpdateRequestDto;
 
 public interface UserService {
 	UserResponseDto addUser(UserRequestDto userRequestDto);
+	
+	UserResponseDto updateUser(int userId, UserUpdateRequestDto userUpdateRequestDto);
 
-	PageResponse<UserResponseDto> getAllUsers(int pageNumber, int pageSize); // Updated for PageResponse
+	PageResponse<UserResponseDto> getAllUsers(int pageNumber, int pageSize);
 
-	void deleteUser(int userId);
-
-	void deleteAllUsers();
+	void deactivateUser(int userId);
+	
+	//void deleteAllUsers();
 }
