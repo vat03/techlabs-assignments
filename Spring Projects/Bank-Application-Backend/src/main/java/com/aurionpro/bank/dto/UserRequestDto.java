@@ -26,9 +26,6 @@ public class UserRequestDto {
 	@Email(message = "Invalid email format !")
 	private String email;
 
-//	@NotNull(message = "User type cannot be null!")
-//    private UserType userType;
-
 	@NotBlank(message = "User type cannot be empty !")
 	@Pattern(regexp = "^(ADMIN|CUSTOMER)$", message = "User type must be either ADMIN or CUSTOMER !")
 	private String userType;

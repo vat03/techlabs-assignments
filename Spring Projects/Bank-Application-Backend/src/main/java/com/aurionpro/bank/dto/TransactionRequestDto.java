@@ -25,7 +25,7 @@ public class TransactionRequestDto {
 	@Digits(integer = 6, fraction = 0, message = "Sender account ID must be a 6-digit number")
 	private Integer senderAccountId;
 
-	@NotNull(message = "Receiver account ID cannot be null")
+	//@NotNull(message = "Receiver account ID cannot be null")
 	@Positive(message = "Receiver account ID must be a positive number")
 	@Digits(integer = 6, fraction = 0, message = "Receiver account ID must be a 6-digit number")
 	private Integer receiverAccountId;

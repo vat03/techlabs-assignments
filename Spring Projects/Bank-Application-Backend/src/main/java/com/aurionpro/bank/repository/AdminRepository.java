@@ -1,6 +1,5 @@
 package com.aurionpro.bank.repository;
 
-
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
