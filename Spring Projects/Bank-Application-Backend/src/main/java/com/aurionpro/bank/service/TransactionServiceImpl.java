@@ -21,7 +21,10 @@ import com.aurionpro.bank.enums.TransactionType;
 import com.aurionpro.bank.repository.AccountRepository;
 import com.aurionpro.bank.repository.TransactionRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class TransactionServiceImpl implements TransactionService {
 
 	@Autowired

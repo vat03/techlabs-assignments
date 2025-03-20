@@ -20,8 +20,10 @@ import com.aurionpro.bank.repository.AccountRepository;
 import com.aurionpro.bank.repository.CustomerRepository;
 
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class AccountServiceImpl implements AccountService {
 
 	@Autowired
