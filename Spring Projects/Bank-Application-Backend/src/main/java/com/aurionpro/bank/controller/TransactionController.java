@@ -26,13 +26,13 @@ public class TransactionController {
 	@Autowired
 	private TransactionService transactionService;
 
-	@GetMapping("/getAllTransactions")
+	@GetMapping("/transactions")
 	public ResponseEntity<PageResponse<TransactionResponseDto>> getAllTransactions(@RequestParam int pageNumber,
 			@RequestParam int pageSize) {
 		return ResponseEntity.ok(transactionService.getAllTransactions(pageNumber, pageSize));
 	}
 
-	@PostMapping("/addTransaction")
+	@PostMapping("/transactions")
 	public ResponseEntity<TransactionResponseDto> addTransaction(
 			@Valid @RequestBody TransactionRequestDto transactionRequestDto) {
 		return ResponseEntity.ok(transactionService.addTransaction(transactionRequestDto));

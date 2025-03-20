@@ -26,24 +26,24 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/getAllUsers")
+	@GetMapping("/users")
 	public ResponseEntity<PageResponse<UserResponseDto>> getAllUsers(@RequestParam int pageNumber,
 			@RequestParam int pageSize) {
 		return ResponseEntity.ok(userService.getAllUsers(pageNumber, pageSize));
 	}
 
-	@PostMapping("/addUser")
+	@PostMapping("/users")
 	public ResponseEntity<UserResponseDto> addUser(@Valid @RequestBody UserRequestDto userRequestDto) {
 		return ResponseEntity.ok(userService.addUser(userRequestDto));
 	}
 
-	@PutMapping("/updateUser/{userId}")
+	@PutMapping("/users/{userId}")
 	public ResponseEntity<UserResponseDto> updateUser(@PathVariable int userId,
 			@Valid @RequestBody UserUpdateRequestDto userUpdateRequestDto) {
 		return ResponseEntity.ok(userService.updateUser(userId, userUpdateRequestDto));
 	}
 
-	@PutMapping("/deactivateUser/{userId}")
+	@PutMapping("/DeactivateUser/{userId}")
 	public ResponseEntity<String> deactivateUser(@PathVariable int userId) {
 		userService.deactivateUser(userId);
 		return ResponseEntity.ok("User deactivated successfully.");

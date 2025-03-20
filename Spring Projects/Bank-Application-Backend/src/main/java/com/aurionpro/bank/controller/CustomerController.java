@@ -26,7 +26,7 @@ public class CustomerController {
 	private CustomerService customerService;
 
 	// Get all active customers with pagination
-	@GetMapping("/getAllCustomers")
+	@GetMapping("/customers")
 	public ResponseEntity<PageResponse<CustomerResponseDto>> getAllCustomers(@RequestParam int pageNumber,
 			@RequestParam int pageSize) {
 		return ResponseEntity.ok(customerService.getAllCustomers(pageNumber, pageSize));
@@ -39,14 +39,14 @@ public class CustomerController {
 //	}
 
 	// Update an existing customer
-	@PutMapping("/updateCustomer/{customerId}")
+	@PutMapping("/customers/{customerId}")
 	public ResponseEntity<CustomerResponseDto> updateCustomer(@PathVariable int customerId,
 			@Valid @RequestBody CustomerRequestDto customerRequestDto) {
 		return ResponseEntity.ok(customerService.updateCustomer(customerId, customerRequestDto));
 	}
 
 	// Soft delete a customer by ID
-	@DeleteMapping("/deleteCustomer/{customerId}")
+	@DeleteMapping("/customers/{customerId}")
 	public ResponseEntity<String> deleteCustomer(@PathVariable int customerId) {
 		customerService.deleteCustomer(customerId);
 		return ResponseEntity.ok("Customer with ID " + customerId + " has been deactivated successfully.");

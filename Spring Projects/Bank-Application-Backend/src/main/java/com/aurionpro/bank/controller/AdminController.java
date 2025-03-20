@@ -26,7 +26,7 @@ public class AdminController {
 	private AdminService adminService;
 
 	// Get all admins with pagination
-	@GetMapping("/getAllAdmins")
+	@GetMapping("/admins")
 	public ResponseEntity<PageResponse<AdminResponseDto>> getAllAdmins(@RequestParam int pageNumber,
 			@RequestParam int pageSize) {
 		return ResponseEntity.ok(adminService.getAllAdmins(pageNumber, pageSize));
@@ -39,14 +39,14 @@ public class AdminController {
 //	}
 
 	// Update existing admin details (without modifying userId)
-	@PutMapping("/updateAdmin/{adminId}")
+	@PutMapping("/admins/{adminId}")
 	public ResponseEntity<AdminResponseDto> updateAdmin(@PathVariable int adminId,
 			@Valid @RequestBody AdminRequestDto adminRequestDto) {
 		return ResponseEntity.ok(adminService.updateAdmin(adminId, adminRequestDto));
 	}
 
 	// Soft delete admin by ID
-	@DeleteMapping("/deleteAdmin/{adminId}")
+	@DeleteMapping("/admins/{adminId}")
 	public ResponseEntity<String> deleteAdmin(@PathVariable int adminId) {
 		adminService.deleteAdmin(adminId);
 		return ResponseEntity.ok("Admin soft deleted successfully!");

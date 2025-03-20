@@ -19,27 +19,27 @@ public class AccountController {
 	private AccountService accountService;
 
 	// Get all accounts with pagination
-	@GetMapping("/getAllAccounts")
+	@GetMapping("/accounts")
 	public ResponseEntity<PageResponse<AccountResponseDto>> getAllAccounts(@RequestParam int pageNumber,
 			@RequestParam int pageSize) {
 		return ResponseEntity.ok(accountService.getAllAccounts(pageNumber, pageSize));
 	}
 
 	// Add account
-	@PostMapping("/addAccount")
+	@PostMapping("/accounts")
 	public ResponseEntity<AccountResponseDto> addAccount(@Valid @RequestBody AccountRequestDto accountRequestDto) {
 		return ResponseEntity.ok(accountService.addAccount(accountRequestDto));
 	}
 
 	// Update account
-	@PutMapping("/updateAccount/{accountId}")
+	@PutMapping("/accounts/{accountId}")
 	public ResponseEntity<AccountResponseDto> updateAccount(@PathVariable int accountId,
 			@Valid @RequestBody AccountRequestDto accountRequestDto) {
 		return ResponseEntity.ok(accountService.updateAccount(accountId, accountRequestDto));
 	}
 
 	// Delete a specific account (soft delete)
-	@DeleteMapping("/deleteAccount/{accountId}")
+	@DeleteMapping("/account/{accountId}")
 	public ResponseEntity<String> deleteAccount(@PathVariable int accountId) {
 		accountService.deleteAccount(accountId);
 		return ResponseEntity.ok("Account with ID " + accountId + " has been deactivated.");
