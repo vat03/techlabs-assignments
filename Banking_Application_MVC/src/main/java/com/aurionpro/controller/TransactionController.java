@@ -103,14 +103,14 @@ public class TransactionController extends HttpServlet {
             try {
                 transactionQuery.addTransaction(transaction, isSuccess);
                 if (isSuccess) {
-                    session.setAttribute("message", "Transaction successful"); // Success message
+                    session.setAttribute("message", "Transaction successful"); 
                     response.sendRedirect(request.getContextPath() + "/customerHome.jsp");
                 } else {
-                    request.setAttribute("error", errorMessage); // Failure message
+                    request.setAttribute("error", errorMessage);
                     request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
                 }
             } catch (RuntimeException e) {
-                request.setAttribute("error", "Transaction failed: " + e.getMessage()); // Failure message
+                request.setAttribute("error", "Transaction failed: " + e.getMessage()); 
                 request.getRequestDispatcher("newTransaction.jsp").forward(request, response);
             }
         }

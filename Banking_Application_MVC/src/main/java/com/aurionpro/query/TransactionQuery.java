@@ -93,14 +93,14 @@ public class TransactionQuery {
 
 	public List<TransactionEntity> getAllTransactions(String sortField, String sortOrder) {
 		List<TransactionEntity> transactions = new ArrayList<>();
-		String validSortField = "transaction_id"; // Default
+		String validSortField = "transaction_id"; 
 		if (sortField != null && (sortField.equals("transaction_id") || sortField.equals("sender_account_number")
 				|| sortField.equals("receiver_account_number") || sortField.equals("amount")
 				|| sortField.equals("sender_balance_after") || sortField.equals("receiver_balance_after")
 				|| sortField.equals("transaction_date") || sortField.equals("status"))) {
 			validSortField = sortField;
 		}
-		String validSortOrder = "ASC"; // Default
+		String validSortOrder = "ASC"; 
 		if (sortOrder != null && sortOrder.equals("DESC")) {
 			validSortOrder = "DESC";
 		}
@@ -134,18 +134,17 @@ public class TransactionQuery {
 
 	public List<TransactionEntity> getTransactionsByAccountId(int accountId, String sortField, String sortOrder) {
 		List<TransactionEntity> transactions = new ArrayList<>();
-		String validSortField = "transaction_id"; // Default
+		String validSortField = "transaction_id"; 
 		if (sortField != null && (sortField.equals("transaction_id") || sortField.equals("sender_account_number")
 				|| sortField.equals("receiver_account_number") || sortField.equals("amount")
 				|| sortField.equals("balance") || sortField.equals("transaction_date") || sortField.equals("status"))) {
 			validSortField = sortField;
 		}
-		String validSortOrder = "ASC"; // Default
+		String validSortOrder = "ASC"; 
 		if (sortOrder != null && sortOrder.equals("DESC")) {
 			validSortOrder = "DESC";
 		}
 
-		// Special case for 'balance' sorting
 		String orderClause = "ORDER BY " + validSortField + " " + validSortOrder;
 		if ("balance".equals(validSortField)) {
 			orderClause = "ORDER BY CASE WHEN sender_account_id = ? THEN sender_balance_after ELSE receiver_balance_after END "
@@ -162,7 +161,7 @@ public class TransactionQuery {
 			stmt.setInt(1, accountId);
 			stmt.setInt(2, accountId);
 			if ("balance".equals(validSortField)) {
-				stmt.setInt(3, accountId); // For CASE in ORDER BY
+				stmt.setInt(3, accountId); 
 			}
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {

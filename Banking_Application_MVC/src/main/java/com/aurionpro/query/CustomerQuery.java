@@ -79,12 +79,12 @@ public class CustomerQuery {
 
     public List<CustomerEntity> getAllCustomers(String sortField, String sortOrder) {
         List<CustomerEntity> customers = new ArrayList<>();
-        String validSortField = "customer_id"; // Default
+        String validSortField = "customer_id";  
         if (sortField != null && (sortField.equals("customer_id") || sortField.equals("first_name") || 
             sortField.equals("last_name") || sortField.equals("balance"))) {
             validSortField = sortField;
         }
-        String validSortOrder = "ASC"; // Default
+        String validSortOrder = "ASC"; 
         if (sortOrder != null && sortOrder.equals("DESC")) {
             validSortOrder = "DESC";
         }
@@ -149,7 +149,7 @@ public class CustomerQuery {
             params.add(accountType);
         }
 
-        String validSortField = "c.customer_id"; // Default sort
+        String validSortField = "c.customer_id";  
         if (sortField != null && (sortField.equals("customer_id") || sortField.equals("first_name") || 
             sortField.equals("last_name") || sortField.equals("balance") || sortField.equals("account_number"))) {
             if (sortField.equals("account_number")) {
@@ -160,12 +160,12 @@ public class CustomerQuery {
                 validSortField = "c." + sortField;
             }
         }
-        String validSortOrder = "ASC"; // Default
+        String validSortOrder = "ASC"; 
         if (sortOrder != null && sortOrder.equalsIgnoreCase("DESC")) {
             validSortOrder = "DESC";
         }
         sql.append(" ORDER BY ").append(validSortField).append(" ").append(validSortOrder)
-           .append(", c.customer_id ASC"); // Secondary sort for consistency
+           .append(", c.customer_id ASC"); 
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql.toString())) {

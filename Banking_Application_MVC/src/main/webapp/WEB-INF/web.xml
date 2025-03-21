@@ -9,7 +9,7 @@
     </welcome-file-list>
 
     <session-config>
-        <session-timeout>15</session-timeout> <!-- time in minutes -->
+        <session-timeout>15</session-timeout>
     </session-config>
 
 </web-app>

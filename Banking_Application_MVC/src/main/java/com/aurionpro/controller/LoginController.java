@@ -38,14 +38,14 @@ public class LoginController extends HttpServlet {
             if (user != null && user.getPassword().equals(password)) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                session.setAttribute("message", "Login successful"); // Success message
+                session.setAttribute("message", "Login successful");
                 if ("admin".equals(user.getUserType())) {
                     response.sendRedirect(request.getContextPath() + "/adminHome.jsp");
                 } else {
                     response.sendRedirect(request.getContextPath() + "/customerHome.jsp");
                 }
             } else {
-                request.setAttribute("error", "Login attempt failed"); // Failure message
+                request.setAttribute("error", "Login attempt failed");
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
         } else if ("signup".equals(action)) {
@@ -56,14 +56,12 @@ public class LoginController extends HttpServlet {
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
 
-            // Check if username already exists
             if (userQuery.getUserByUsername(username) != null) {
                 request.setAttribute("error", "Sign in failed: Username already exists"); // Failure message
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
                 return;
             }
 
-            // Add to users table
             UserEntity user = new UserEntity();
             user.setUsername(username);
             user.setPassword(password);
@@ -71,7 +69,6 @@ public class LoginController extends HttpServlet {
             user.setUserType(userType);
             int userId = userQuery.addUser(user);
 
-            // Handle user type-specific table updates
             if ("customer".equals(userType)) {
                 CustomerEntity customer = new CustomerEntity();
                 customer.setFirstName(firstName);
@@ -86,7 +83,7 @@ public class LoginController extends HttpServlet {
             }
 
             HttpSession session = request.getSession();
-            session.setAttribute("message", "Sign in successful"); // Success message
+            session.setAttribute("message", "Sign in successful");
             response.sendRedirect(request.getContextPath() + "/login.jsp");
         }
     }
