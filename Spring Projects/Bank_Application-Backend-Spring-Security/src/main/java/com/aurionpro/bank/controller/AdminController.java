@@ -19,7 +19,7 @@ import com.aurionpro.bank.service.AdminService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/bankapp/admin")
+@RequestMapping("/bankappsecurity/admin")
 public class AdminController {
 
 	@Autowired

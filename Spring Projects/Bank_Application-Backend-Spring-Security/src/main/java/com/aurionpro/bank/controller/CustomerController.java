@@ -19,7 +19,7 @@ import com.aurionpro.bank.service.CustomerService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/bankapp/customer")
+@RequestMapping("/bankappsecurity/customer")
 public class CustomerController {
 
 	@Autowired

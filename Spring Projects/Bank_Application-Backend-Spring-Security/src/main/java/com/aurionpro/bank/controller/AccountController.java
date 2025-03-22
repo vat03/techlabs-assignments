@@ -12,7 +12,7 @@ import com.aurionpro.bank.service.AccountService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/bankapp/account")
+@RequestMapping("/bankappsecurity/account")
 public class AccountController {
 
 	@Autowired

@@ -20,7 +20,7 @@ import com.aurionpro.bank.service.TransactionService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/bankapp/transaction")
+@RequestMapping("/bankappsecurity/transaction")
 public class TransactionController {
 
 	@Autowired
