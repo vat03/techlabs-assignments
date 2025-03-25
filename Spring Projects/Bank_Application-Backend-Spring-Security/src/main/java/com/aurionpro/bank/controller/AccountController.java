@@ -39,7 +39,7 @@ public class AccountController {
 	}
 
 	// Delete a specific account (soft delete)
-	@DeleteMapping("/account/{accountId}")
+	@PutMapping("/deactivate/{accountId}")
 	public ResponseEntity<String> deleteAccount(@PathVariable int accountId) {
 		accountService.deleteAccount(accountId);
 		return ResponseEntity.ok("Account with ID " + accountId + " has been deactivated.");

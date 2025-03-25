@@ -62,23 +62,23 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	// Add customer
-	@Override
-	public CustomerResponseDto addCustomer(CustomerRequestDto customerRequestDto) {
-		Optional<User> userOptional = userRepo.findById(customerRequestDto.getUserId());
-		if (userOptional.isEmpty()) {
-			throw new RuntimeException("User not found with ID: " + customerRequestDto.getUserId());
-		}
-
-		User user = userOptional.get();
-		Customer customer = new Customer();
-		customer.setFirstName(customerRequestDto.getFirstName());
-		customer.setLastName(customerRequestDto.getLastName());
-		customer.setUser(user);
-		customer.setActive(true);
-
-		Customer savedCustomer = customerRepo.save(customer);
-		return mapper.map(savedCustomer, CustomerResponseDto.class);
-	}
+//	@Override
+//	public CustomerResponseDto addCustomer(CustomerRequestDto customerRequestDto) {
+//		Optional<User> userOptional = userRepo.findById(customerRequestDto.getUserId());
+//		if (userOptional.isEmpty()) {
+//			throw new RuntimeException("User not found with ID: " + customerRequestDto.getUserId());
+//		}
+//
+//		User user = userOptional.get();
+//		Customer customer = new Customer();
+//		customer.setFirstName(customerRequestDto.getFirstName());
+//		customer.setLastName(customerRequestDto.getLastName());
+//		customer.setUser(user);
+//		customer.setActive(true);
+//
+//		Customer savedCustomer = customerRepo.save(customer);
+//		return mapper.map(savedCustomer, CustomerResponseDto.class);
+//	}
 
 	// update customer
 	@Override

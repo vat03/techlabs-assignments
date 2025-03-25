@@ -2,7 +2,6 @@ package com.aurionpro.bank.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -46,7 +45,7 @@ public class CustomerController {
 	}
 
 	// Soft delete a customer by ID
-	@DeleteMapping("/customers/{customerId}")
+	@PutMapping("/deactivate/{customerId}")
 	public ResponseEntity<String> deleteCustomer(@PathVariable int customerId) {
 		customerService.deleteCustomer(customerId);
 		return ResponseEntity.ok("Customer with ID " + customerId + " has been deactivated successfully.");

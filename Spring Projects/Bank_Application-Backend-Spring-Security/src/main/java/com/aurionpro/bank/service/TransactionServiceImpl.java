@@ -88,8 +88,8 @@ public class TransactionServiceImpl implements TransactionService {
 
 			// Send Email to Sender
 			emailService.sendEmail(senderAccount.getCustomer().getUser().getEmail(), "Deposit Successful",
-					"An amount of " + amount + " has been deposited into your account: "
-							+ senderAccount.getAccountId());
+					"Rs. " + amount + " has been deposited into your account: " + senderAccount.getAccountNumber()
+							+ "\nCurrent Balance: " + senderAccount.getBalance());
 
 		} else if (transactionRequestDto.getTransactionType() == TransactionType.WITHDRAW) {
 			if (senderAccount.getBalance() < amount) {
@@ -100,8 +100,8 @@ public class TransactionServiceImpl implements TransactionService {
 
 			// Send Email to Sender
 			emailService.sendEmail(senderAccount.getCustomer().getUser().getEmail(), "Withdrawal Successful",
-					"An amount of " + amount + " has been withdrawn from your account: "
-							+ senderAccount.getAccountId());
+					"Rs." + amount + " has been withdrawn from your account: " + senderAccount.getAccountNumber()
+							+ "\nCurrent Balance: " + senderAccount.getBalance());
 
 		} else if (transactionRequestDto.getTransactionType() == TransactionType.TRANSFER) {
 			if (senderAccount.getBalance() < amount) {
@@ -114,11 +114,13 @@ public class TransactionServiceImpl implements TransactionService {
 
 			// Send Email to Sender
 			emailService.sendEmail(senderAccount.getCustomer().getUser().getEmail(), "Funds Transfer Notification",
-					"An amount of " + amount + " has been debited from your account: " + senderAccount.getAccountId());
+					"Rs. " + amount + " has been debited from your account: " + senderAccount.getAccountNumber()
+							+ "\nCurrent Balance: " + senderAccount.getBalance());
 
 			// Send Email to Receiver
 			emailService.sendEmail(receiverAccount.getCustomer().getUser().getEmail(), "Funds Transfer Notification",
-					"An amount of " + amount + " has been credited to your account: " + receiverAccount.getAccountId());
+					"Rs. " + amount + " has been credited to your account: " + receiverAccount.getAccountNumber()
+							+ "\nCurrent Balance: " + receiverAccount.getBalance());
 		}
 
 		accountRepo.save(senderAccount);

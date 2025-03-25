@@ -62,23 +62,23 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	// Add an admin and link to existing user
-	@Override
-	public AdminResponseDto addAdmin(AdminRequestDto adminRequestDto) {
-		Optional<User> userOptional = userRepo.findById(adminRequestDto.getUserId());
-		if (userOptional.isEmpty()) {
-			throw new RuntimeException("User not found with ID: " + adminRequestDto.getUserId());
-		}
-
-		User user = userOptional.get();
-		Admin admin = new Admin();
-		admin.setFirstName(adminRequestDto.getFirstName());
-		admin.setLastName(adminRequestDto.getLastName());
-		admin.setUser(user);
-		admin.setActive(true);
-
-		Admin savedAdmin = adminRepo.save(admin);
-		return mapper.map(savedAdmin, AdminResponseDto.class);
-	}
+//	@Override
+//	public AdminResponseDto addAdmin(AdminRequestDto adminRequestDto) {
+//		Optional<User> userOptional = userRepo.findById(adminRequestDto.getUserId());
+//		if (userOptional.isEmpty()) {
+//			throw new RuntimeException("User not found with ID: " + adminRequestDto.getUserId());
+//		}
+//
+//		User user = userOptional.get();
+//		Admin admin = new Admin();
+//		admin.setFirstName(adminRequestDto.getFirstName());
+//		admin.setLastName(adminRequestDto.getLastName());
+//		admin.setUser(user);
+//		admin.setActive(true);
+//
+//		Admin savedAdmin = adminRepo.save(admin);
+//		return mapper.map(savedAdmin, AdminResponseDto.class);
+//	}
 
 	@Override
 	public AdminResponseDto updateAdmin(int adminId, AdminRequestDto adminRequestDto) {
