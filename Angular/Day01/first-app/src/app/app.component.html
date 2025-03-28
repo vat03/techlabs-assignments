@@ -4,8 +4,70 @@
 
 <a [href]="link" target="_blank">Click me</a><br><br>
 <img [src]="image" alt="viratImg"><br><br>
-<button [disabled]="disabled">Click me</button><br><br>
+<button [disabled]="disabled">Click me</button><br>
 
 <h2>{{data}}</h2>
-<button (click)="increamentData()" >Increase</button>
-<button (click)="decreamentData()">Decrease</button>
+<button (click)="increamentData()">Increase</button>&nbsp;&nbsp;
+<button (click)="decreamentData()">Decrease</button><br><br>
+
+<div>
+    <h1 [hidden]="hidden">This is Angular Batch</h1>
+</div>
+
+<input type="text" (keyup.enter)="sendData(box.value)" #box>
+<p *ngIf="xyz">{{result}}</p>
+
+<h2>Players: </h2>
+<div *ngFor="let player of players">
+    <p>{{player.id}} <b>|</b> {{player.name}} <b>|</b> {{player.email}}</p>
+</div>
+
+
+<h1 class="header">To-Do App</h1>
+
+<div class="taskRequest">
+    <h3>Enter your task and hit enter: </h3><br>
+    <input type="text" placeholder="Enter your task" (keyup.enter)="sendTask(taskBox.value)" #taskBox>
+</div>
+<br><br>
+<div class="taskContainer">
+    <div class="taskList">
+        <h2>Task List: </h2>
+        <div *ngFor="let task of taskArray; let i = index;">
+            <p>{{task}} <button (click)="pushToCompleted(i)">Completed</button>&nbsp;<button
+                    (click)="deleteTask(i)">Delete</button></p>
+        </div>
+    </div>
+
+    <div class="completedTaskList">
+        <h2>Completed Tasks:</h2>
+        <div *ngFor="let task of completedTaskArray; let i = index">
+            <p>
+                {{ task }}
+                <button (click)="deleteCompletedTask(i)">Delete</button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div>
+    <p *ngIf = "displayData; then firstTask; else secondTask"></p>
+</div>
+
+<!-- <div #firstTask>
+    <p>First Task</p>
+</div>
+
+<div #secondTask>
+    <p>Second Task</p>
+</div> -->
+
+<ng-template #firstTask>
+    First Task
+</ng-template>
+
+<ng-template #secondTask>
+    Second Task
+</ng-template>
