@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -65,5 +65,20 @@ export class AppComponent {
 
   updateCourseType(type: string) {
     this.selectedType = type;
+  }
+
+  firstFunction(input1: HTMLInputElement) {
+    console.log(input1.value)
+  }
+
+  @ViewChild('secondReference') secondRef !: ElementRef
+  secondFunction() {
+    console.log(this.secondRef.nativeElement.value)
+  }
+
+  age = 0
+  getDateToTs(dateInput: HTMLInputElement){
+    this.age = new Date().getFullYear() - new Date(dateInput.value).getFullYear()
+    alert("Age: "+this.age)
   }
 }

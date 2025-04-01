@@ -12,3 +12,16 @@
 <h2>Course Filter</h2>
 
 <app-filter (eventToParentFromChild)="updateCourseType($event)"></app-filter>
+
+<br><br>
+
+<input type="text" #firstReference>
+<button (click)="firstFunction(firstReference)">First</button>
+
+<input type="text" #secondReference>
+<button (click)="secondFunction()" >Second</button>
+
+<br><br><br>
+
+<input type="date" #dateRef>
+<button (click)="getDateToTs(dateRef)">Submit</button>
