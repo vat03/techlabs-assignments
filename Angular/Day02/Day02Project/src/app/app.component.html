@@ -1,0 +1,10 @@
+<h1>Root Component</h1>
+
+<!-- <app-home [dataFromRoot]="getData()"></app-home> -->
+<app-home (eventToParentFromChild)="sendData($event)"></app-home>
+
+<app-courses [paidCourse]="getPaidCourseCount()" [freeCourse]="getFreeCourseCount()" [totalCourse]="getTotalCourseCount()"></app-courses>
+
+<h1>Show data</h1>
+<input (input) = "display()" type="text" [(ngModel)]="data">
+<p>{{data}}</p> 
