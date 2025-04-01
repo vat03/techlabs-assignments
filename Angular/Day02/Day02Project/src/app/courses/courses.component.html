@@ -1,4 +1,7 @@
-<p>courses works!</p>
-<p>Paid Course Count : {{paidCourse}}</p>
-<p>Free Course Count : {{freeCourse}}</p>
-<p>Total Course Count : {{totalCourse}}</p>
+<h2>Courses Component</h2>
+
+<app-filter (eventToParentFromChild)="getType($event)"></app-filter>
+
+<div *ngFor="let course of filterCourses">
+    <p>{{ course.name }} - {{ course.type }}</p>
+</div>

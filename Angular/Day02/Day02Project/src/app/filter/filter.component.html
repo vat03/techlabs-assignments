@@ -1,1 +1,11 @@
-<p>filter works!</p>
+<h3>Filter Courses</h3>
+
+<label>
+  <input type="radio" value="total" [(ngModel)]="type" (change)="sendType()"> All Courses
+</label>
+<label>
+  <input type="radio" value="Paid" [(ngModel)]="type" (change)="sendType()"> Paid Courses
+</label>
+<label>
+  <input type="radio" value="Free" [(ngModel)]="type" (change)="sendType()"> Free Courses
+</label>

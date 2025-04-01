@@ -1,10 +1,14 @@
 <h1>Root Component</h1>
 
-<!-- <app-home [dataFromRoot]="getData()"></app-home> -->
 <app-home (eventToParentFromChild)="sendData($event)"></app-home>
 
-<app-courses [paidCourse]="getPaidCourseCount()" [freeCourse]="getFreeCourseCount()" [totalCourse]="getTotalCourseCount()"></app-courses>
+<app-courses [paidCourse]="getPaidCourseCount()" [freeCourse]="getFreeCourseCount()"
+    [totalCourse]="getTotalCourseCount()" [selectedType]="selectedType"></app-courses>
 
 <h1>Show data</h1>
-<input (input) = "display()" type="text" [(ngModel)]="data">
-<p>{{data}}</p> 
+<input (input)="display()" type="text" [(ngModel)]="data">
+<p>{{ data }}</p>
+
+<h2>Course Filter</h2>
+
+<app-filter (eventToParentFromChild)="updateCourseType($event)"></app-filter>

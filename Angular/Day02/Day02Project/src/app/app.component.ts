@@ -2,22 +2,20 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.css'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'Day02Project';
-  data:string = "Rahul"
+  data: string = "Rahul";
 
-  getData()
-  {
-    return this.data
+  getData() {
+    return this.data;
   }
 
-  display()
-  {
-    console.log(this.data)
+  display() {
+    console.log(this.data);
   }
 
   courses = [
@@ -43,32 +41,29 @@ export class AppComponent {
     },
   ];
 
-  paidCourses:number = 0;
-  freeCourses:number = 0;
-  totalCourse:number = 0;
+  paidCourses: number = this.getPaidCourseCount();
+  freeCourses: number = this.getFreeCourseCount();
+  totalCourse: number = this.getTotalCourseCount();
 
-  getPaidCourseCount()
-  {
-    this.paidCourses = this.courses.filter((course)=> course.type == "Paid").length
-    return this.paidCourses;
+  getPaidCourseCount() {
+    return this.courses.filter((course) => course.type === "Paid").length;
   }
 
-  getFreeCourseCount()
-  {
-    this.freeCourses = this.courses.filter((course)=> course.type == "Free").length
-    return this.freeCourses;
+  getFreeCourseCount() {
+    return this.courses.filter((course) => course.type === "Free").length;
   }
 
-  getTotalCourseCount()
-  {
-    this.totalCourse = this.paidCourses+this.freeCourses;
-
-    return this.totalCourse
+  getTotalCourseCount() {
+    return this.getPaidCourseCount() + this.getFreeCourseCount();
   }
 
-  sendData(data:any){
-    console.log(data)
-
+  sendData(data: any) {
+    console.log(data);
   }
 
+  selectedType: string = 'total';
+
+  updateCourseType(type: string) {
+    this.selectedType = type;
+  }
 }
