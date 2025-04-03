@@ -1,0 +1,62 @@
+<h2>Registration Form</h2>  
+
+
+  <div class="container">
+  
+    <div>
+      <label for="name">First Name</label>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input type="text" matInput [(ngModel)]="firstName">
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <label for="name">Last Name</label>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input type="text" matInput [(ngModel)]="lastName">
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <label for="name">Contact Number</label>
+      <mat-form-field>
+        <mat-label>Contact Number</mat-label>
+        <input type="number" matInput [(ngModel)]="contactNumber">
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <label for="name">Age</label>
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input type="number" matInput [(ngModel)]="age">
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <label for="name">Gender</label>
+      <mat-radio-group>
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+        <mat-radio-button value="other">Other</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  
+    <div>
+      <label for="name">Date of Birth</label>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dateOfBirth">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  
+    <div class="submit">
+      <button mat-flat-button (click)="onSubmit()">Submit</button>
+    </div>
+  
+  </div>
