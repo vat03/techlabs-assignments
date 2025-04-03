@@ -9,4 +9,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Day03Project';
   str=''
+  value=''
 }
