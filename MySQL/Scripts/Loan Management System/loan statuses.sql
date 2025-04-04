@@ -1,0 +1,1 @@
+SELECT * FROM loan_management_db.loan_statuses;
