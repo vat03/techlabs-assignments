@@ -1,0 +1,22 @@
+<table border="1 px solid black">
+  <thead>
+    <th>Name</th>
+    <th>Course</th>
+    <th>Percentage</th>
+    <th>DOB</th>
+    <th>Gender</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{student.name}}</td>
+      <td>{{student.course}}</td>
+      <!-- <td>{{(student.marks/totalmarks) | percent:'1.2-4'}}</td> -->
+      <td>{{student.marks | percentage : totalmarks: 2}}</td>
+      <td>{{student.dob | date:'fullDate'}}</td>
+      <td>{{student.gender}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="addStudent()">Add Student</button>
+<button (click)="changeGender()">Change Gender</button>
